@@ -3,9 +3,9 @@ package dao;
 import entity.Course;
 
 public interface CourseDao {
-    public Course getCourse(Integer classId);
-    public void addCourse(String name, double credits);
-    public void deleteCourse(Integer classId);
-    public void updateCourseName(Integer classId, String newName);
-    public void updateCourseCredits(Integer classId, double newCredits);
+    public Course getCourse(Integer courseId);
+    public void addCourse(Course course);
+    public void deleteCourse(Integer courseId);
+    public void updateCourseName(Integer courseId, String newName);
+    public void updateCourseCredits(Integer courseId, double newCredits);
 }

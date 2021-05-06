@@ -22,7 +22,7 @@ public class Course implements Serializable {
     private String name;
 
     @Basic
-    private String credits;
+    private double credits;
 
     @ManyToOne(targetEntity = Department.class)
     private Department department;
@@ -52,11 +52,11 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public String getCredits() {
+    public double getCredits() {
         return this.credits;
     }
 
-    public void setCredits(String credits) {
+    public void setCredits(double credits) {
         this.credits = credits;
     }
 

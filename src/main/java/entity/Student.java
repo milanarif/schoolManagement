@@ -19,7 +19,7 @@ public class Student implements Serializable {
     private String name;
 
     @Basic
-    private Integer credits;
+    private double credits;
 
     @Basic
     private String gender;
@@ -49,11 +49,11 @@ public class Student implements Serializable {
         this.name = name;
     }
 
-    public Integer getCredits() {
+    public double getCredits() {
         return this.credits;
     }
 
-    public void setCredits(Integer credits) {
+    public void setCredits(double credits) {
         this.credits = credits;
     }
 
