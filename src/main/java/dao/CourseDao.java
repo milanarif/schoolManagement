@@ -8,5 +8,5 @@ public interface CourseDao {
     public Course removeCourse(Integer courseId);
     public Course updateCourseName(Integer courseId, String newName);
     public Course updateCourseCredits(Integer courseId, double newCredits);
-    public Course setDepartment(Integer courseId, String department);
+    public Course setDepartment(Integer courseId, Integer departmentId);
 }

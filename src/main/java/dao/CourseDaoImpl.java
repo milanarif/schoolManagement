@@ -69,7 +69,7 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public Course setDepartment(Integer courseId, String departmentId) {
+    public Course setDepartment(Integer courseId, Integer departmentId) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Course course = em.find(Course.class, courseId);
         Department department = em.find(Department.class, departmentId);
