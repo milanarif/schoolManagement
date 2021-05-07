@@ -3,14 +3,15 @@ package menu;
 import mainAndInput.Main;
 import mainAndInput.input;
 
-public class statisticsMenu {
+public class MenuTeacher {
 
     public static void menu() {
 
         System.out.println("---------------");
-        System.out.println("1. ");
-        System.out.println("2. ");
-        System.out.println("3. ");
+        System.out.println("1. Teacher Add");
+        System.out.println("2. Teacher Update");
+        System.out.println("3. Teacher Delete");
+        System.out.println("4. Teacher Show");
 
         System.out.println("\n6. Return");
         System.out.println("0. Exit");
@@ -26,6 +27,9 @@ public class statisticsMenu {
 
                 break;
             case 3:
+
+                break;
+            case 4:
 
                 break;
             case 6:

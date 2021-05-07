@@ -3,7 +3,7 @@ package menu;
 import mainAndInput.Main;
 import mainAndInput.input;
 
-public class enrollmentMenu {
+public class MenuEnrollment {
 
     public static void menu() {
 

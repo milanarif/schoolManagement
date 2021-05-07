@@ -3,15 +3,14 @@ package menu;
 import mainAndInput.Main;
 import mainAndInput.input;
 
-public class departmentMenu {
+public class MenuShow {
 
-    public static void menu() {
+    public static void menu(){
 
         System.out.println("---------------");
-        System.out.println("\n1. Department Add");
-        System.out.println("2. Department Update");
-        System.out.println("3. Department Delete ");
-        System.out.println("4. Department Show ");
+        System.out.println("1. Show all tables");
+        System.out.println("2. Search");
+        System.out.println("3. Statistics");
 
         System.out.println("\n6. Return");
         System.out.println("0. Exit");
@@ -24,13 +23,10 @@ public class departmentMenu {
 
                 break;
             case 2:
-
+                MenuSearch.menu();
                 break;
             case 3:
-
-                break;
-            case 4:
-
+                MenuStatistics.menu();
                 break;
             case 6:
                 return;

@@ -3,15 +3,16 @@ package menu;
 import mainAndInput.Main;
 import mainAndInput.input;
 
-public class teacherMenu {
+public class MenuSearch {
 
     public static void menu() {
 
         System.out.println("---------------");
-        System.out.println("1. Teacher Add");
-        System.out.println("2. Teacher Update");
-        System.out.println("3. Teacher Delete");
-        System.out.println("4. Teacher Show");
+        System.out.println("1. Search Courses");
+        System.out.println("2. Search Students");
+        System.out.println("3. Search Teachers");
+        System.out.println("4. Search Department");
+        System.out.println("5. Search Enrollment");
 
         System.out.println("\n6. Return");
         System.out.println("0. Exit");
@@ -30,6 +31,9 @@ public class teacherMenu {
 
                 break;
             case 4:
+
+                break;
+            case 5:
 
                 break;
             case 6:

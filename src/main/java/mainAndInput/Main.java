@@ -1,5 +1,7 @@
 package mainAndInput;
 
+import menu.MenuMain;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -12,7 +14,7 @@ public class Main {
 
         while(alive){
             System.out.println("\nSchool Management");
-            menu.mainMenu.menu();
+            MenuMain.menu();
         }
     }
 }
