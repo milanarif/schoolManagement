@@ -5,39 +5,50 @@ import mainAndInput.input;
 
 public class mainMenu {
 
-    public static void mainMenu() {
+    public static void menu() {
 
-        System.out.println("1. Courses");
-        System.out.println("2. Students");
-        System.out.println("3. Teachers");
-        System.out.println("4. Department");
-        System.out.println("5. Enrollment");
-        System.out.println("0. Exit");
+        System.out.println("---------------");
+        System.out.println("1. Show");
+        System.out.println("2. Management");
+        System.out.println("3. Courses");
+        System.out.println("4. Students");
+        System.out.println("5. Teachers");
+        System.out.println("6. Departments");
+        System.out.println("7. Enrollments");
+
+        System.out.println("\n0. Exit");
+        System.out.println("---------------");
 
         System.out.print("choice: ");
         Integer choice = input.inputInt();
         switch(choice){
             case 1:
-                courseMenu.courseMenu();
+                showMenu.menu();
                 break;
             case 2:
-                studentMenu.studentMenu();
+                managementMenu.menu();
                 break;
             case 3:
-                teacherMenu.teacherMenu();
+                courseMenu.menu();
                 break;
             case 4:
-                departmentMenu.departmentMenu();
+                studentMenu.menu();
                 break;
             case 5:
-                enrollmentMenu.enrollmentMenu();
+                teacherMenu.menu();
+                break;
+            case 6:
+                departmentMenu.menu();
+                break;
+            case 7:
+                enrollmentMenu.menu();
                 break;
             case 0:
                 Main.alive = false;
                 break;
             default:
                 System.out.println("Invalid choice: (" + choice + ") try again!");
-                mainMenu();
+                menu();
                 break;
         }
     }

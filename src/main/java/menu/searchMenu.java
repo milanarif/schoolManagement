@@ -3,15 +3,16 @@ package menu;
 import mainAndInput.Main;
 import mainAndInput.input;
 
-public class courseMenu {
+public class searchMenu {
 
-    public static void menu(){
+    public static void menu() {
 
         System.out.println("---------------");
-        System.out.println("1. Course Add");
-        System.out.println("2. Course Update");
-        System.out.println("3. Course Delete");
-        System.out.println("4. Course Show");
+        System.out.println("1. Search Courses");
+        System.out.println("2. Search Students");
+        System.out.println("3. Search Teachers");
+        System.out.println("4. Search Department");
+        System.out.println("5. Search Enrollment");
 
         System.out.println("\n6. Return");
         System.out.println("0. Exit");
@@ -19,7 +20,7 @@ public class courseMenu {
 
         System.out.print("choice: ");
         Integer choice = input.inputInt();
-        switch(choice){
+        switch (choice) {
             case 1:
 
                 break;
@@ -30,6 +31,9 @@ public class courseMenu {
 
                 break;
             case 4:
+
+                break;
+            case 5:
 
                 break;
             case 6:

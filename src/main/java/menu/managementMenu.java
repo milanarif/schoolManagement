@@ -1,24 +1,23 @@
 package menu;
 
 import mainAndInput.Main;
-import mainAndInput.input;
 
-public class courseMenu {
+public class managementMenu {
 
     public static void menu(){
 
         System.out.println("---------------");
-        System.out.println("1. Course Add");
-        System.out.println("2. Course Update");
-        System.out.println("3. Course Delete");
-        System.out.println("4. Course Show");
+        System.out.println("1. Add Student to Course");
+        System.out.println("2. Add Teacher to Course");
+        System.out.println("3. Remove Student from Course");
+        System.out.println("4. Remove Teacher from Course");
 
         System.out.println("\n6. Return");
         System.out.println("0. Exit");
         System.out.println("---------------");
 
         System.out.print("choice: ");
-        Integer choice = input.inputInt();
+        Integer choice = mainAndInput.input.inputInt();
         switch(choice){
             case 1:
 

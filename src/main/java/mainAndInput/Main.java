@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
 
         while(alive){
-            System.out.println("--School Management--");
-            menu.mainMenu.mainMenu();
+            System.out.println("\nSchool Management");
+            menu.mainMenu.menu();
         }
     }
 }

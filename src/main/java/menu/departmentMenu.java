@@ -5,13 +5,17 @@ import mainAndInput.input;
 
 public class departmentMenu {
 
-    public static void departmentMenu() {
+    public static void menu() {
 
-        System.out.println("1. Add Department");
-        System.out.println("2. Update Department");
-        System.out.println("3. Delete Department");
-        System.out.println("6. Return");
+        System.out.println("---------------");
+        System.out.println("\n1. Department Add");
+        System.out.println("2. Department Update");
+        System.out.println("3. Department Delete ");
+        System.out.println("4. Department Show ");
+
+        System.out.println("\n6. Return");
         System.out.println("0. Exit");
+        System.out.println("---------------");
 
         System.out.print("choice: ");
         Integer choice = input.inputInt();
@@ -25,6 +29,9 @@ public class departmentMenu {
             case 3:
 
                 break;
+            case 4:
+
+                break;
             case 6:
                 return;
             case 0:
@@ -32,7 +39,7 @@ public class departmentMenu {
                 break;
             default:
                 System.out.println("Invalid choice: (" + choice + ") try again!");
-                departmentMenu();
+                menu();
                 break;
         }
     }

@@ -5,13 +5,17 @@ import mainAndInput.input;
 
 public class teacherMenu {
 
-    public static void teacherMenu() {
+    public static void menu() {
 
-        System.out.println("1. Add Teacher");
-        System.out.println("2. Update Teacher");
-        System.out.println("3. Delete Teacher");
-        System.out.println("6. Return");
+        System.out.println("---------------");
+        System.out.println("1. Teacher Add");
+        System.out.println("2. Teacher Update");
+        System.out.println("3. Teacher Delete");
+        System.out.println("4. Teacher Show");
+
+        System.out.println("\n6. Return");
         System.out.println("0. Exit");
+        System.out.println("---------------");
 
         System.out.print("choice: ");
         Integer choice = input.inputInt();
@@ -25,6 +29,9 @@ public class teacherMenu {
             case 3:
 
                 break;
+            case 4:
+
+                break;
             case 6:
                 return;
             case 0:
@@ -32,7 +39,7 @@ public class teacherMenu {
                 break;
             default:
                 System.out.println("Invalid choice: (" + choice + ") try again!");
-                teacherMenu();
+                menu();
                 break;
         }
     }
