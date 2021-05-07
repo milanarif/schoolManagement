@@ -30,9 +30,6 @@ public class Course implements Serializable {
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "course")
     private List<Enrollment> enrollments;
 
-    @ManyToMany(targetEntity = Student.class)
-    private List<Student> students;
-
     @ManyToMany(targetEntity = Teacher.class,mappedBy = "courses")
     private List<Teacher> teachers;
 
@@ -74,14 +71,6 @@ public class Course implements Serializable {
 
     public void setEnrollments(List<Enrollment> enrollments) {
         this.enrollments = enrollments;
-    }
-
-    public List<Student> getStudents() {
-        return this.students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
     public List<Teacher> getTeachers() {
