@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Department;
 import entity.Enrollment;
 import entity.Student;
 
@@ -8,7 +9,7 @@ import javax.persistence.EntityManager;
 public class StudentDaoImpl implements StudentDao{
     @Override
     public Student getStudent(String socialSecurity) {
-        EntityManager em = Connector.emf.createEntityManager();
+        EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
         em.close();
         return student;
@@ -16,7 +17,7 @@ public class StudentDaoImpl implements StudentDao{
 
     @Override
     public void addStudent(Student student) {
-        EntityManager em = Connector.emf.createEntityManager();
+        EntityManager em = Connector.getEmf().createEntityManager();
         em.getTransaction().begin();
         em.persist(student);
         em.getTransaction().commit();
@@ -24,8 +25,8 @@ public class StudentDaoImpl implements StudentDao{
     }
 
     @Override
-    public void deleteStudent(String socialSecurity) {
-        EntityManager em = Connector.emf.createEntityManager();
+    public Student removeStudent(String socialSecurity) {
+        EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
         if (student != null) {
@@ -34,11 +35,12 @@ public class StudentDaoImpl implements StudentDao{
             em.getTransaction().commit();
         }
         em.close();
+        return student;
     }
 
     @Override
-    public void updateStudentName(String socialSecurity, String newName) {
-        EntityManager em = Connector.emf.createEntityManager();
+    public Student updateStudentName(String socialSecurity, String newName) {
+        EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
         if (student != null) {
@@ -47,11 +49,12 @@ public class StudentDaoImpl implements StudentDao{
             em.getTransaction().commit();
         }
         em.close();
+        return student;
     }
 
     @Override
-    public void addCredits(String socialSecurity, double credits) {
-        EntityManager em = Connector.emf.createEntityManager();
+    public Student addCredits(String socialSecurity, double credits) {
+        EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
         if (student != null) {
@@ -61,11 +64,12 @@ public class StudentDaoImpl implements StudentDao{
             em.getTransaction().commit();
         }
         em.close();
+        return student;
     }
 
     @Override
-    public void updateCredits(String socialSecurity, double newCredits) {
-        EntityManager em = Connector.emf.createEntityManager();
+    public Student updateCredits(String socialSecurity, double newCredits) {
+        EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
         if (student != null) {
@@ -74,5 +78,22 @@ public class StudentDaoImpl implements StudentDao{
             em.getTransaction().commit();
         }
         em.close();
+        return student;
+    }
+
+    @Override
+    public Student setDepartment(String socialSecurity, Integer departmentId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Student student = em.find(Student.class, socialSecurity);
+        Department department = em.find(Department.class, departmentId);
+
+        if (student != null) {
+            em.getTransaction().begin();
+            student.setDepartment(department);
+            em.getTransaction().commit();
+        }
+        em.close();
+
+        return student;
     }
 }

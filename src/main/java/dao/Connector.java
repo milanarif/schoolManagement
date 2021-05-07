@@ -4,7 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Connector {
-    static EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
 
     public static void createEmf() {
         emf = Persistence.createEntityManagerFactory("school");

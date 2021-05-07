@@ -52,6 +52,13 @@ public class Enrollment implements Serializable {
     }
 
     public void setStudent(Student student) {
+        if (this.student != null) {
+            this.student.internalRemoveEnrollment(this);
+        }
+        this.student = student;
+        if (student != null) {
+            student.internalAddEnrollment(this);
+        }
         this.student = student;
     }
 
@@ -60,7 +67,12 @@ public class Enrollment implements Serializable {
     }
 
     public void setCourse(Course course) {
+        if (this.course != null) {
+            this.course.internalRemoveEnrollment(this);
+        }
         this.course = course;
+        if (course != null) {
+            course.internalAddEnrollment(this);
+        }
     }
-
 }

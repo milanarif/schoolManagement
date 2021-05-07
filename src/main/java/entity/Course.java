@@ -62,7 +62,13 @@ public class Course implements Serializable {
     }
 
     public void setDepartment(Department department) {
+        if (this.department != null) {
+            this.department.internalRemoveCourse(this);
+        }
         this.department = department;
+        if (department != null) {
+            department.internalAddCourse(this);
+        }
     }
 
     public List<Enrollment> getEnrollments() {
@@ -73,12 +79,44 @@ public class Course implements Serializable {
         this.enrollments = enrollments;
     }
 
+    public void addEnrollment(Enrollment enrollment) {
+        enrollment.setCourse(this);
+    }
+
+    public void removeEnrollment(Enrollment enrollment) {
+        enrollment.setCourse(null);
+    }
+
+    public void internalAddEnrollment(Enrollment enrollment) {
+        enrollments.add(enrollment);
+    }
+
+    public void internalRemoveEnrollment(Enrollment enrollment) {
+        enrollments.remove(enrollment);
+    }
+
     public List<Teacher> getTeachers() {
         return this.teachers;
     }
 
     public void setTeachers(List<Teacher> teachers) {
         this.teachers = teachers;
+    }
+
+    public void addTeacher(Teacher teacher) {
+        teacher.addCourse(this);
+    }
+
+    public void removeTeacher(Teacher teacher) {
+        teacher.removeCourse(this);
+    }
+
+    public void internalAddTeacher(Teacher teacher) {
+        teachers.add(teacher);
+    }
+
+    public void internalRemoveTeacher(Teacher teacher) {
+        teachers.remove(teacher);
     }
 
 }
