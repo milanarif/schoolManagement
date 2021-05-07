@@ -24,4 +24,19 @@ public class input {
         public static String inputString(){
             return sc.nextLine();
         }
+
+        public static Double inputDouble(){
+            double doubleInput;
+            while(true){
+                String input = sc.nextLine();
+                try{
+                    doubleInput = Double.parseDouble(input);
+                    break;
+                }
+                catch (NumberFormatException e){
+                    System.out.println("Invalid choice: (" + input + ") try again!");
+                }
+            }
+            return doubleInput;
+        }
 }
