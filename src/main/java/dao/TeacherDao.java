@@ -1,8 +1,10 @@
 package dao;
 
+import entity.Teacher;
+
 public interface TeacherDao {
-    public TeacherDao getTeacher(String socialSecurity);
-    public void addTeacher(String socialSecurity, String name, String gender);
+    public Teacher getTeacher(String socialSecurity);
+    public void addTeacher(Teacher teacher);
     public void deleteTeacher(String socialSecurity);
     public void updateTeacherName(String socialSecurity, String newName);
 }

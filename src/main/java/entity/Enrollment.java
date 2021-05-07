@@ -24,6 +24,13 @@ public class Enrollment implements Serializable {
     @ManyToOne(targetEntity = Course.class)
     private Course course;
 
+    public Enrollment() {
+    }
+
+    public Enrollment(Integer grade) {
+        this.grade = grade;
+    }
+
     public Integer getId() {
         return this.enrollmentId;
     }
