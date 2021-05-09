@@ -4,19 +4,29 @@ import entity.Course;
 import entity.Department;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class DepartmentDaoImpl implements DepartmentDao{
     @Override
     public Department getDepartment(Integer departmentId) {
-        EntityManager em = Connector.emf.createEntityManager();
+        EntityManager em = Connector.getEmf().createEntityManager();
         Department department = em.find(Department.class, departmentId);
         em.close();
         return department;
     }
 
     @Override
+    public List<Department> getAllDepartments() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Department> departments = em
+                .createQuery("Select d from Department d", Department.class)
+                .getResultList();
+        return departments;
+    }
+
+    @Override
     public void addDepartment(Department department) {
-        EntityManager em = Connector.emf.createEntityManager();
+        EntityManager em = Connector.getEmf().createEntityManager();
         em.getTransaction().begin();
         em.persist(department);
         em.getTransaction().commit();
@@ -24,21 +34,22 @@ public class DepartmentDaoImpl implements DepartmentDao{
     }
 
     @Override
-    public void deleteDepartment(Integer departmentId) {
-        EntityManager em = Connector.emf.createEntityManager();
-        Course course = em.find(Course.class, departmentId);
+    public Department removeDepartment(Integer departmentId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Department department = em.find(Department.class, departmentId);
 
-        if (course != null) {
+        if (department != null) {
             em.getTransaction().begin();
-            em.remove(course);
+            em.remove(department);
             em.getTransaction().commit();
         }
         em.close();
+        return department;
     }
 
     @Override
-    public void updateDepartmentName(Integer departmentId, String newName) {
-        EntityManager em = Connector.emf.createEntityManager();
+    public Department updateDepartmentName(Integer departmentId, String newName) {
+        EntityManager em = Connector.getEmf().createEntityManager();
         Department department = em.find(Department.class, departmentId);
 
         if (department != null) {
@@ -47,5 +58,6 @@ public class DepartmentDaoImpl implements DepartmentDao{
             em.getTransaction().commit();
         }
         em.close();
+        return department;
     }
 }

@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -55,7 +56,13 @@ public class Teacher implements Serializable {
     }
 
     public void setDepartment(Department department) {
+        if (this.department != null) {
+            this.department.internalRemoveTeacher(this);
+        }
         this.department = department;
+        if (department != null) {
+            department.internalAddTeacher(this);
+        }
     }
 
     public List<Course> getCourses() {
@@ -66,4 +73,23 @@ public class Teacher implements Serializable {
         this.courses = courses;
     }
 
+    //Line
+
+    public void addCourse(Course course){
+        if (this.courses == null) {
+            this.courses = new ArrayList<>();
+        }
+        if (!this.courses.contains(course)) {
+            this.courses.add(course);
+        }
+        if (course != null) {
+            course.internalAddTeacher(this);
+        }
+    }
+
+    public void removeCourse(Course course) {
+        if (this.courses != null) {
+            this.courses.remove(course);
+        }
+    }
 }

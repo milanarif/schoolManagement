@@ -1,5 +1,6 @@
 package menu;
 
+import mainAndInput.Input;
 import mainAndInput.Main;
 
 public class MenuManagement {
@@ -17,7 +18,7 @@ public class MenuManagement {
         System.out.println("---------------");
 
         System.out.print("choice: ");
-        Integer choice = mainAndInput.input.inputInt();
+        Integer choice = Input.inputInt();
         switch(choice){
             case 1:
 

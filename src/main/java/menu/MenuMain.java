@@ -1,7 +1,7 @@
 package menu;
 
 import mainAndInput.Main;
-import mainAndInput.input;
+import mainAndInput.Input;
 
 public class MenuMain {
 
@@ -20,7 +20,7 @@ public class MenuMain {
         System.out.println("---------------");
 
         System.out.print("choice: ");
-        Integer choice = input.inputInt();
+        Integer choice = Input.inputInt();
         switch(choice){
             case 1:
                 MenuShow.menu();

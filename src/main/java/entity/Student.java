@@ -67,7 +67,13 @@ public class Student implements Serializable {
     }
 
     public void setDepartment(Department department) {
+        if (this.department != null) {
+            this.department.internalRemoveStudent(this);
+        }
         this.department = department;
+        if (department != null) {
+            department.internalAddStudent(this);
+        }
     }
 
     public List<Enrollment> getEnrollments() {
@@ -78,4 +84,19 @@ public class Student implements Serializable {
         this.enrollments = enrollments;
     }
 
+    public void removeEnrollment(Enrollment enrollment) {
+        enrollment.setStudent(this);
+    }
+
+    public void addEnrollment(Enrollment enrollment) {
+        enrollment.setStudent(null);
+    }
+
+    public void internalAddEnrollment(Enrollment enrollment) {
+        enrollments.add(enrollment);
+    }
+
+    public void internalRemoveEnrollment(Enrollment enrollment) {
+        enrollments.remove(enrollment);
+    }
 }
