@@ -6,6 +6,7 @@ import entity.Enrollment;
 import entity.Student;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class EnrollmentDaoImpl implements EnrollmentDao{
 
@@ -15,6 +16,15 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
         Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
         em.close();
         return enrollment;
+    }
+
+    @Override
+    public List<Enrollment> getAllEnrollments() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Enrollment> enrollments = em
+                .createQuery("Select e from Enrollment e", Enrollment.class)
+                .getResultList();
+        return enrollments;
     }
 
     @Override

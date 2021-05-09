@@ -6,6 +6,7 @@ import entity.Student;
 import entity.Teacher;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class TeacherDaoImpl implements TeacherDao{
     @Override
@@ -14,6 +15,15 @@ public class TeacherDaoImpl implements TeacherDao{
         Teacher teacher = em.find(Teacher.class, socialSecurity);
         em.close();
         return teacher;
+    }
+
+    @Override
+    public List<Teacher> getAllTeachers() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Teacher> teachers = em
+                .createQuery("Select t from Teacher t", Teacher.class)
+                .getResultList();
+        return teachers;
     }
 
     @Override

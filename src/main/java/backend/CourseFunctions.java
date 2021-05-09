@@ -14,7 +14,7 @@ public class CourseFunctions {
     }
 
     public List<Course> getAllCourses() {
-
+        return courseDao.getAllCourses();
     }
 
     public void addCourse(Course course) {

@@ -4,6 +4,7 @@ import entity.Course;
 import entity.Department;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class DepartmentDaoImpl implements DepartmentDao{
     @Override
@@ -12,6 +13,15 @@ public class DepartmentDaoImpl implements DepartmentDao{
         Department department = em.find(Department.class, departmentId);
         em.close();
         return department;
+    }
+
+    @Override
+    public List<Department> getAllDepartments() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Department> departments = em
+                .createQuery("Select d from Department d", Department.class)
+                .getResultList();
+        return departments;
     }
 
     @Override

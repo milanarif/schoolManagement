@@ -1,10 +1,12 @@
 package dao;
 
+import entity.Course;
 import entity.Department;
 import entity.Enrollment;
 import entity.Student;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class StudentDaoImpl implements StudentDao{
     @Override
@@ -13,6 +15,15 @@ public class StudentDaoImpl implements StudentDao{
         Student student = em.find(Student.class, socialSecurity);
         em.close();
         return student;
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Student> students = em
+                .createQuery("Select s from Student s", Student.class)
+                .getResultList();
+        return students;
     }
 
     @Override

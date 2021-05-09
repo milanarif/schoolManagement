@@ -11,7 +11,7 @@ public class TeacherFunctions {
 
     //TODO: IMPLEMENT GET ALL FOR ALL CLASSES!
     public List<Teacher> getAllTeachers() {
-
+        return teacherDao.getAllTeachers();
     }
 
     public Teacher getTeacher(String socialSecurity) {

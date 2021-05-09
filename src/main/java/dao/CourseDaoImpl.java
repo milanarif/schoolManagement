@@ -6,6 +6,7 @@ import entity.Enrollment;
 import entity.Student;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class CourseDaoImpl implements CourseDao {
 
@@ -15,6 +16,15 @@ public class CourseDaoImpl implements CourseDao {
         Course course = em.find(Course.class, courseId);
         em.close();
         return course;
+    }
+
+    @Override
+    public List<Course> getAllCourses() {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        List<Course> courses = em
+                .createQuery("Select c from Course c", Course.class)
+                .getResultList();
+        return courses;
     }
 
     @Override

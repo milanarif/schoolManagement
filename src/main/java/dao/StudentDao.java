@@ -2,8 +2,11 @@ package dao;
 
 import entity.Student;
 
+import java.util.List;
+
 public interface StudentDao {
     public Student getStudent(String socialSecurity);
+    public List<Student> getAllStudents();
     public void addStudent(Student student);
     public Student removeStudent(String socialSecurity);
     public Student updateStudentName(String socialSecurity, String newName);
