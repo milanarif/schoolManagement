@@ -7,7 +7,7 @@ public class MenuMain {
 
     public static void menu() {
 
-        System.out.println("---------------");
+        System.out.println("\n---------------");
         System.out.println("1. Show");
         System.out.println("2. Management");
         System.out.println("3. Courses");

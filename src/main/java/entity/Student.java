@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -78,4 +79,24 @@ public class Student implements Serializable {
         this.enrollments = enrollments;
     }
 
+    @Override
+    public String toString() {
+        return
+                socialSecurity + " " +
+                name + " " +
+                credits + " " +
+                gender + " " +
+                department + " " +
+                enrollments;
+    }
+
+    public Student() {
+
+    }
+
+    public Student(String socialSecurity, String name, String gender) {
+        this.socialSecurity = socialSecurity;
+        this.name = name;
+        this.gender = gender;
+    }
 }

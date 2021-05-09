@@ -1,5 +1,11 @@
 package menu;
 
+import java.util.List;
+
+import backend.StudentFunctions;
+import dao.StudentDao;
+import dao.StudentDaoImpl;
+import entity.Student;
 import mainAndInput.Main;
 import mainAndInput.input;
 
@@ -18,9 +24,14 @@ public class MenuShow {
 
         System.out.print("choice: ");
         Integer choice = input.inputInt();
+
+        StudentFunctions sf = new StudentFunctions();
+        Student students = new Student();
+        StudentDaoImpl sd = new StudentDaoImpl();
+
         switch (choice) {
             case 1:
-
+                sf.getAllStudents(students);
                 break;
             case 2:
                 MenuSearch.menu();

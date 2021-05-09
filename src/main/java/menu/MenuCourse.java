@@ -1,5 +1,6 @@
 package menu;
 
+import entity.Course;
 import mainAndInput.Main;
 import mainAndInput.input;
 

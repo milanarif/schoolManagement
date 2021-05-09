@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Department;
 import entity.Enrollment;
 import entity.Student;
 
@@ -17,6 +18,7 @@ public class StudentDaoImpl implements StudentDao{
     @Override
     public void addStudent(Student student) {
         EntityManager em = Connector.emf.createEntityManager();
+
         em.getTransaction().begin();
         em.persist(student);
         em.getTransaction().commit();
@@ -40,6 +42,9 @@ public class StudentDaoImpl implements StudentDao{
     public void updateStudentName(String socialSecurity, String newName) {
         EntityManager em = Connector.emf.createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
+
+        String socialSecurityUpdate = mainAndInput.input.inputString();
+        student.setSocialSecurity(socialSecurityUpdate);
 
         if (student != null) {
             em.getTransaction().begin();

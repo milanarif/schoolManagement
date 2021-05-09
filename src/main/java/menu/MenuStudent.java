@@ -1,5 +1,8 @@
 package menu;
 
+import backend.StudentFunctions;
+import dao.StudentDaoImpl;
+import entity.Student;
 import mainAndInput.Main;
 import mainAndInput.input;
 
@@ -18,16 +21,20 @@ public class MenuStudent {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
+        Student student = new Student();
+        StudentFunctions sf = new StudentFunctions();
+
         System.out.print("choice: ");
         Integer choice = input.inputInt();
         switch (choice) {
             case 1:
-
+                sf.addStudent(student);
                 break;
             case 2:
 
                 break;
             case 3:
+               // studentDaoImpl.deleteStudent(student);
 
                 break;
             case 4:
