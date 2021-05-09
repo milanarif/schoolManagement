@@ -1,10 +1,7 @@
-package mainAndInput;
+package main;
 
 import dao.Connector;
-import menu.MenuMain;
-
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import menu.MainMenu;
 
 public class Main {
 
@@ -13,9 +10,9 @@ public class Main {
     public static void main(String[] args) {
 
         Connector.createEmf();
-        System.out.println("\nSchool Management");
+        System.out.println("\nSCHOOL MANAGEMENT APPLICATION");
         while(alive){
-            MenuMain.menu();
+            MainMenu.menu();
         }
 
         Connector.closeEmf();

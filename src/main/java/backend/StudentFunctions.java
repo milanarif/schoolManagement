@@ -3,8 +3,8 @@ package backend;
 import dao.Connector;
 import dao.StudentDao;
 import dao.StudentDaoImpl;
-import entity.Department;
 import entity.Student;
+import main.Input;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -25,9 +25,7 @@ public class StudentFunctions {
 
     public void printStudents(List<Student> studentList){
         PrintFunctions.printStudentHead();
-        studentList.forEach(s -> {
-            PrintFunctions.printStudent(s);
-        });
+        studentList.forEach(PrintFunctions::printStudent);
     }
 
     public Student getStudent(String socialSecurity) {
@@ -37,17 +35,17 @@ public class StudentFunctions {
     public void addStudent(Student student) {
 
         System.out.print("Social security: ");
-        String socialSecurity = mainAndInput.input.inputString();
+        String socialSecurity = Input.inputString();
         student.setSocialSecurity(socialSecurity);
 
         System.out.print("Name: ");
-        String name = mainAndInput.input.inputString();
+        String name = Input.inputString();
         student.setName(name);
 
         student.setCredits(0);
 
         System.out.print("Gender: ");
-        String gender = mainAndInput.input.inputString();
+        String gender = Input.inputString();
         student.setGender(gender);
 
         student.setDepartment(null);

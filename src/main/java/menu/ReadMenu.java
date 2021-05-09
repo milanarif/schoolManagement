@@ -1,50 +1,53 @@
 package menu;
 
 import backend.StudentFunctions;
-import dao.StudentDaoImpl;
 import entity.Student;
-import mainAndInput.Main;
-import mainAndInput.input;
+import main.Main;
+import main.Input;
 
-public class MenuStudent {
+public class ReadMenu {
 
     public static void menu() {
 
+        System.out.println("\nREAD MENU");
         System.out.println("---------------");
-        System.out.println("1. Student Add");
-        System.out.println("2. Student Update");
-        System.out.println("3. Student Delete");
-        System.out.println("4. Student Show");
-        System.out.println("5. Change Grade???");
+        System.out.println("1. Show All Tables");
+        System.out.println("2. Show All Courses");
+        System.out.println("3. Show All Students");
+        System.out.println("4. Show All Teachers");
+        System.out.println("5. Show All Departments");
 
         System.out.println("\n6. Return");
+        System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        Student student = new Student();
         StudentFunctions sf = new StudentFunctions();
 
         System.out.print("choice: ");
-        Integer choice = input.inputInt();
+        Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                sf.addStudent(student);
+                //TODO call printAll
                 break;
             case 2:
-
+                //TODO call printCourse
                 break;
             case 3:
-               // studentDaoImpl.deleteStudent(student);
-
+                Student students = new Student();
+                sf.getAllStudents(students);
                 break;
             case 4:
-
+                //TODO call printTeacher
                 break;
             case 5:
-
+                //TODO call printDepartment
                 break;
             case 6:
                 return;
+            case 8:
+                MainMenu.menu();
+                break;
             case 0:
                 Main.alive = false;
                 break;

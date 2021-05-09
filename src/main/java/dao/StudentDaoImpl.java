@@ -1,8 +1,7 @@
 package dao;
 
-import entity.Department;
-import entity.Enrollment;
 import entity.Student;
+import main.Input;
 
 import javax.persistence.EntityManager;
 
@@ -43,7 +42,7 @@ public class StudentDaoImpl implements StudentDao{
         EntityManager em = Connector.emf.createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
-        String socialSecurityUpdate = mainAndInput.input.inputString();
+        String socialSecurityUpdate = Input.inputString();
         student.setSocialSecurity(socialSecurityUpdate);
 
         if (student != null) {
