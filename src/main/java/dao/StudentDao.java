@@ -12,8 +12,8 @@ public interface StudentDao {
 
     void deleteStudent(String socialSecurity);
 
-    public Student updateStudentName(String socialSecurity, String newName);
-    public Student addCredits(String socialSecurity, double credits);
-    public Student updateCredits(String socialSecurity, double newCredits);
+    public void updateStudentName(String socialSecurity, String newName);
+    public void addCredits(String socialSecurity, double credits);
+    public void updateCredits(String socialSecurity, double newCredits);
     public Student setDepartment(String socialSecurity, Integer departmentId);
 }
