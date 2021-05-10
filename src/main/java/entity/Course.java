@@ -16,7 +16,7 @@ public class Course implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer classId;
+    private Integer courseId;
 
     @Basic
     private String name;
@@ -36,18 +36,17 @@ public class Course implements Serializable {
     public Course() {
     }
 
-    public Course(Integer classId, String name, double credits) {
-        this.classId = classId;
+    public Course(String name, double credits) {
         this.name = name;
         this.credits = credits;
     }
 
-    public Integer getClassId() {
-        return this.classId;
+    public Integer getCourseId() {
+        return this.courseId;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setCourseId(Integer classId) {
+        this.courseId = classId;
     }
 
     public String getName() {
