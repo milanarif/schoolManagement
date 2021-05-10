@@ -1,21 +1,19 @@
 package menu;
 
-import backend.StudentFunctions;
-import entity.Student;
-import frontend.CreateFunctions;
+import frontend.AddFunctions;
 import main.Main;
 import main.Input;
 
-public class CreateMenu {
+public class AddMenu {
 
     public static void menu(){
 
-        System.out.println("\nCREATE MENU");
+        System.out.println("\nADD MENU");
         System.out.println("---------------");
-        System.out.println("1. Create Course");
-        System.out.println("2. Create Student");
-        System.out.println("3. Create Teacher");
-        System.out.println("4. Create Department");
+        System.out.println("1. Add Course");
+        System.out.println("2. Add Student");
+        System.out.println("3. Add Teacher");
+        System.out.println("4. Add Department");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -26,16 +24,16 @@ public class CreateMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                //TODO call courseCreate
+                AddFunctions.addCourse();
                 break;
             case 2:
-                CreateFunctions.addStudent();
+                AddFunctions.addStudent();
                 break;
             case 3:
-                //TODO call teacherCreate
+                AddFunctions.addTeacher();
                 break;
             case 4:
-                //TODO call departmentCreate
+                AddFunctions.addDepartment();
                 break;
             case 6:
                 return;

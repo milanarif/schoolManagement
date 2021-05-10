@@ -31,6 +31,15 @@ public class Student implements Serializable {
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
     private List<Enrollment> enrollments;
 
+    public Student() {
+    }
+
+    public Student(String socialSecurity, String name, String gender) {
+        this.socialSecurity = socialSecurity;
+        this.name = name;
+        this.gender = gender;
+    }
+
     public String getSocialSecurity() {
         return this.socialSecurity;
     }
@@ -90,12 +99,13 @@ public class Student implements Serializable {
                 enrollments;
     }
 
-    public Student() {
+    public void internalRemoveEnrollment(Enrollment enrollment) {
+
+        //TODO check this
     }
 
-    public Student(String socialSecurity, String name, String gender) {
-        this.socialSecurity = socialSecurity;
-        this.name = name;
-        this.gender = gender;
+    public void internalAddEnrollment(Enrollment enrollment) {
+
+        //TODO check this
     }
 }

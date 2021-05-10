@@ -12,15 +12,17 @@ public class CourseFunctions {
     public Course getCourse(Integer courseId) {
         return courseDao.getCourse(courseId);
     }
-/*
+
     public List<Course> getAllCourses() {
 
+        return getAllCourses();
     }
 
-    public void addCourse(Course course) {
-        courseDao.addCourse(course);
+    public static void addCourse(Course course) {
+        CourseDao cd = new CourseDaoImpl();
+        cd.addCourse(course);
     }
-
+/*
     public Course removeCourse(Integer courseId) {
         return courseDao.removeCourse(courseId);
     }
@@ -29,5 +31,7 @@ public class CourseFunctions {
         return courseDao.setDepartment(courseId, departmentId);
     }
 
-*/
+ */
+
+
 }

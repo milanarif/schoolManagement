@@ -27,6 +27,15 @@ public class Teacher implements Serializable {
     @ManyToMany(targetEntity = Course.class)
     private List<Course> courses;
 
+    public Teacher() {
+    }
+
+    public Teacher(String socialSecurity, String name, String gender) {
+        this.socialSecurity = socialSecurity;
+        this.name = name;
+        this.gender = gender;
+    }
+
     public String getSocialSecurity() {
         return this.socialSecurity;
     }
@@ -91,5 +100,14 @@ public class Teacher implements Serializable {
         if (this.courses != null) {
             this.courses.remove(course);
         }
+    }
+    @Override
+    public String toString() {
+        return
+                socialSecurity + " " +
+                        name + " " +
+                        gender + " " +
+                        department + " " +
+                        courses;
     }
 }

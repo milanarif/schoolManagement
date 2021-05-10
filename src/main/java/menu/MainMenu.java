@@ -10,7 +10,7 @@ public class MainMenu {
         System.out.println("\nMAIN MENU");
         System.out.println("---------------");
         System.out.println("1. Enrollment");
-        System.out.println("2. Create");
+        System.out.println("2. Add");
         System.out.println("3. Read");
         System.out.println("4. Update");
         System.out.println("5. Delete");
@@ -28,7 +28,7 @@ public class MainMenu {
                 EnrollmentMenu.menu();
                 break;
             case 2:
-                CreateMenu.menu();
+                AddMenu.menu();
                 break;
             case 3:
                 ReadMenu.menu();

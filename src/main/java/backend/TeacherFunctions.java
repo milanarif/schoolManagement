@@ -11,19 +11,20 @@ public class TeacherFunctions {
 
     //TODO: IMPLEMENT GET ALL FOR ALL CLASSES!
     public List<Teacher> getAllTeachers() {
-        getAllTeachers().forEach(t -> System.out.println(t));
+        getAllTeachers().forEach(System.out::println);
 
         return getAllTeachers();
     }
-/*
+
     public Teacher getTeacher(String socialSecurity) {
         return teacherDao.getTeacher(socialSecurity);
     }
 
-    public void addTeacher(Teacher teacher) {
-        teacherDao.addTeacher(teacher);
+    public static void addTeacher(Teacher teacher) {
+        TeacherDao td = new TeacherDaoImpl();
+        td.addTeacher(teacher);
     }
-
+/*
     public Teacher removeTeacher(String socialSecurity) {
         return teacherDao.removeTeacher(socialSecurity);
     }
