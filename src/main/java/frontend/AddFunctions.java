@@ -56,8 +56,6 @@ public class AddFunctions {
         String name = Input.inputString();
 
         Department department = new Department(name);
-
-        //TODO implement methods in class DepartmentFunctions
-        //DepartmentFunctions.addDepartment(department);
+        DepartmentFunctions.addDepartment(department);
     }
 }
