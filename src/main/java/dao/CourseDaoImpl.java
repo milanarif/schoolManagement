@@ -24,6 +24,8 @@ public class CourseDaoImpl implements CourseDao {
         List    <Course> courses = em
                 .createQuery("Select c from Course c", Course.class)
                 .getResultList();
+
+        em.close();
         return courses;
     }
 

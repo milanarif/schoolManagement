@@ -33,4 +33,8 @@ public class TeacherFunctions {
     public static Teacher setDepartment(String socialSecurity, Integer departmentId) {
         return teacherDao.setDepartment(socialSecurity, departmentId);
     }
+
+    public static Teacher setCourse(String socialSecurity, Integer courseId) {
+        return teacherDao.addCourse(socialSecurity, courseId);
+    }
 }

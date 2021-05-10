@@ -122,4 +122,9 @@ public class Department implements Serializable {
     public void internalRemoveStudent(Student student) {
         students.remove(student);
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

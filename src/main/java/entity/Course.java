@@ -127,4 +127,8 @@ public class Course implements Serializable {
         teachers.remove(teacher);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

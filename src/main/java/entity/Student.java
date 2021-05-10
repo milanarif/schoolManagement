@@ -2,12 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Student implements Serializable { 
@@ -24,7 +19,7 @@ public class Student implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
+    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student", fetch = FetchType.EAGER)
     private List<Enrollment> enrollments;
 
     public Student() {

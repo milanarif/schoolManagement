@@ -27,11 +27,11 @@ public class ReadMenu {
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call printAll
+                ReadFunctions.readAll();
                 menu();
                 break;
             case 2:
-                //TODO call printCourse
+                ReadFunctions.readCourse();
                 menu();
                 break;
             case 3:
@@ -39,11 +39,11 @@ public class ReadMenu {
                 menu();
                 break;
             case 4:
-                //TODO call printTeacher
+                ReadFunctions.readTeacher();
                 menu();
                 break;
             case 5:
-                //TODO call printDepartment
+                ReadFunctions.readDepartment();
                 menu();
                 break;
             case 6:

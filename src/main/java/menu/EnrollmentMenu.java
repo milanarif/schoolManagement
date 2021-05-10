@@ -1,5 +1,7 @@
 package menu;
 
+import backend.StudentFunctions;
+import frontend.AddEnrollmentFunctions;
 import main.Input;
 import main.Main;
 
@@ -26,16 +28,20 @@ public class EnrollmentMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                //TODO call studentToCourse
+                AddEnrollmentFunctions.setCourseStudent();
+                menu();
                 break;
             case 2:
-                //TODO call teacherToCourse
+                AddEnrollmentFunctions.setCourseTeacher();
+                menu();
                 break;
             case 3:
-                //TODO call studentToDepartment
+                AddEnrollmentFunctions.setDepartmentStudent();
+                menu();
                 break;
             case 4:
-                //TODO call teacherToDepartment
+                AddEnrollmentFunctions.setDepartmentTeacher();
+                menu();
                 break;
             case 5:
                 RemoveEnrollmentMenu.menu();

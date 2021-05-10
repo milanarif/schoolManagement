@@ -23,6 +23,8 @@ public class TeacherDaoImpl implements TeacherDao{
         List<Teacher> teachers = em
                 .createQuery("Select t from Teacher t", Teacher.class)
                 .getResultList();
+
+        em.close();
         return teachers;
     }
 
@@ -75,7 +77,6 @@ public class TeacherDaoImpl implements TeacherDao{
             em.getTransaction().commit();
         }
         em.close();
-
         return teacher;
     }
 
@@ -91,7 +92,6 @@ public class TeacherDaoImpl implements TeacherDao{
             em.getTransaction().commit();
         }
         em.close();
-
         return teacher;
     }
 }

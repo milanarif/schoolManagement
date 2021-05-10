@@ -3,11 +3,17 @@ package backend;
 import dao.EnrollmentDao;
 import dao.EnrollmentDaoImpl;
 import entity.Enrollment;
+import entity.Student;
 
 import java.util.List;
 
 public class EnrollmentFunctions {
+
+    public static Integer enrollmentIdForNewStudent;
+
     static EnrollmentDao enrollmentDao = new EnrollmentDaoImpl();
+
+    //public static List<Enrollment> getAllEnrollments() { return enrollmentDao.getAllEnrollments(); }
 
     public static Enrollment getEnrollment(Integer enrollmentId) {
         return enrollmentDao.getEnrollment(enrollmentId);
@@ -15,6 +21,8 @@ public class EnrollmentFunctions {
 
     public static void addEnrollment(Enrollment enrollment){
         enrollmentDao.addEnrollment(enrollment);
+
+        enrollmentIdForNewStudent = enrollment.getId();
     }
 
     public static Enrollment removeEnrollment(Integer enrollmentId) {

@@ -24,6 +24,8 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
         List<Enrollment> enrollments = em
                 .createQuery("Select e from Enrollment e", Enrollment.class)
                 .getResultList();
+
+        em.close();
         return enrollments;
     }
 
