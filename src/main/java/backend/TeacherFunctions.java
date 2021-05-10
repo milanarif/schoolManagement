@@ -11,9 +11,11 @@ public class TeacherFunctions {
 
     //TODO: IMPLEMENT GET ALL FOR ALL CLASSES!
     public List<Teacher> getAllTeachers() {
-        return teacherDao.getAllTeachers();
-    }
+        getAllTeachers().forEach(t -> System.out.println(t));
 
+        return getAllTeachers();
+    }
+/*
     public Teacher getTeacher(String socialSecurity) {
         return teacherDao.getTeacher(socialSecurity);
     }
@@ -33,5 +35,5 @@ public class TeacherFunctions {
     public Teacher setDepartment(String socialSecurity, Integer departmentId) {
         return teacherDao.setDepartment(socialSecurity, departmentId);
     }
-
+*/
 }

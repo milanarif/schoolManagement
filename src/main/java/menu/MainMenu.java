@@ -1,47 +1,52 @@
 package menu;
 
-import mainAndInput.Main;
-import mainAndInput.Input;
+import main.Main;
+import main.Input;
 
-public class MenuMain {
+public class MainMenu {
 
     public static void menu() {
 
+        System.out.println("\nMAIN MENU");
         System.out.println("---------------");
-        System.out.println("1. Show");
-        System.out.println("2. Management");
-        System.out.println("3. Courses");
-        System.out.println("4. Students");
-        System.out.println("5. Teachers");
-        System.out.println("6. Departments");
-        System.out.println("7. Enrollments");
+        System.out.println("1. Enrollment");
+        System.out.println("2. Create");
+        System.out.println("3. Read");
+        System.out.println("4. Update");
+        System.out.println("5. Delete");
+        System.out.println("6. Search");
+        System.out.println("7. Statistics");
 
-        System.out.println("\n0. Exit");
+        System.out.println("\n8. Help");
+        System.out.println("0. Exit");
         System.out.println("---------------");
 
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                MenuShow.menu();
+                EnrollmentMenu.menu();
                 break;
             case 2:
-                MenuManagement.menu();
+                CreateMenu.menu();
                 break;
             case 3:
-                MenuCourse.menu();
+                ReadMenu.menu();
                 break;
             case 4:
-                MenuStudent.menu();
+                UpdateMenu.menu();
                 break;
             case 5:
-                MenuTeacher.menu();
+                DeleteMenu.menu();
                 break;
             case 6:
-                MenuDepartment.menu();
+                SearchMenu.menu();
                 break;
             case 7:
-                MenuEnrollment.menu();
+                StatisticsMenu.menu();
+                break;
+            case 8:
+                Help.help();
                 break;
             case 0:
                 Main.alive = false;

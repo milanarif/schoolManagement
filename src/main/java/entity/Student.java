@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -67,13 +68,7 @@ public class Student implements Serializable {
     }
 
     public void setDepartment(Department department) {
-        if (this.department != null) {
-            this.department.internalRemoveStudent(this);
-        }
         this.department = department;
-        if (department != null) {
-            department.internalAddStudent(this);
-        }
     }
 
     public List<Enrollment> getEnrollments() {
@@ -84,19 +79,23 @@ public class Student implements Serializable {
         this.enrollments = enrollments;
     }
 
-    public void removeEnrollment(Enrollment enrollment) {
-        enrollment.setStudent(this);
+    @Override
+    public String toString() {
+        return
+                socialSecurity + " " +
+                name + " " +
+                credits + " " +
+                gender + " " +
+                department + " " +
+                enrollments;
     }
 
-    public void addEnrollment(Enrollment enrollment) {
-        enrollment.setStudent(null);
+    public Student() {
     }
 
-    public void internalAddEnrollment(Enrollment enrollment) {
-        enrollments.add(enrollment);
-    }
-
-    public void internalRemoveEnrollment(Enrollment enrollment) {
-        enrollments.remove(enrollment);
+    public Student(String socialSecurity, String name, String gender) {
+        this.socialSecurity = socialSecurity;
+        this.name = name;
+        this.gender = gender;
     }
 }

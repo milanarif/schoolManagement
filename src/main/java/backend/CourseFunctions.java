@@ -12,9 +12,9 @@ public class CourseFunctions {
     public Course getCourse(Integer courseId) {
         return courseDao.getCourse(courseId);
     }
-
+/*
     public List<Course> getAllCourses() {
-        return courseDao.getAllCourses();
+
     }
 
     public void addCourse(Course course) {
@@ -29,5 +29,5 @@ public class CourseFunctions {
         return courseDao.setDepartment(courseId, departmentId);
     }
 
-
+*/
 }
