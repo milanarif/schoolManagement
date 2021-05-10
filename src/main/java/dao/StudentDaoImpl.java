@@ -4,6 +4,7 @@ import entity.Student;
 import main.Input;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class StudentDaoImpl implements StudentDao{
     @Override
@@ -15,6 +16,11 @@ public class StudentDaoImpl implements StudentDao{
     }
 
     @Override
+    public List<Student> getAllStudents() {
+        return null;
+    }
+
+    @Override
     public void addStudent(Student student) {
         EntityManager em = Connector.emf.createEntityManager();
 
@@ -22,6 +28,11 @@ public class StudentDaoImpl implements StudentDao{
         em.persist(student);
         em.getTransaction().commit();
         em.close();
+    }
+
+    @Override
+    public Student removeStudent(String socialSecurity) {
+        return null;
     }
 
     @Override
@@ -78,5 +89,10 @@ public class StudentDaoImpl implements StudentDao{
             em.getTransaction().commit();
         }
         em.close();
+    }
+
+    @Override
+    public Student setDepartment(String socialSecurity, Integer departmentId) {
+        return null;
     }
 }
