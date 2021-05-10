@@ -9,35 +9,32 @@ public class ManagementMenu {
 
         System.out.println("\nMANAGEMENT MENU");
         System.out.println("---------------");
-        System.out.println("1. Show Tables");
-        System.out.println("2. Search");
-        System.out.println("3. Create");
-        System.out.println("4. Update");
-        System.out.println("5. Delete");
+        System.out.println("1. Add Student to Course");
+        System.out.println("2. Add Teacher to Course");
+        System.out.println("3. Add Student to Department");
+        System.out.println("4. Add Teacher to Department");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
 
+        //TODO create new instance for calls
 
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                //TODO call print methods
+                //TODO call studentToCourse
                 break;
             case 2:
-                SearchMenu.menu();
+                //TODO call teacherToCourse
                 break;
             case 3:
-                CreateMenu.menu();
+                //TODO call studentToDepartment
                 break;
             case 4:
-                UpdateMenu.menu();
-                break;
-            case 5:
-                DeleteMenu.menu();
+                //TODO call teacherToDepartment
                 break;
             case 6:
                 return;
