@@ -18,7 +18,6 @@ public class AddFunctions {
 
         Course course = new Course(name, credits);
         CourseFunctions.addCourse(course);
-
     }
 
     public static void addStudent(){
@@ -60,8 +59,5 @@ public class AddFunctions {
 
         //TODO implement methods in class DepartmentFunctions
         //DepartmentFunctions.addDepartment(department);
-
     }
-
-
 }
