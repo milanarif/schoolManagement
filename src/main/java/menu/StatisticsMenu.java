@@ -9,9 +9,11 @@ public class StatisticsMenu {
 
         System.out.println("\nSTATISTICS MENU");
         System.out.println("---------------");
-        System.out.println("1. Gender Ratio");
-        System.out.println("2. Average Age");
-        System.out.println("3. Average Grade");
+        System.out.println("1. Number of Students");
+        System.out.println("2. Number of Teachers");
+        System.out.println("3. Gender Ratio");
+        System.out.println("4. Average Age");
+        System.out.println("5. Average Grade");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
