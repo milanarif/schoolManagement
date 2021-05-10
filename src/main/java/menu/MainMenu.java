@@ -9,7 +9,7 @@ public class MainMenu {
 
         System.out.println("\nMAIN MENU");
         System.out.println("---------------");
-        System.out.println("1. Management");
+        System.out.println("1. Enrollment");
         System.out.println("2. Create");
         System.out.println("3. Read");
         System.out.println("4. Update");
@@ -24,7 +24,7 @@ public class MainMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                ManagementMenu.menu();
+                EnrollmentMenu.menu();
                 break;
             case 2:
                 CreateMenu.menu();
