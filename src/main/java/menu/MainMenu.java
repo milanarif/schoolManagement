@@ -14,7 +14,8 @@ public class MainMenu {
         System.out.println("3. Read");
         System.out.println("4. Update");
         System.out.println("5. Delete");
-        System.out.println("6. Statistics");
+        System.out.println("6. Search");
+        System.out.println("7. Statistics");
 
         System.out.println("\n8. Help");
         System.out.println("0. Exit");
@@ -39,6 +40,9 @@ public class MainMenu {
                 DeleteMenu.menu();
                 break;
             case 6:
+                SearchMenu.menu();
+                break;
+            case 7:
                 StatisticsMenu.menu();
                 break;
             case 8:
