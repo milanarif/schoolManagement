@@ -1,39 +1,50 @@
 package menu;
 
-import mainAndInput.Input;
-import mainAndInput.Main;
+import main.Input;
+import main.Main;
 
-public class MenuManagement {
+public class EnrollmentMenu {
 
     public static void menu(){
 
+        System.out.println("\nENROLLMENT MENU");
         System.out.println("---------------");
         System.out.println("1. Add Student to Course");
         System.out.println("2. Add Teacher to Course");
-        System.out.println("3. Remove Student from Course");
-        System.out.println("4. Remove Teacher from Course");
+        System.out.println("3. Add Student to Department");
+        System.out.println("4. Add Teacher to Department");
+        System.out.println("5. Remove Enrollment");
 
         System.out.println("\n6. Return");
+        System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
+
+        //TODO create new instance for calls
 
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-
+                //TODO call studentToCourse
                 break;
             case 2:
-
+                //TODO call teacherToCourse
                 break;
             case 3:
-
+                //TODO call studentToDepartment
                 break;
             case 4:
-
+                //TODO call teacherToDepartment
+                break;
+            case 5:
+                RemoveEnrollmentMenu.menu();
                 break;
             case 6:
                 return;
+            case 8:
+                MainMenu.menu();
+                break;
             case 0:
                 Main.alive = false;
                 break;

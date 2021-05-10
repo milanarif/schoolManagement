@@ -101,4 +101,13 @@ public class Teacher implements Serializable {
             this.courses.remove(course);
         }
     }
+    @Override
+    public String toString() {
+        return
+                socialSecurity + " " +
+                        name + " " +
+                        gender + " " +
+                        department + " " +
+                        courses;
+    }
 }
