@@ -5,6 +5,7 @@ import dao.StudentDao;
 import dao.StudentDaoImpl;
 import entity.Student;
 import main.Input;
+import main.Print;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -24,8 +25,8 @@ public class StudentFunctions {
     }
 
     public void printStudents(List<Student> studentList){
-        PrintFunctions.printStudentHead();
-        studentList.forEach(PrintFunctions::printStudent);
+        Print.printStudentHead();
+        studentList.forEach(Print::printStudent);
     }
 
     public Student getStudent(String socialSecurity) {

@@ -1,8 +1,8 @@
-package backend;
+package main;
 
 import entity.Student;
 
-public class PrintFunctions {
+public class Print {
 
     public static void printStudentHead(){
         System.out.println("\nID               Name                Credits   Gender    Department");
