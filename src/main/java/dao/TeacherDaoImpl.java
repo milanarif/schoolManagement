@@ -50,7 +50,7 @@ public class TeacherDaoImpl implements TeacherDao{
     }
 
     @Override
-    public Teacher updateTeacherName(String socialSecurity, String newName) {
+    public Teacher setName(String socialSecurity, String newName) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Teacher teacher = em.find(Teacher.class, socialSecurity);
 

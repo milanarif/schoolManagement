@@ -7,31 +7,30 @@ import entity.Teacher;
 import java.util.List;
 
 public class TeacherFunctions {
-    TeacherDao teacherDao = new TeacherDaoImpl();
+    static TeacherDao teacherDao = new TeacherDaoImpl();
 
     //TODO: IMPLEMENT GET ALL FOR ALL CLASSES!
-    public List<Teacher> getAllTeachers() {
+    public static List<Teacher> getAllTeachers() {
         return teacherDao.getAllTeachers();
     }
 
-    public Teacher getTeacher(String socialSecurity) {
+    public static Teacher getTeacher(String socialSecurity) {
         return teacherDao.getTeacher(socialSecurity);
     }
 
-    public void addTeacher(Teacher teacher) {
+    public static void addTeacher(Teacher teacher) {
         teacherDao.addTeacher(teacher);
     }
 
-    public Teacher removeTeacher(String socialSecurity) {
+    public static Teacher removeTeacher(String socialSecurity) {
         return teacherDao.removeTeacher(socialSecurity);
     }
 
-    public Teacher updateTeacherName(String socialSecurity, String newName) {
-        return teacherDao.updateTeacherName(socialSecurity, newName);
+    public static Teacher setName(String socialSecurity, String newName) {
+        return teacherDao.setName(socialSecurity, newName);
     }
 
-    public Teacher setDepartment(String socialSecurity, Integer departmentId) {
+    public static Teacher setDepartment(String socialSecurity, Integer departmentId) {
         return teacherDao.setDepartment(socialSecurity, departmentId);
     }
-
 }

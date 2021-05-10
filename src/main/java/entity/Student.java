@@ -19,9 +19,6 @@ public class Student implements Serializable {
     private String name;
 
     @Basic
-    private double credits;
-
-    @Basic
     private String gender;
 
     @ManyToOne(targetEntity = Department.class)
@@ -29,6 +26,15 @@ public class Student implements Serializable {
 
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
     private List<Enrollment> enrollments;
+
+    public Student() {
+    }
+
+    public Student(String socialSecurity, String name, String gender) {
+        this.socialSecurity = socialSecurity;
+        this.name = name;
+        this.gender = gender;
+    }
 
     public String getSocialSecurity() {
         return this.socialSecurity;
@@ -44,14 +50,6 @@ public class Student implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public double getCredits() {
-        return this.credits;
-    }
-
-    public void setCredits(double credits) {
-        this.credits = credits;
     }
 
     public String getGender() {

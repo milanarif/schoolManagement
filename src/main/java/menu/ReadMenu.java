@@ -22,8 +22,6 @@ public class ReadMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        StudentFunctions sf = new StudentFunctions();
-
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch (choice) {
@@ -35,7 +33,6 @@ public class ReadMenu {
                 break;
             case 3:
                 Student students = new Student();
-                sf.getAllStudents(students);
                 break;
             case 4:
                 //TODO call printTeacher

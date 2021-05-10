@@ -51,7 +51,7 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public Course updateCourseName(Integer courseId, String newName) {
+    public Course setName(Integer courseId, String newName) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Course course = em.find(Course.class, courseId);
 
@@ -65,7 +65,7 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public Course updateCourseCredits(Integer courseId, double newCredits) {
+    public Course setCredits(Integer courseId, double newCredits) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Course course = em.find(Course.class, courseId);
 

@@ -48,7 +48,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
     }
 
     @Override
-    public Department updateDepartmentName(Integer departmentId, String newName) {
+    public Department setName(Integer departmentId, String newName) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Department department = em.find(Department.class, departmentId);
 

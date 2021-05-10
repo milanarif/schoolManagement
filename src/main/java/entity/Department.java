@@ -28,6 +28,14 @@ public class Department implements Serializable {
     @OneToMany(targetEntity = Student.class,mappedBy = "department")
     private List<Student> students;
 
+    public Department() {
+    }
+
+    public Department(Integer departmentId, String name) {
+        this.departmentId = departmentId;
+        this.name = name;
+    }
+
     public int getDepartmentId() {
         return this.departmentId;
     }

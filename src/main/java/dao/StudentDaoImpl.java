@@ -50,42 +50,13 @@ public class StudentDaoImpl implements StudentDao{
     }
 
     @Override
-    public Student updateStudentName(String socialSecurity, String newName) {
+    public Student setName(String socialSecurity, String newName) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Student student = em.find(Student.class, socialSecurity);
 
         if (student != null) {
             em.getTransaction().begin();
             student.setName(newName);
-            em.getTransaction().commit();
-        }
-        em.close();
-        return student;
-    }
-
-    @Override
-    public Student addCredits(String socialSecurity, double credits) {
-        EntityManager em = Connector.getEmf().createEntityManager();
-        Student student = em.find(Student.class, socialSecurity);
-
-        if (student != null) {
-            double currentCredits = student.getCredits();
-            em.getTransaction().begin();
-            student.setCredits(currentCredits + credits);
-            em.getTransaction().commit();
-        }
-        em.close();
-        return student;
-    }
-
-    @Override
-    public Student updateCredits(String socialSecurity, double newCredits) {
-        EntityManager em = Connector.getEmf().createEntityManager();
-        Student student = em.find(Student.class, socialSecurity);
-
-        if (student != null) {
-            em.getTransaction().begin();
-            student.setCredits(newCredits);
             em.getTransaction().commit();
         }
         em.close();

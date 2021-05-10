@@ -7,27 +7,34 @@ import entity.Course;
 import java.util.List;
 
 public class CourseFunctions {
-    CourseDao courseDao = new CourseDaoImpl();
+    static CourseDao courseDao = new CourseDaoImpl();
 
-    public Course getCourse(Integer courseId) {
+    public static Course getCourse(Integer courseId) {
         return courseDao.getCourse(courseId);
     }
 
-    public List<Course> getAllCourses() {
+    public static List<Course> getAllCourses() {
         return courseDao.getAllCourses();
     }
 
-    public void addCourse(Course course) {
+    public static void addCourse(Course course) {
         courseDao.addCourse(course);
     }
 
-    public Course removeCourse(Integer courseId) {
+    public static Course removeCourse(Integer courseId) {
         return courseDao.removeCourse(courseId);
     }
 
-    public Course setDepartment(Integer courseId, Integer departmentId) {
+    public static Course setDepartment(Integer courseId, Integer departmentId) {
         return courseDao.setDepartment(courseId, departmentId);
     }
 
+    public static Course setName(Integer courseId, String name) {
+        return courseDao.setName(courseId, name);
+    }
+
+    public static Course setCredits(Integer courseId, double credits) {
+        return courseDao.setCredits(courseId, credits);
+    }
 
 }

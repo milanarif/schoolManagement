@@ -5,12 +5,10 @@ import entity.Student;
 import java.util.List;
 
 public interface StudentDao {
-    public Student getStudent(String socialSecurity);
-    public List<Student> getAllStudents();
-    public void addStudent(Student student);
-    public Student removeStudent(String socialSecurity);
-    public Student updateStudentName(String socialSecurity, String newName);
-    public Student addCredits(String socialSecurity, double credits);
-    public Student updateCredits(String socialSecurity, double newCredits);
-    public Student setDepartment(String socialSecurity, Integer departmentId);
+    Student getStudent(String socialSecurity);
+    List<Student> getAllStudents();
+    void addStudent(Student student);
+    Student removeStudent(String socialSecurity);
+    Student setName(String socialSecurity, String newName);
+    Student setDepartment(String socialSecurity, Integer departmentId);
 }

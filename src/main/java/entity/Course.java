@@ -33,6 +33,15 @@ public class Course implements Serializable {
     @ManyToMany(targetEntity = Teacher.class,mappedBy = "courses")
     private List<Teacher> teachers;
 
+    public Course() {
+    }
+
+    public Course(Integer classId, String name, double credits) {
+        this.classId = classId;
+        this.name = name;
+        this.credits = credits;
+    }
+
     public Integer getClassId() {
         return this.classId;
     }
