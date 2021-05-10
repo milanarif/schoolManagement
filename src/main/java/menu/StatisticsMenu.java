@@ -26,13 +26,19 @@ public class StatisticsMenu {
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call genderRatio
+                //TODO call passRatio
                 break;
             case 2:
-                //TODO call averageAge
+                //TODO call genderRatio
                 break;
             case 3:
-                //TODO call averageGrade
+                //TODO call averageAge
+                break;
+            case 4:
+                //TODO call numberOfStudents
+                break;
+            case 5:
+                //TODO call numberOfTeachers
                 break;
             case 6:
                 return;
