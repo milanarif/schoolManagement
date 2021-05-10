@@ -21,7 +21,7 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public List<Course> getAllCourses() {
         EntityManager em = Connector.getEmf().createEntityManager();
-        List<Course> courses = em
+        List    <Course> courses = em
                 .createQuery("Select c from Course c", Course.class)
                 .getResultList();
         return courses;

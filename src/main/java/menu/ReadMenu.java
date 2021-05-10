@@ -2,6 +2,7 @@ package menu;
 
 import backend.StudentFunctions;
 import entity.Student;
+import frontend.ReadFunctions;
 import main.Main;
 import main.Input;
 
@@ -27,18 +28,23 @@ public class ReadMenu {
         switch (choice) {
             case 1:
                 //TODO call printAll
+                menu();
                 break;
             case 2:
                 //TODO call printCourse
+                menu();
                 break;
             case 3:
-                Student students = new Student();
+                ReadFunctions.readStudent();
+                menu();
                 break;
             case 4:
                 //TODO call printTeacher
+                menu();
                 break;
             case 5:
                 //TODO call printDepartment
+                menu();
                 break;
             case 6:
                 return;

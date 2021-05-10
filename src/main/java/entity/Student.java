@@ -97,4 +97,13 @@ public class Student implements Serializable {
     public void internalRemoveEnrollment(Enrollment enrollment) {
         enrollments.remove(enrollment);
     }
+
+    @Override
+    public String toString() {
+        return socialSecurity + " " +
+                name + " " +
+                gender + " " +
+                department + " " +
+                enrollments;
+    }
 }

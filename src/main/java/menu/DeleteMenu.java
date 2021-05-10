@@ -1,5 +1,6 @@
 package menu;
 
+import frontend.DeleteFunctions;
 import main.Input;
 import main.Main;
 
@@ -26,16 +27,20 @@ public class DeleteMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                //TODO call deleteCourse
+                DeleteFunctions.deleteCourse();
+                menu();
                 break;
             case 2:
-                //TODO call deleteStudent
+                DeleteFunctions.deleteStudent();
+                menu();
                 break;
             case 3:
-                //TODO call deleteTeacher
+                DeleteFunctions.deleteTeacher();
+                menu();
                 break;
             case 4:
-                //TODO call deleteDepartment
+                DeleteFunctions.deleteDepartment();
+                menu();
                 break;
             case 6:
                 return;
