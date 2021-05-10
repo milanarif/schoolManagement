@@ -15,7 +15,6 @@ public class CreateMenu {
         System.out.println("2. Create Student");
         System.out.println("3. Create Teacher");
         System.out.println("4. Create Department");
-        System.out.println("5. Create Grade");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -39,9 +38,6 @@ public class CreateMenu {
                 break;
             case 4:
                 //TODO call departmentCreate
-                break;
-            case 5:
-                //TODO call gradeCreate
                 break;
             case 6:
                 return;
