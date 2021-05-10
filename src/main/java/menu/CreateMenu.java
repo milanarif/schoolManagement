@@ -2,6 +2,7 @@ package menu;
 
 import backend.StudentFunctions;
 import entity.Student;
+import frontend.CreateFunctions;
 import main.Main;
 import main.Input;
 
@@ -21,8 +22,6 @@ public class CreateMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        StudentFunctions sf = new StudentFunctions();
-
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){
@@ -30,8 +29,7 @@ public class CreateMenu {
                 //TODO call courseCreate
                 break;
             case 2:
-                Student student = new Student();
-                sf.addStudent(student);
+                CreateFunctions.addStudent();
                 break;
             case 3:
                 //TODO call teacherCreate

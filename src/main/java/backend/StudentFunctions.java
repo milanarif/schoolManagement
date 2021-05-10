@@ -33,25 +33,10 @@ public class StudentFunctions {
         return studentDao.getStudent(socialSecurity);
     }
 
-    public void addStudent(Student student) {
-
-        System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
-        student.setSocialSecurity(socialSecurity);
-
-        System.out.print("Name: ");
-        String name = Input.inputString();
-        student.setName(name);
-
-        student.setCredits(0);
-
-        System.out.print("Gender: ");
-        String gender = Input.inputString();
-        student.setGender(gender);
-
-        student.setDepartment(null);
-
-        studentDao.addStudent(student);
+    public static void addStudent(Student student) {
+        StudentDao sd = new StudentDaoImpl();
+        sd.addStudent(student);
+        //studentDao.addStudent(student);
     }
 /*
     public Student removeStudent(String socialSecurity) {
