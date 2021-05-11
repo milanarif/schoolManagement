@@ -9,6 +9,7 @@ import entity.Student;
 public class EnrollmentFunctions {
 
     static EnrollmentDao enrollmentDao = new EnrollmentDaoImpl();
+    //public static Integer enrollmentIdSetCourse;
 
     public static Enrollment getEnrollment(Integer enrollmentId) {
         return enrollmentDao.getEnrollment(enrollmentId);
@@ -25,7 +26,7 @@ public class EnrollmentFunctions {
     public static Enrollment setCourse(Integer enrollmentId, Integer courseId) {
         return enrollmentDao.setCourse(enrollmentId, courseId);
     }
-
+/*
     public static Enrollment setCourse(String socialSecurity, Integer courseId) {
         Enrollment enrollment = new Enrollment();
         Student student = StudentFunctions.getStudent(socialSecurity);
@@ -40,6 +41,8 @@ public class EnrollmentFunctions {
 
         return enrollmentDao.setCourse(enrollment);
     }
+
+ */
 
     public static Enrollment removeCourse(Integer enrollmentId, Integer courseId) {
         return enrollmentDao.removeCourse(enrollmentId, courseId);
