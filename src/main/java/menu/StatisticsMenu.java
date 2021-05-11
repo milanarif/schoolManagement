@@ -21,22 +21,31 @@ public class StatisticsMenu {
         System.out.println("---------------");
 
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
                 StatisticsFunctions.passRatio();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 2:
                 StatisticsFunctions.genderRatio();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 3:
                 StatisticsFunctions.averageAge();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 4:
                 StatisticsFunctions.numberOfPerson();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 6:

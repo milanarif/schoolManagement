@@ -8,14 +8,14 @@ import java.util.List;
 public class PrintFunctions {
 
     public static void printStudentHead(List <Student> student){
-        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department   Enrollment");
-        System.out.println("--------------   -----------------   -------   -------   -----------  -----------");
+        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department");
+        System.out.println("--------------   -----------------   -------   -------   -----------");
         student.forEach(PrintFunctions::printStudent);
     }
 
     public static void printStudentHeadSearch(Student s){
-        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department   Enrollment");
-        System.out.println("--------------   -----------------   -------   -------   -----------  -----------");
+        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department");
+        System.out.println("--------------   -----------------   -------   -------   -----------");
         printStudent(s);
     }
 
@@ -25,7 +25,6 @@ public class PrintFunctions {
         System.out.printf("%-10.2f", StudentFunctions.getCredits(s.getSocialSecurity()));
         System.out.printf("%-10s", s.getGender());
         System.out.printf("%-13s", s.getDepartment());
-        System.out.printf("%-10s", s.getEnrollments());
         System.out.println(" ");
     }
 

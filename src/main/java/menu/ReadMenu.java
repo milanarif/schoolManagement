@@ -24,26 +24,37 @@ public class ReadMenu {
         System.out.println("---------------");
 
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
                 ReadFunctions.readAll();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 2:
                 ReadFunctions.readCourse();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 3:
                 ReadFunctions.readStudent();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 4:
                 ReadFunctions.readTeacher();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 5:
                 ReadFunctions.readDepartment();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 6:

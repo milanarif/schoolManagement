@@ -10,9 +10,6 @@ import entity.Student;
 import entity.Teacher;
 import main.Input;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SearchFunctions {
 
     public static void searchCourse() {
@@ -21,7 +18,12 @@ public class SearchFunctions {
         Integer courseId = Input.inputInt();
 
         Course course = CourseFunctions.getCourse(courseId);
-        PrintFunctions.printCourseHeadSearch(course);
+
+        if(course != null) {
+            PrintFunctions.printCourseHeadSearch(course);
+        } else {
+            System.out.println("No such course id (" + courseId+")");
+        }
     }
 
     public static void searchStudent() {
@@ -30,16 +32,26 @@ public class SearchFunctions {
         String socialSecurity = Input.inputString();
 
         Student student = StudentFunctions.getStudent(socialSecurity);
-        PrintFunctions.printStudentHeadSearch(student);
+
+        if(student != null){
+            PrintFunctions.printStudentHeadSearch(student);
+        } else {
+            System.out.println("No such student (" + socialSecurity+")");
+        }
     }
 
     public static void searchTeacher() {
 
-        System.out.print("Student social security: ");
+        System.out.print("Teacher social security: ");
         String socialSecurity = Input.inputString();
 
         Teacher teacher = TeacherFunctions.getTeacher(socialSecurity);
-        PrintFunctions.printTeacherHeadSearch(teacher);
+
+        if(teacher != null){
+            PrintFunctions.printTeacherHeadSearch(teacher);
+        } else {
+            System.out.println("No such teacher (" + socialSecurity+")");
+        }
     }
 
     public static void searchDepartment() {
@@ -48,6 +60,11 @@ public class SearchFunctions {
         Integer departmentId = Input.inputInt();
 
         Department department = DepartmentFunctions.getDepartment(departmentId);
-        PrintFunctions.printDepartmentHeadSearch(department);
+
+        if(department != null) {
+            PrintFunctions.printDepartmentHeadSearch(department);
+        } else {
+            System.out.println("No such department id (" + departmentId+")");
+        }
     }
 }

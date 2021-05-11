@@ -1,6 +1,5 @@
 package menu;
 
-import frontend.PrintFunctions;
 import frontend.SearchFunctions;
 import main.Main;
 import main.Input;
@@ -22,22 +21,31 @@ public class SearchMenu {
         System.out.println("---------------");
 
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
                 SearchFunctions.searchCourse();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 2:
                 SearchFunctions.searchStudent();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 3:
                 SearchFunctions.searchTeacher();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 4:
                 SearchFunctions.searchDepartment();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
                 menu();
                 break;
             case 6:
