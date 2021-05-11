@@ -24,6 +24,7 @@ public class StudentDaoImpl implements StudentDao{
                 .createQuery("Select s from Student s", Student.class)
                 .getResultList();
         em.close();
+      
         return students;
     }
 
