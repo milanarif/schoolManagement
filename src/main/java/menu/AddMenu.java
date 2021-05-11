@@ -1,7 +1,5 @@
 package menu;
 
-import dao.TeacherDao;
-import dao.TeacherDaoImpl;
 import frontend.AddFunctions;
 import main.Main;
 import main.Input;

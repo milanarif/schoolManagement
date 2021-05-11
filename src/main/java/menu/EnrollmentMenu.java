@@ -1,6 +1,5 @@
 package menu;
 
-import backend.StudentFunctions;
 import frontend.AddEnrollmentFunctions;
 import main.Input;
 import main.Main;
@@ -21,8 +20,6 @@ public class EnrollmentMenu {
         System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
-
-        //TODO create new instance for calls
 
         System.out.print("choice: ");
         Integer choice = Input.inputInt();

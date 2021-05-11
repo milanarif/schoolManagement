@@ -3,9 +3,6 @@ package backend;
 import dao.EnrollmentDao;
 import dao.EnrollmentDaoImpl;
 import entity.Enrollment;
-import entity.Student;
-
-import java.util.List;
 
 public class EnrollmentFunctions {
 
@@ -31,6 +28,10 @@ public class EnrollmentFunctions {
 
     public static Enrollment setCourse(Integer enrollmentId, Integer courseId) {
         return enrollmentDao.setCourse(enrollmentId, courseId);
+    }
+
+    public static Enrollment removeCourse(Integer enrollmentId, Integer courseId) {
+        return enrollmentDao.removeCourse(enrollmentId, courseId);
     }
 
     public static Enrollment setStudent(Integer enrollmentId, String socialSecurity) {

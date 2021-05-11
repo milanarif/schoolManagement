@@ -21,8 +21,6 @@ public class DeleteMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        //TODO create new instance for calls
-
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){

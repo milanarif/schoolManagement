@@ -22,4 +22,8 @@ public class DepartmentFunctions {
     public static Department setName(Integer departmentId, String name) {
         return departmentDao.setName(departmentId, name);
     }
+
+    public static Department getDepartment(Integer departmentId) {
+        return departmentDao.getDepartment(departmentId);
+    }
 }
