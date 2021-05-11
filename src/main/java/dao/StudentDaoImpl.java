@@ -23,8 +23,8 @@ public class StudentDaoImpl implements StudentDao{
         List<Student> students = em
                 .createQuery("Select s from Student s", Student.class)
                 .getResultList();
-
         em.close();
+      
         return students;
     }
 

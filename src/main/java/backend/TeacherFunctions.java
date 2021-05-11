@@ -9,7 +9,6 @@ import java.util.List;
 public class TeacherFunctions {
     static TeacherDao teacherDao = new TeacherDaoImpl();
 
-    //TODO: IMPLEMENT GET ALL FOR ALL CLASSES!
     public static List<Teacher> getAllTeachers() {
         return teacherDao.getAllTeachers();
     }
