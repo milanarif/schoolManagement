@@ -31,10 +31,8 @@ public class StatisticsFunctions {
         List<Teacher> teacher = TeacherFunctions.getAllTeachers();
 
         int s = student.size();
-
         int t = teacher.size();
-
-        Integer total = s + t;
+        int total = s + t;
 
         System.out.println("\nStudents  Teachers  Total");
         System.out.println("--------  --------  -------");
