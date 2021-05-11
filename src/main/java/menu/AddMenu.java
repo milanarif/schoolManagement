@@ -1,7 +1,5 @@
 package menu;
 
-import dao.TeacherDao;
-import dao.TeacherDaoImpl;
 import frontend.AddFunctions;
 import main.Main;
 import main.Input;
@@ -27,15 +25,19 @@ public class AddMenu {
         switch(choice){
             case 1:
                 AddFunctions.addCourse();
+                menu();
                 break;
             case 2:
                 AddFunctions.addStudent();
+                menu();
                 break;
             case 3:
                 AddFunctions.addTeacher();
+                menu();
                 break;
             case 4:
                 AddFunctions.addDepartment();
+                menu();
                 break;
             case 6:
                 return;

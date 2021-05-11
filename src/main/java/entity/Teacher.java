@@ -3,11 +3,7 @@ package entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Teacher implements Serializable { 
@@ -24,7 +20,7 @@ public class Teacher implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @ManyToMany(targetEntity = Course.class)
+    @ManyToMany(targetEntity = Course.class, fetch = FetchType.EAGER)
     private List<Course> courses;
 
     public Teacher() {
@@ -107,7 +103,7 @@ public class Teacher implements Serializable {
                 socialSecurity + " " +
                         name + " " +
                         gender + " " +
-                        department + " " +
-                        courses;
+                        courses + " " +
+                        department;
     }
 }

@@ -9,7 +9,7 @@ public class Help {
         System.out.println("Use the numbers on your keyboard matching the options to move through this application.");
 
         System.out.print("\nPress ENTER to continue...");
-        String enter = main.Input.inputString();
+        String delay = main.Input.inputString();
 
         MainMenu.menu();
     }

@@ -21,6 +21,8 @@ public class DepartmentDaoImpl implements DepartmentDao{
         List<Department> departments = em
                 .createQuery("Select d from Department d", Department.class)
                 .getResultList();
+
+        em.close();
         return departments;
     }
 

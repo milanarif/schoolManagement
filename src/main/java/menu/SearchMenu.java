@@ -1,5 +1,6 @@
 package menu;
 
+import frontend.SearchFunctions;
 import main.Main;
 import main.Input;
 
@@ -19,22 +20,33 @@ public class SearchMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        //TODO create new instance for calls
-
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call searchCourse
+                SearchFunctions.searchCourse();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 2:
-                //TODO call searchStudent
+                SearchFunctions.searchStudent();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 3:
-                //TODO call searchTeacher
+                SearchFunctions.searchTeacher();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 4:
-                //TODO call searchDepartment
+                SearchFunctions.searchDepartment();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 6:
                 return;

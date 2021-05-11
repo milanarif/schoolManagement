@@ -4,8 +4,12 @@ import dao.DepartmentDao;
 import dao.DepartmentDaoImpl;
 import entity.Department;
 
+import java.util.List;
+
 public class DepartmentFunctions {
     static DepartmentDao departmentDao = new DepartmentDaoImpl();
+
+    public static List<Department> getAllDepartments(){ return departmentDao.getAllDepartments(); }
 
     public static void addDepartment(Department department) {
         departmentDao.addDepartment(department);
@@ -19,4 +23,7 @@ public class DepartmentFunctions {
         return departmentDao.setName(departmentId, name);
     }
 
+    public static Department getDepartment(Integer departmentId) {
+        return departmentDao.getDepartment(departmentId);
+    }
 }

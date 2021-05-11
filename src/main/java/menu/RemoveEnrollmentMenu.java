@@ -1,5 +1,6 @@
 package menu;
 
+import frontend.RemoveEnrollmentFunctions;
 import main.Input;
 import main.Main;
 
@@ -19,22 +20,24 @@ public class RemoveEnrollmentMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        //TODO create new instance for calls
-
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                //TODO call removeStudentFromCourse
+                RemoveEnrollmentFunctions.removeCourseStudent();
+                menu();
                 break;
             case 2:
                 //TODO call removeTeacherFromCourse
+                menu();
                 break;
             case 3:
                 //TODO call removeStudentFromDepartment
+                menu();
                 break;
             case 4:
                 //TODO call removeTeacherFromDepartment
+                menu();
                 break;
             case 6:
                 return;

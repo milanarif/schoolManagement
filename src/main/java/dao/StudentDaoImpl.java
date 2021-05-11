@@ -24,6 +24,7 @@ public class StudentDaoImpl implements StudentDao{
                 .createQuery("Select s from Student s", Student.class)
                 .getResultList();
         em.close();
+      
         return students;
     }
 
@@ -75,8 +76,6 @@ public class StudentDaoImpl implements StudentDao{
             student.setDepartment(department);
             em.getTransaction().commit();
         }
-        em.close();
-
         return student;
     }
 }

@@ -1,5 +1,6 @@
 package menu;
 
+import frontend.UpdateFunctions;
 import main.Main;
 import main.Input;
 
@@ -19,22 +20,24 @@ public class UpdateMenu {
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        //TODO create new instance for calls
-
         System.out.print("choice: ");
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call updateCourse
+                UpdateFunctions.updateCourse();
+                menu();
                 break;
             case 2:
-                //TODO call updateStudent
+                UpdateFunctions.updateStudent();
+                menu();
                 break;
             case 3:
-                //TODO call updateTeacher
+                UpdateFunctions.updateTeacher();
+                menu();
                 break;
             case 4:
-                //TODO call updateDepartment
+                UpdateFunctions.updateDepartment();
+                menu();
                 break;
             case 6:
                 return;

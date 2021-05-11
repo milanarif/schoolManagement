@@ -2,6 +2,7 @@ package menu;
 
 import backend.StudentFunctions;
 import entity.Student;
+import frontend.ReadFunctions;
 import main.Main;
 import main.Input;
 
@@ -23,22 +24,38 @@ public class ReadMenu {
         System.out.println("---------------");
 
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call printAll
+                ReadFunctions.readAll();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 2:
-                //TODO call printCourse
+                ReadFunctions.readCourse();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 3:
-                Student students = new Student();
+                ReadFunctions.readStudent();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 4:
-                //TODO call printTeacher
+                ReadFunctions.readTeacher();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 5:
-                //TODO call printDepartment
+                ReadFunctions.readDepartment();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 6:
                 return;

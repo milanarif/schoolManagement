@@ -1,12 +1,7 @@
 package entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Enrollment implements Serializable {
@@ -74,5 +69,10 @@ public class Enrollment implements Serializable {
         if (course != null) {
             course.internalAddEnrollment(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(enrollmentId);
     }
 }
