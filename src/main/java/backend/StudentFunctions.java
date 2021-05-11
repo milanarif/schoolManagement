@@ -49,7 +49,4 @@ public class StudentFunctions {
         return credits;
     }
 
-    //TODO: IMPLEMENTERA getAlls, method for calculating credits from enrollments?
-    //TODO: MAYBE ADD NAME TO ENROLLMENT FROM COURSE NAME AND THEN KEEP ENROLLMENTS DESPITE COURSE BEING REMOVED. MAYBE CREDITS SHOULD ONLY
-    //TODO: BE CALULATED USING ENROLLMENT LIST!? LESS RISK OF STALE DATA!!
 }

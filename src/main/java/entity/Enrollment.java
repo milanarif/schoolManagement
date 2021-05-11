@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Enrollment implements Serializable { 
-
-    //TODO: MAYBE GIVE NAME TO DO WHAT IS WRITTEN IN OTHER CLASS FILE!?
+public class Enrollment implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
