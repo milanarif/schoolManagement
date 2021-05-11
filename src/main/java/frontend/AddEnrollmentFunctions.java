@@ -1,19 +1,20 @@
 package frontend;
 
 import backend.*;
+import entity.Enrollment;
 import main.Input;
 
 public class AddEnrollmentFunctions {
 
     public static void setCourseStudent(){
 
-        System.out.print("Student enrollment id: ");
-        Integer enrollmentId = Input.inputInt();
+        System.out.print("Student Social Security: ");
+        String socialSecurity = Input.inputString();
 
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        EnrollmentFunctions.setCourse(enrollmentId, courseId);
+        EnrollmentFunctions.setCourse(socialSecurity, courseId);
     }
 
     public static void setCourseTeacher(){

@@ -99,6 +99,20 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
     }
 
     @Override
+    public Enrollment setCourse(Enrollment enrollment) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+
+        if (enrollment != null) {
+            em.getTransaction().begin();
+            em.persist(enrollment);
+            em.getTransaction().commit();
+        }
+        em.close();
+
+        return enrollment;
+    }
+
+    @Override
     public Enrollment setStudent(Integer enrollmentId, String socialSecurity) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Enrollment enrollment = em.find(Enrollment.class, enrollmentId);

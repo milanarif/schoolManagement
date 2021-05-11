@@ -28,15 +28,7 @@ public class AddFunctions {
         System.out.print("Gender: ");
         String gender = Input.inputString();
 
-        Enrollment enrollment = new Enrollment();
-        EnrollmentFunctions.addEnrollment(enrollment);
-
-        Integer enrollmentId = EnrollmentFunctions.enrollmentIdForNewStudent;
-
-        Student student = new Student(socialSecurity, name, gender);
-
-        StudentFunctions.addStudent(student);
-        EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
+        StudentFunctions.addStudent(new Student(socialSecurity, name, gender));
     }
 
     public static void addTeacher(){
