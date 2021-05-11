@@ -5,11 +5,11 @@ import entity.Enrollment;
 import java.util.List;
 
 public interface EnrollmentDao {
-    public Enrollment getEnrollment(Integer enrollmentId);
-    public List<Enrollment> getAllEnrollments();
-    public void addEnrollment(Enrollment enrollment);
-    public Enrollment removeEnrollment(Integer enrollmentId);
-    public Enrollment gradeEnrollment(Integer enrollmentId, Integer grade);
-    public Enrollment setCourse(Integer enrollmentId, Integer courseId);
-    public Enrollment setStudent(Integer enrollmentId, String socialSecurity);
-}
+    Enrollment getEnrollment(Integer enrollmentId);
+    List<Enrollment> getAllEnrollments();
+    void addEnrollment(Enrollment enrollment);
+    Enrollment removeEnrollment(Integer enrollmentId);
+    Enrollment gradeEnrollment(Integer enrollmentId, Integer grade);
+    Enrollment setCourse(Integer enrollmentId, Integer courseId);
+    Enrollment setStudent(Integer enrollmentId, String socialSecurity);
+    Enrollment removeCourse(Integer enrollmentId, Integer courseId);}

@@ -1,5 +1,6 @@
 package menu;
 
+import frontend.StatisticsFunctions;
 import main.Main;
 import main.Input;
 
@@ -12,33 +13,40 @@ public class StatisticsMenu {
         System.out.println("1. Pass ratio");
         System.out.println("2. Gender Ratio");
         System.out.println("3. Average Age");
-        System.out.println("4. Number of Students");
-        System.out.println("5. Number of Teachers");
+        System.out.println("4. Amount of Persons in School");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
 
-        //TODO create new instance for calls
-
         System.out.print("choice: ");
+        String delay;
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                //TODO call passRatio
+                StatisticsFunctions.passRatio();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 2:
-                //TODO call genderRatio
+                StatisticsFunctions.genderRatio();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 3:
-                //TODO call averageAge
+                StatisticsFunctions.averageAge();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 4:
-                //TODO call numberOfStudents
-                break;
-            case 5:
-                //TODO call numberOfTeachers
+                StatisticsFunctions.numberOfPerson();
+                System.out.print("\nPress ENTER to continue...");
+                delay = Input.inputString();
+                menu();
                 break;
             case 6:
                 return;

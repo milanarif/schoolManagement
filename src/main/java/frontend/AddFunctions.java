@@ -1,9 +1,6 @@
 package frontend;
 
-import entity.Course;
-import entity.Department;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import main.Input;
 import backend.*;
 public class AddFunctions {
@@ -31,8 +28,15 @@ public class AddFunctions {
         System.out.print("Gender: ");
         String gender = Input.inputString();
 
+        Enrollment enrollment = new Enrollment();
+        EnrollmentFunctions.addEnrollment(enrollment);
+
+        Integer enrollmentId = EnrollmentFunctions.enrollmentIdForNewStudent;
+
         Student student = new Student(socialSecurity, name, gender);
+
         StudentFunctions.addStudent(student);
+        EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
     }
 
     public static void addTeacher(){

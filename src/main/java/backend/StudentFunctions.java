@@ -34,6 +34,7 @@ public class StudentFunctions {
         return studentDao.setDepartment(socialSecurity, departmentId);
     }
 
+
     public static double getCredits(String socialSecurity) {
         Student student = studentDao.getStudent(socialSecurity);
         List<Enrollment> enrollments = student.getEnrollments();
