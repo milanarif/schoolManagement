@@ -6,19 +6,6 @@ import main.Input;
 
 public class AddEnrollmentFunctions {
 
-    /*
-    public static void setCourseStudent(){
-
-        System.out.print("Student Social Security: ");
-        String socialSecurity = Input.inputString();
-
-        System.out.print("Course id: ");
-        Integer courseId = Input.inputInt();
-
-        EnrollmentFunctions.setCourse(socialSecurity, courseId);
-    }
-
-     */
 
     public static void setCourseStudent(){
 
@@ -42,10 +29,10 @@ public class AddEnrollmentFunctions {
         System.out.print("Teacher social security: ");
         String socialSecurity = Input.inputString();
 
-        System.out.print("Enrollment id: ");
-        Integer enrollmentId = Input.inputInt();
+        System.out.print("Course id: ");
+        Integer courseId = Input.inputInt();
 
-        TeacherFunctions.setCourse(socialSecurity, enrollmentId);
+        TeacherFunctions.setCourse(socialSecurity, courseId);
     }
 
     public static void setDepartmentStudent(){

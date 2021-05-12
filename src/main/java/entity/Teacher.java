@@ -78,8 +78,6 @@ public class Teacher implements Serializable {
         this.courses = courses;
     }
 
-    //Line
-
     public void addCourse(Course course){
         if (this.courses == null) {
             this.courses = new ArrayList<>();

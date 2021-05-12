@@ -37,4 +37,7 @@ public class CourseFunctions {
         return courseDao.setCredits(courseId, credits);
     }
 
+    public static Course removeTeacher(String socialSecurity, Integer courseId) {
+        return courseDao.removeTeacher(socialSecurity, courseId);
+    }
 }

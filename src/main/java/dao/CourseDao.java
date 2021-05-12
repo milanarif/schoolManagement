@@ -12,4 +12,4 @@ public interface CourseDao {
     Course setName(Integer courseId, String newName);
     Course setCredits(Integer courseId, double newCredits);
     Course setDepartment(Integer courseId, Integer departmentId);
-}
+    Course removeTeacher(String socialSecurity, Integer courseId);}

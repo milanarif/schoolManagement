@@ -81,7 +81,7 @@ public class TeacherDaoImpl implements TeacherDao{
     }
 
     @Override
-    public Teacher addCourse(String socialSecurity, Integer courseId) {
+    public Teacher setCourse(String socialSecurity, Integer courseId) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Teacher teacher = em.find(Teacher.class, socialSecurity);
         Course course = em.find(Course.class, courseId);
@@ -94,5 +94,33 @@ public class TeacherDaoImpl implements TeacherDao{
         em.close();
         return teacher;
     }
+
+
+    @Override
+    public Teacher removeCourse(Course course) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Teacher teacher = em.find(Teacher.class, course);
+
+        if (teacher != null){
+            em.getTransaction();
+            teacher.removeCourse(course);
+            em.getTransaction();
+        }
+        em.close();
+
+
+        return teacher;
+    }
+
+/*
+    @Override
+    public Teacher removeCourse(String socialSecurity, Integer courseId) {
+
+
+
+        //return teacher;
+    }
+
+ */
 }
 

@@ -34,20 +34,17 @@ public class StudentFunctions {
         return studentDao.setDepartment(socialSecurity, departmentId);
     }
 
-
     public static double getCredits(String socialSecurity) {
         Student student = studentDao.getStudent(socialSecurity);
         List<Enrollment> enrollments = student.getEnrollments();
         double credits = 0;
-
         if (enrollments != null) {
             for (Enrollment e : enrollments) {
-                if (e.getCourse() != null && e.getGrade() > 2) {
+                if (e.getCourse() != null && e.getGrade() != null &&e.getGrade() > 2) {
                     credits += e.getCourse().getCredits();
                 }
             }
         }
         return credits;
     }
-
 }

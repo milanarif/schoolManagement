@@ -2,6 +2,7 @@ package backend;
 
 import dao.TeacherDao;
 import dao.TeacherDaoImpl;
+import entity.Course;
 import entity.Teacher;
 
 import java.util.List;
@@ -34,6 +35,16 @@ public class TeacherFunctions {
     }
 
     public static Teacher setCourse(String socialSecurity, Integer courseId) {
-        return teacherDao.addCourse(socialSecurity, courseId);
+        return teacherDao.setCourse(socialSecurity, courseId);
+    }
+/*
+    public static Teacher removeCourse(String socialSecurity, Integer courseId) {
+        return teacherDao.removeCourse(socialSecurity, courseId);
+    }
+
+ */
+
+    public Teacher removeCourse(Course course) {
+        return teacherDao.removeCourse(course);
     }
 }

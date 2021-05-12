@@ -28,15 +28,15 @@ public class RemoveEnrollmentMenu {
                 menu();
                 break;
             case 2:
-                //TODO call removeTeacherFromCourse
+                RemoveEnrollmentFunctions.removeCourseTeacher();
                 menu();
                 break;
             case 3:
-                //TODO call removeStudentFromDepartment
+                RemoveEnrollmentFunctions.removeDepartmentStudent();
                 menu();
                 break;
             case 4:
-                //TODO call removeTeacherFromDepartment
+                RemoveEnrollmentFunctions.removeDepartmentTeacher();
                 menu();
                 break;
             case 6:

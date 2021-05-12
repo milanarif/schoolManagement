@@ -1,9 +1,6 @@
 package dao;
 
-import entity.Course;
-import entity.Department;
-import entity.Enrollment;
-import entity.Student;
+import entity.*;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -90,6 +87,22 @@ public class CourseDaoImpl implements CourseDao {
             em.getTransaction().begin();
             course.setDepartment(department);
             em.getTransaction().commit();
+        }
+        em.close();
+
+        return course;
+    }
+
+    @Override
+    public Course removeTeacher(String socialSecurity, Integer courseId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Course course = em.find(Course.class, courseId);
+        Teacher teacher = em.find(Teacher.class, socialSecurity);
+
+        if (course != null) {
+            em.getTransaction();
+            course.removeTeacher(null);
+            em.getTransaction().begin();
         }
         em.close();
 
