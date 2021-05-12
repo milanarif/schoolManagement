@@ -1,7 +1,9 @@
 package frontend;
 
 import backend.*;
+import entity.Course;
 import entity.Enrollment;
+import entity.Teacher;
 import main.Input;
 
 public class AddEnrollmentFunctions {
@@ -32,7 +34,15 @@ public class AddEnrollmentFunctions {
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        TeacherFunctions.setCourse(socialSecurity, courseId);
+        Teacher teacher = TeacherFunctions.setCourse(socialSecurity, courseId);
+        if (teacher == null) {
+            System.out.println("\nTeacher Not Found!");
+        }
+        else if (teacher.getCourses().contains(CourseFunctions.getCourse(courseId))) {
+            System.out.println("\nCourse Successfully Added!");
+        } else  {
+            System.out.println("\nCourse Not Found!");
+        }
     }
 
     public static void setDepartmentStudent(){

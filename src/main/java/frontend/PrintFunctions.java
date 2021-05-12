@@ -24,7 +24,11 @@ public class PrintFunctions {
         System.out.printf("%-20s", s.getName());
         System.out.printf("%-10.2f", StudentFunctions.getCredits(s.getSocialSecurity()));
         System.out.printf("%-10s", s.getGender());
-        System.out.printf("%-13s", s.getDepartment());
+        if (s.getDepartment() == null) {
+            System.out.printf("%-10s", "-");
+        } else {
+            System.out.printf("%-10s", s.getDepartment());
+        }
         System.out.println(" ");
     }
 
@@ -44,8 +48,17 @@ public class PrintFunctions {
         System.out.printf("%-17s", t.getSocialSecurity());
         System.out.printf("%-20s", t.getName());
         System.out.printf("%-10s", t.getGender());
-        System.out.printf("%-16s", t.getCourses());
-        System.out.printf("%-10s", t.getDepartment());
+        if (t.getCourses().isEmpty()) {
+            System.out.printf("%-16s", "-");
+        }
+        else {
+            System.out.printf("%-16s", t.getCourses());
+        }
+        if (t.getDepartment() == null) {
+            System.out.printf("%-10s", "-");
+        } else {
+            System.out.printf("%-10s", t.getDepartment());
+        }
         System.out.println(" ");
     }
 

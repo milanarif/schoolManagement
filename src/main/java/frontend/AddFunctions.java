@@ -28,7 +28,13 @@ public class AddFunctions {
         System.out.print("Gender: ");
         String gender = Input.inputString();
 
-        StudentFunctions.addStudent(new Student(socialSecurity, name, gender));
+        Student student = new Student(socialSecurity, name, gender);
+
+        if (StudentFunctions.getAllStudents().contains(student)) {
+            System.out.println("Student with that social security already exists.");
+        } else {
+            StudentFunctions.addStudent(student);
+        }
     }
 
     public static void addTeacher(){

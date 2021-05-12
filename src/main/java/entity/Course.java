@@ -2,14 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Course implements Serializable { 
@@ -130,5 +123,19 @@ public class Course implements Serializable {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o ) {
+            return true;
+        }
+        if (o instanceof Course) {
+            if (((Course) o).getCourseId().equals(this.courseId)){
+                return true;
+            }
+            else return false;
+        }
+        return false;
     }
 }

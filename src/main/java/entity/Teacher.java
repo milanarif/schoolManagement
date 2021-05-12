@@ -20,7 +20,7 @@ public class Teacher implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @ManyToMany(targetEntity = Course.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Course.class)
     private List<Course> courses;
 
     public Teacher() {
@@ -103,5 +103,18 @@ public class Teacher implements Serializable {
                         gender + " " +
                         courses + " " +
                         department;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o ) {
+            return true;
+        }
+        if (o instanceof Student) {
+            if (((Teacher) o).getSocialSecurity().equals(this.socialSecurity)){
+                return true;
+            }
+            else return false;
+        }
+        return false;
     }
 }

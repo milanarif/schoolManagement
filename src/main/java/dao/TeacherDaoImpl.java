@@ -86,7 +86,7 @@ public class TeacherDaoImpl implements TeacherDao{
         Teacher teacher = em.find(Teacher.class, socialSecurity);
         Course course = em.find(Course.class, courseId);
 
-        if (teacher != null) {
+        if (teacher != null && course != null) {
             em.getTransaction().begin();
             teacher.addCourse(course);
             em.getTransaction().commit();
