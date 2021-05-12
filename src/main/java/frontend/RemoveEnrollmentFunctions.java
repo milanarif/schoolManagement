@@ -1,15 +1,8 @@
 package frontend;
 
 import backend.*;
-import dao.CourseDao;
-import dao.CourseDaoImpl;
-import entity.Course;
-import entity.Enrollment;
-import entity.Student;
-import entity.Teacher;
 import main.Input;
 
-import java.util.List;
 
 
 public class RemoveEnrollmentFunctions {
@@ -33,7 +26,9 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        CourseFunctions.removeTeacher(socialSecurity, courseId);
+        //CourseFunctions.removeTeacher(socialSecurity, courseId);
+
+        //TODO not finished
     }
 
     public static void removeDepartmentStudent() {
@@ -44,7 +39,8 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        //StudentFunctions.setDepartment()
+        //TODO fix
+        //StudentFunctions.removeDepartment(socialSecurity, departmentId);
     }
 
     public static void removeDepartmentTeacher() {
@@ -55,5 +51,7 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
+        //StudentFunctions.removeDepartment(socialSecurity, departmentId);
+        //TODO fix
     }
 }

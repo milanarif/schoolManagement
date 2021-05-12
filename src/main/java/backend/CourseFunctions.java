@@ -35,9 +35,4 @@ public class CourseFunctions {
 
     public static Course setCredits(Integer courseId, double credits) {
         return courseDao.setCredits(courseId, credits);
-    }
-
-    public static Course removeTeacher(String socialSecurity, Integer courseId) {
-        return courseDao.removeTeacher(socialSecurity, courseId);
-    }
-}
+    }}
