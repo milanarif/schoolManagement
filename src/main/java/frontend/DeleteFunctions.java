@@ -4,6 +4,10 @@ import backend.CourseFunctions;
 import backend.DepartmentFunctions;
 import backend.StudentFunctions;
 import backend.TeacherFunctions;
+import entity.Course;
+import entity.Department;
+import entity.Student;
+import entity.Teacher;
 import main.Input;
 
 public class DeleteFunctions {
@@ -13,26 +17,44 @@ public class DeleteFunctions {
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        CourseFunctions courseFunctions = new CourseFunctions();
-        courseFunctions.removeCourse(courseId);
+        Course course = CourseFunctions.getCourse(courseId);
+
+        if (course != null) {
+            System.out.println("\nCourse (" + courseId + ") Successfully Deleted!");
+            CourseFunctions.removeCourse(courseId);
+        } else {
+            System.out.println("\nCourse (" + courseId + ") Not Found!");
+        }
     }
 
     public static void deleteStudent(){
 
-        System.out.print("Social security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
-        StudentFunctions studentFunctions = new StudentFunctions();
-        studentFunctions.removeStudent(socialSecurity);
+        Student student = StudentFunctions.removeStudent(socialSecurity);
+
+        if (student != null) {
+            System.out.println("\nStudent (" + socialSecurity + ") Successfully Deleted!");
+            StudentFunctions.removeStudent(socialSecurity);
+        } else {
+            System.out.println("\nStudent (" + socialSecurity + ") Not Found!");
+        }
     }
 
     public static void deleteTeacher(){
 
-        System.out.print("Social security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX):  ");
         String socialSecurity = Input.inputString();
 
-        TeacherFunctions teacherFunctions = new TeacherFunctions();
-        teacherFunctions.removeTeacher(socialSecurity);
+        Teacher teacher = TeacherFunctions.removeTeacher(socialSecurity);
+
+        if (teacher != null) {
+            System.out.println("\nTeacher (" + socialSecurity + ") Successfully Deleted!");
+            TeacherFunctions.removeTeacher(socialSecurity);
+        } else {
+            System.out.println("\nTeacher (" + socialSecurity + ") Not Found!");
+        }
     }
 
     public static void deleteDepartment(){
@@ -40,7 +62,13 @@ public class DeleteFunctions {
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        DepartmentFunctions departmentFunctions = new DepartmentFunctions();
-        departmentFunctions.removeDepartment(departmentId);
+        Department department = DepartmentFunctions.removeDepartment(departmentId);
+
+        if (department != null) {
+            System.out.println("\nDepartment (" + departmentId + ") Successfully Deleted!");
+            DepartmentFunctions.removeDepartment(departmentId);
+        } else {
+            System.out.println("\nDepartment (" + departmentId + ") Not Found!");
+        }
     }
 }

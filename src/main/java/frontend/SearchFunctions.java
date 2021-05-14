@@ -28,7 +28,7 @@ public class SearchFunctions {
 
     public static void searchStudent() {
 
-        System.out.print("Student social security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         Student student = StudentFunctions.getStudent(socialSecurity);
@@ -42,7 +42,7 @@ public class SearchFunctions {
 
     public static void searchTeacher() {
 
-        System.out.print("Teacher social security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         Teacher teacher = TeacherFunctions.getTeacher(socialSecurity);

@@ -30,6 +30,7 @@ public class SocialSecurityChecker {
         }
 
         cleanSocialSecurity = cleanSocialSecurity.substring(2);
+        System.out.println(cleanSocialSecurity);
         int nSum = 0;
         boolean multiply = true;
         for (int i = 0; i < 10; i++) {
@@ -37,7 +38,7 @@ public class SocialSecurityChecker {
             if (multiply) {
                 nbr *= 2;
             }
-            if(nbr > 10) {
+            if(nbr >= 10) {
                 nSum += 1;
                 nSum += nbr % 10;
             } else {
@@ -49,17 +50,22 @@ public class SocialSecurityChecker {
     }
 
     public static String getGender(String socialSecurity) {
-        try {
-            int number = (socialSecurity.charAt(10) - '0');
-            if (number % 2 == 0) {
-                return "Female";
+        socialSecurity = socialSecurity.replaceAll("[^0-9]","");
+        if (socialSecurity.length() == 12) {
+            try {
+                int number = (socialSecurity.charAt(10) - '0');
+                if (number % 2 == 0) {
+                    return "Female";
+                }
+                else {
+                    return  "Male";
+                }
             }
-            else {
-                return  "Male";
+            catch (StringIndexOutOfBoundsException e) {
+                return null;
             }
         }
-        catch (StringIndexOutOfBoundsException e) {
-            return null;
-        }
+        return null;
     }
 }
+
