@@ -64,14 +64,13 @@ public class AddFunctions {
 
         String gender = SocialSecurityChecker.getGender(socialSecurity);
 
-/*
+        Teacher teacher = new Teacher(socialSecurity, name, gender);
+
         if (TeacherFunctions.getAllTeachers().contains(teacher)) {
             System.out.println("Teacher with that social security already exists. (" + socialSecurity + ").");
         } else {
             TeacherFunctions.addTeacher(teacher);
         }
-
- */
     }
 
     public static void addDepartment(){
