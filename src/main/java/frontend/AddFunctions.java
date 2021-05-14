@@ -3,6 +3,8 @@ package frontend;
 import entity.*;
 import main.Input;
 import backend.*;
+import main.SocialSecurityChecker;
+
 public class AddFunctions {
 
     public static void addCourse(){
@@ -19,14 +21,24 @@ public class AddFunctions {
     }
 
     public static void addStudent(){
+        boolean valid;
+        String socialSecurity;
+        do {
+            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+            socialSecurity = Input.inputString();
+            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
+            if (!valid){
+                System.out.println("Invalid Swedish Social Security, try again!");
+            }
+        } while (!valid);
 
-        System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
 
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        Student student = new Student(socialSecurity, name);
+        String gender = SocialSecurityChecker.getGender(socialSecurity);
+
+        Student student = new Student(socialSecurity, name, gender);
 
         if (StudentFunctions.getAllStudents().contains(student)) {
             System.out.println("Student with that social security already exists. (" + socialSecurity + ").");
@@ -36,14 +48,23 @@ public class AddFunctions {
     }
 
     public static void addTeacher(){
-
-        System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        boolean valid;
+        String socialSecurity;
+        do {
+            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+            socialSecurity = Input.inputString();
+            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
+            if (!valid){
+                System.out.println("Invalid Swedish Social Security, try again!");
+            }
+        } while (!valid);
 
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        Teacher teacher = new Teacher(socialSecurity, name);
+        System.out.print("Gender: ");
+        String gender = SocialSecurityChecker.getGender(socialSecurity);
+
 
         if (TeacherFunctions.getAllTeachers().contains(teacher)) {
             System.out.println("Teacher with that social security already exists. (" + socialSecurity + ").");
