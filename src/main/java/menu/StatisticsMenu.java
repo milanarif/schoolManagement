@@ -3,6 +3,9 @@ package menu;
 import backend.CourseFunctions;
 import backend.DepartmentFunctions;
 import backend.StudentFunctions;
+import entity.Course;
+import entity.Department;
+import entity.Student;
 import frontend.StatisticsFunctions;
 import main.Main;
 import main.Input;
@@ -33,25 +36,43 @@ public class StatisticsMenu {
             case 1:
                 System.out.println("Enter Course ID: ");
                 courseId = Input.inputInt();
-                StatisticsFunctions.passRatio(CourseFunctions.getCourse(courseId).getEnrollments());
+                Course course = CourseFunctions.getCourse(courseId);
+                if(course != null)
+                StatisticsFunctions.passRatio(course.getEnrollments());
+                else
+                    System.out.println("\nCourse (" + courseId + ") Not Found!");
                 menu();
                 break;
             case 2:
                 System.out.println("Enter Student Social Security: ");
                 socialSecurity = Input.inputString();
-                StatisticsFunctions.passRatio(StudentFunctions.getStudent(socialSecurity).getEnrollments());
+                Student student = StudentFunctions.getStudent(socialSecurity);
+                if(student != null)
+                StatisticsFunctions.passRatio(student.getEnrollments());
+                else
+                    System.out.println("\n Student (" + socialSecurity + ") Not Found!");
                 menu();
                 break;
             case 3:
                 System.out.println("Enter Course ID: ");
                 courseId = Input.inputInt();
-                StatisticsFunctions.genderRatioCourse(CourseFunctions.getCourse(courseId).getEnrollments());
+
+                Course courseGender = CourseFunctions.getCourse(courseId);
+               if(courseGender !=null)
+                StatisticsFunctions.genderRatioCourse(courseGender.getEnrollments());
+               else
+                   System.out.println("\nCourse (" + courseId + ") Not Found!");
                 menu();
                 break;
             case 4:
                 System.out.println("Enter Department ID: ");
                 departmentId = Input.inputInt();
-                StatisticsFunctions.genderRatioDepartment(DepartmentFunctions.getDepartment(departmentId).getStudents());
+
+                Department department = DepartmentFunctions.getDepartment(departmentId);
+                if(department != null)
+                StatisticsFunctions.genderRatioDepartment(department.getStudents());
+                else
+                    System.out.println("\nDepartment (" + departmentId +") Not Found!");
                 menu();
                 break;
             case 5:
