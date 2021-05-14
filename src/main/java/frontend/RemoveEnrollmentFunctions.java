@@ -13,7 +13,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseStudent() {
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Course id: ");
@@ -26,7 +26,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseTeacher() {
 
-        System.out.print("Teacher Social Security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Course id: ");
@@ -44,7 +44,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentStudent() {
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         StudentFunctions.removeDepartment(socialSecurity);
@@ -58,7 +58,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentTeacher() {
 
-        System.out.print("Teacher Social Security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         TeacherFunctions.removeDepartment(socialSecurity);

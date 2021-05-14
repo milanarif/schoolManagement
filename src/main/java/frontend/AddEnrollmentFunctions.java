@@ -10,7 +10,7 @@ public class AddEnrollmentFunctions {
 
     public static void setCourseStudent(){
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Course id: ");
@@ -21,14 +21,16 @@ public class AddEnrollmentFunctions {
 
         Integer enrollmentId = enrollment.getId();
 
+        if (StudentFunctions.getStudent(socialSecurity) == null) {
+            System.out.println("\nStudent Not Found!");
+            EnrollmentFunctions.removeEnrollment(enrollmentId);
+        }
         EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
 
         EnrollmentFunctions.setCourse(enrollmentId, courseId);
 
-        if (StudentFunctions.getStudent(socialSecurity) == null) {
-            System.out.println("\nStudent Not Found!");
-            EnrollmentFunctions.removeEnrollment(enrollmentId);
-        } else if (CourseFunctions.getCourse(courseId) == null){
+
+        if (CourseFunctions.getCourse(courseId) == null){
             System.out.println("\nCourse Not Found!");
             EnrollmentFunctions.removeEnrollment(enrollmentId);
         } else {
@@ -38,7 +40,7 @@ public class AddEnrollmentFunctions {
 
     public static void setCourseTeacher(){
 
-        System.out.print("Teacher social security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Course id: ");
@@ -56,7 +58,7 @@ public class AddEnrollmentFunctions {
 
     public static void setDepartmentStudent(){
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Department id: ");
@@ -68,13 +70,11 @@ public class AddEnrollmentFunctions {
             System.out.println("\nDepartment ("+ departmentId +") Successfully Added To Student!");
         else
             System.out.println("\nDepartment Not Found!");
-
-        //TODO add if statements?
     }
 
     public static void setDepartmentTeacher(){
 
-        System.out.print("Teacher Social Security: ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputString();
 
         System.out.print("Department id: ");
@@ -87,7 +87,5 @@ public class AddEnrollmentFunctions {
             System.out.println("\nDepartment ("+ departmentId +") Successfully Added To Teacher!");
         else
             System.out.println("\nDepartment Not Found!");
-
-        //TODO add if statements?
     }
 }
