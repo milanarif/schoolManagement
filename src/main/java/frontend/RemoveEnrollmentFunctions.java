@@ -10,10 +10,10 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseStudent() {
 
-        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
         Enrollment enrollment = EnrollmentFunctions.removeCourse(socialSecurity, courseId);
@@ -32,10 +32,10 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseTeacher() {
 
-        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
         Teacher teacher = TeacherFunctions.removeCourse(socialSecurity, courseId);
@@ -50,8 +50,8 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentStudent() {
 
-        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
         StudentFunctions.removeDepartment(socialSecurity);
 
@@ -64,8 +64,8 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentTeacher() {
 
-        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
         TeacherFunctions.removeDepartment(socialSecurity);
 

@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
@@ -73,6 +74,9 @@ public class Course implements Serializable {
     }
 
     public List<Enrollment> getEnrollments() {
+        if (this.enrollments == null) {
+            this.enrollments = new ArrayList<>();
+        }
         return this.enrollments;
     }
 
@@ -97,6 +101,9 @@ public class Course implements Serializable {
     }
 
     public List<Teacher> getTeachers() {
+        if (this.teachers == null) {
+            this.teachers = new ArrayList<>();
+        }
         return this.teachers;
     }
 
@@ -138,4 +145,5 @@ public class Course implements Serializable {
         }
         return false;
     }
+
 }
