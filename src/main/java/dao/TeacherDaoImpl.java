@@ -81,16 +81,47 @@ public class TeacherDaoImpl implements TeacherDao{
     }
 
     @Override
-    public Teacher addCourse(String socialSecurity, Integer courseId) {
+    public Teacher setCourse(String socialSecurity, Integer courseId) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Teacher teacher = em.find(Teacher.class, socialSecurity);
         Course course = em.find(Course.class, courseId);
 
-        if (teacher != null) {
+        if (teacher != null && course != null) {
             em.getTransaction().begin();
             teacher.addCourse(course);
             em.getTransaction().commit();
         }
+        em.close();
+        return teacher;
+    }
+
+    @Override
+    public Teacher removeCourse(String socialSecurity, Integer courseId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Teacher teacher = em.find(Teacher.class, socialSecurity);
+        Course course = em.find(Course.class, courseId);
+
+        if (teacher != null && course != null) {
+            em.getTransaction().begin();
+            teacher.removeCourse(course);
+            em.getTransaction().commit();
+        }
+        em.close();
+
+        return teacher;
+    }
+
+    @Override
+    public Teacher removeDepartment(String socialSecurity) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Teacher teacher = em.find(Teacher.class, socialSecurity);
+
+        if (teacher != null && teacher.getDepartment() != null) {
+            em.getTransaction().begin();
+            teacher.setDepartment(null);
+            em.getTransaction().commit();
+        }
+
         em.close();
         return teacher;
     }

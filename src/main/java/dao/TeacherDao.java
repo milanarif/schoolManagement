@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Course;
 import entity.Teacher;
 
 import java.util.List;
@@ -11,5 +12,7 @@ public interface TeacherDao {
     Teacher removeTeacher(String socialSecurity);
     Teacher setName(String socialSecurity, String newName);
     Teacher setDepartment(String socialSecurity, Integer departmentId);
-    Teacher addCourse(String socialSecurity, Integer courseId);
+    Teacher setCourse(String socialSecurity, Integer courseId);
+    Teacher removeCourse(String socialSecurity, Integer courseId);
+    Teacher removeDepartment(String socialSecurity);
 }

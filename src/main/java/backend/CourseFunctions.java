@@ -35,6 +35,4 @@ public class CourseFunctions {
 
     public static Course setCredits(Integer courseId, double credits) {
         return courseDao.setCredits(courseId, credits);
-    }
-
-}
+    }}

@@ -16,19 +16,18 @@ public class Student implements Serializable {
     @Basic
     private String gender;
 
-    @ManyToOne(targetEntity = Department.class)
+    @ManyToOne(targetEntity = Department.class, cascade = CascadeType.REMOVE)
     private Department department;
 
-    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
     private List<Enrollment> enrollments;
 
     public Student() {
     }
 
-    public Student(String socialSecurity, String name, String gender) {
+    public Student(String socialSecurity, String name) {
         this.socialSecurity = socialSecurity;
         this.name = name;
-        this.gender = gender;
     }
 
     public String getSocialSecurity() {
@@ -100,5 +99,19 @@ public class Student implements Serializable {
                 gender + " " +
                 department + " " +
                 enrollments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o ) {
+            return true;
+        }
+        if (o instanceof Student) {
+            if (((Student) o).getSocialSecurity().equals(this.socialSecurity)){
+                return true;
+            }
+            else return false;
+        }
+        return false;
     }
 }

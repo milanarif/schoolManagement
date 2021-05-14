@@ -7,36 +7,31 @@ import java.util.List;
 
 public class ReadFunctions {
 
-    static List<Student> student = StudentFunctions.getAllStudents();
-    static List<Teacher> teacher = TeacherFunctions.getAllTeachers();
-    static List<Course> course = CourseFunctions.getAllCourses();
-    static List<Department> department = DepartmentFunctions.getAllDepartments();
-
     public static void readAll(){
 
-        PrintFunctions.printStudentHead(student);
-        PrintFunctions.printTeacherHead(teacher);
-        PrintFunctions.printCourseHead(course);
-        PrintFunctions.printDepartmentHead(department);
+        PrintFunctions.printStudentHead(StudentFunctions.getAllStudents());
+        PrintFunctions.printTeacherHead(TeacherFunctions.getAllTeachers());
+        PrintFunctions.printCourseHead(CourseFunctions.getAllCourses());
+        PrintFunctions.printDepartmentHead(DepartmentFunctions.getAllDepartments());
     }
 
     public static void readCourse(){
 
-        PrintFunctions.printCourseHead(course);
+        PrintFunctions.printCourseHead(CourseFunctions.getAllCourses());
     }
 
     public static void readStudent(){
 
-        PrintFunctions.printStudentHead(student);
+        PrintFunctions.printStudentHead(StudentFunctions.getAllStudents());
     }
 
     public static void readTeacher(){
 
-        PrintFunctions.printTeacherHead(teacher);
+        PrintFunctions.printTeacherHead(TeacherFunctions.getAllTeachers());
     }
 
     public static void readDepartment(){
 
-        PrintFunctions.printDepartmentHead(department);
+        PrintFunctions.printDepartmentHead(DepartmentFunctions.getAllDepartments());
     }
 }

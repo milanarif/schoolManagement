@@ -1,5 +1,6 @@
 package menu;
 
+import entity.Enrollment;
 import frontend.RemoveEnrollmentFunctions;
 import main.Input;
 import main.Main;
@@ -28,19 +29,20 @@ public class RemoveEnrollmentMenu {
                 menu();
                 break;
             case 2:
-                //TODO call removeTeacherFromCourse
+                RemoveEnrollmentFunctions.removeCourseTeacher();
                 menu();
                 break;
             case 3:
-                //TODO call removeStudentFromDepartment
+                RemoveEnrollmentFunctions.removeDepartmentStudent();
                 menu();
                 break;
             case 4:
-                //TODO call removeTeacherFromDepartment
+                RemoveEnrollmentFunctions.removeDepartmentTeacher();
                 menu();
                 break;
             case 6:
-                return;
+                EnrollmentMenu.menu();
+                break;
             case 8:
                 MainMenu.menu();
                 break;

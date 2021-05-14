@@ -20,16 +20,15 @@ public class Teacher implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @ManyToMany(targetEntity = Course.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Course.class, cascade = CascadeType.REMOVE)
     private List<Course> courses;
 
     public Teacher() {
     }
 
-    public Teacher(String socialSecurity, String name, String gender) {
+    public Teacher(String socialSecurity, String name) {
         this.socialSecurity = socialSecurity;
         this.name = name;
-        this.gender = gender;
     }
 
     public String getSocialSecurity() {
@@ -78,8 +77,6 @@ public class Teacher implements Serializable {
         this.courses = courses;
     }
 
-    //Line
-
     public void addCourse(Course course){
         if (this.courses == null) {
             this.courses = new ArrayList<>();
@@ -93,10 +90,9 @@ public class Teacher implements Serializable {
     }
 
     public void removeCourse(Course course) {
-        if (this.courses != null) {
-            this.courses.remove(course);
-        }
+        getCourses().remove(course);
     }
+
     @Override
     public String toString() {
         return
@@ -105,5 +101,18 @@ public class Teacher implements Serializable {
                         gender + " " +
                         courses + " " +
                         department;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o ) {
+            return true;
+        }
+        if (o instanceof Student) {
+            if (((Teacher) o).getSocialSecurity().equals(this.socialSecurity)){
+                return true;
+            }
+            else return false;
+        }
+        return false;
     }
 }

@@ -2,9 +2,10 @@ package backend;
 
 import dao.EnrollmentDao;
 import dao.EnrollmentDaoImpl;
-import entity.Course;
 import entity.Enrollment;
 import entity.Student;
+
+import java.util.List;
 
 public class EnrollmentFunctions {
 
@@ -26,30 +27,27 @@ public class EnrollmentFunctions {
         return enrollmentDao.setCourse(enrollmentId, courseId);
     }
 
-    public static Enrollment setCourse(String socialSecurity, Integer courseId) {
-        Enrollment enrollment = new Enrollment();
-        Student student = StudentFunctions.getStudent(socialSecurity);
-        Course course = CourseFunctions.getCourse(courseId);
-
-        if (student != null && course != null) {
-            enrollment.setStudent(student);
-            enrollment.setCourse(course);
-        }
-
-        enrollmentDao.addEnrollment(enrollment);
-
-        return enrollmentDao.setCourse(enrollment);
-    }
-
-    public static Enrollment removeCourse(Integer enrollmentId, Integer courseId) {
-        return enrollmentDao.removeCourse(enrollmentId, courseId);
-    }
-
     public static Enrollment setStudent(Integer enrollmentId, String socialSecurity) {
         return enrollmentDao.setStudent(enrollmentId, socialSecurity);
     }
 
     public static Enrollment setGrade(Integer enrollmentId, Integer grade) {
         return enrollmentDao.gradeEnrollment(enrollmentId, grade);
+    }
+
+    public static Enrollment removeCourse(String socialSecurity, Integer courseId) {
+
+        Student student = StudentFunctions.studentDao.getStudent(socialSecurity);
+
+        List<Enrollment> enrollments = student.getEnrollments();
+        Integer enrollmentId = null;
+        if (enrollments != null) {
+            for (Enrollment e : enrollments) {
+
+                enrollmentId = e.getId();
+                }
+            }
+
+        return enrollmentDao.removeCourse(enrollmentId, courseId);
     }
 }

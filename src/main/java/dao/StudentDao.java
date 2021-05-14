@@ -11,5 +11,5 @@ public interface StudentDao {
     Student removeStudent(String socialSecurity);
     Student setName(String socialSecurity, String newName);
     Student setDepartment(String socialSecurity, Integer departmentId);
-    //Student setCourse(String socialSecurity, Integer departmentId);
+    Student removeDepartment(String socialSecurity);
 }

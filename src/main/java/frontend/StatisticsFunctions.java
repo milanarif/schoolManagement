@@ -1,7 +1,9 @@
+
 package frontend;
 
 import backend.StudentFunctions;
 import backend.TeacherFunctions;
+import entity.Enrollment;
 import entity.Student;
 import entity.Teacher;
 
@@ -9,20 +11,46 @@ import java.util.List;
 
 public class StatisticsFunctions {
 
-    public static void passRatio() {
-
-        //TODO passRatio
+    public static Integer passRatio(List<Enrollment> enrollments) {
+        if (enrollments == null) {
+            return null;
+        }
+        int totalEnrollments = enrollments.size();
+        int passes = 0;
+        for (Enrollment e : enrollments) {
+            if (e.getGrade() > 2) {
+                passes++;
+            }
+        }
+        return ((passes/totalEnrollments)*100);
     }
 
-    public static void genderRatio() {
-
-        //TODO genderRatio
-        //TODO use check valid socialSecurity format to calculate gender?
+    public static Integer genderRatioCourse(List<Enrollment> enrollments) {
+        if (enrollments == null) {
+            return null;
+        }
+        int totalEnrollments = enrollments.size();
+        int female = 0;
+        for (Enrollment e : enrollments) {
+            if (e.getStudent().getGender() == "Female") {
+                female++;
+            }
+        }
+        return ((female/totalEnrollments)*100);
     }
 
-    public static void averageAge() {
-
-        //TODO averageAge from socialSecurity nr??
+    public static Integer genderRatioDepartment(List<Student> students) {
+        if (students == null) {
+            return null;
+        }
+        int totalStudents = students.size();
+        int female = 0;
+        for (Student s : students) {
+            if (s.getGender() == "Female") {
+                female++;
+            }
+        }
+        return ((female/totalStudents)*100);
     }
 
     public static void numberOfPerson() {
@@ -41,6 +69,4 @@ public class StatisticsFunctions {
         System.out.printf("%-10d", total);
         System.out.println(" ");
     }
-
-
 }

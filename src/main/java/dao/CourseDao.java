@@ -11,5 +11,4 @@ public interface CourseDao {
     Course removeCourse(Integer courseId);
     Course setName(Integer courseId, String newName);
     Course setCredits(Integer courseId, double newCredits);
-    Course setDepartment(Integer courseId, Integer departmentId);
-}
+    Course setDepartment(Integer courseId, Integer departmentId);}
