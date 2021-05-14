@@ -47,4 +47,8 @@ public class StudentFunctions {
         }
         return credits;
     }
+
+    public static Student removeDepartment(String socialSecurity) {
+        return studentDao.removeDepartment(socialSecurity);
+    }
 }

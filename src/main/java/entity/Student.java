@@ -16,7 +16,7 @@ public class Student implements Serializable {
     @Basic
     private String gender;
 
-    @ManyToOne(targetEntity = Department.class)
+    @ManyToOne(targetEntity = Department.class, cascade = CascadeType.REMOVE)
     private Department department;
 
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
@@ -25,10 +25,9 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String socialSecurity, String name, String gender) {
+    public Student(String socialSecurity, String name) {
         this.socialSecurity = socialSecurity;
         this.name = name;
-        this.gender = gender;
     }
 
     public String getSocialSecurity() {

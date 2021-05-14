@@ -1,3 +1,4 @@
+
 package frontend;
 
 import backend.StudentFunctions;
@@ -68,6 +69,4 @@ public class StatisticsFunctions {
         System.out.printf("%-10d", total);
         System.out.println(" ");
     }
-
-
 }

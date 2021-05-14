@@ -35,6 +35,7 @@ public class PrintFunctions {
     public static void printTeacherHead(List<Teacher> teacher) {
         System.out.println("\nTeacher SSN       Teacher Name        Gender    Courses         Department");
         System.out.println("---------------   -----------------   -------   --------------  -----------");
+
         teacher.forEach(PrintFunctions::printTeacher);
     }
 

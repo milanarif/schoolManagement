@@ -10,4 +10,6 @@ public interface StudentDao {
     void addStudent(Student student);
     Student removeStudent(String socialSecurity);
     Student setName(String socialSecurity, String newName);
-    Student setDepartment(String socialSecurity, Integer departmentId);}
+    Student setDepartment(String socialSecurity, Integer departmentId);
+    Student removeDepartment(String socialSecurity);
+}
