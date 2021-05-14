@@ -26,10 +26,7 @@ public class AddFunctions {
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        System.out.print("Gender: ");
-        String gender = Input.inputString();
-
-        Student student = new Student(socialSecurity, name, gender);
+        Student student = new Student(socialSecurity, name);
 
         if (StudentFunctions.getAllStudents().contains(student)) {
             System.out.println("Student with that social security already exists. (" + socialSecurity + ").");
@@ -46,10 +43,7 @@ public class AddFunctions {
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        System.out.print("Gender: ");
-        String gender = Input.inputString();
-
-        Teacher teacher = new Teacher(socialSecurity, name, gender);
+        Teacher teacher = new Teacher(socialSecurity, name);
 
         if (TeacherFunctions.getAllTeachers().contains(teacher)) {
             System.out.println("Teacher with that social security already exists. (" + socialSecurity + ").");

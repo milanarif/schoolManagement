@@ -26,10 +26,9 @@ public class Teacher implements Serializable {
     public Teacher() {
     }
 
-    public Teacher(String socialSecurity, String name, String gender) {
+    public Teacher(String socialSecurity, String name) {
         this.socialSecurity = socialSecurity;
         this.name = name;
-        this.gender = gender;
     }
 
     public String getSocialSecurity() {

@@ -25,10 +25,9 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String socialSecurity, String name, String gender) {
+    public Student(String socialSecurity, String name) {
         this.socialSecurity = socialSecurity;
         this.name = name;
-        this.gender = gender;
     }
 
     public String getSocialSecurity() {
