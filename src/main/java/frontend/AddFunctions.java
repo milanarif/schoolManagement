@@ -5,6 +5,8 @@ import main.Input;
 import backend.*;
 import main.SocialSecurityChecker;
 
+import java.util.List;
+
 public class AddFunctions {
 
     public static void addCourse(){
@@ -21,17 +23,8 @@ public class AddFunctions {
     }
 
     public static void addStudent(){
-        boolean valid;
-        String socialSecurity;
-        do {
-            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
-            socialSecurity = Input.inputString();
-            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
-            if (!valid){
-                System.out.println("Invalid Swedish Social Security, try again!");
-            }
-        } while (!valid);
-
+        System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
         System.out.print("Name: ");
         String name = Input.inputString();
@@ -48,16 +41,8 @@ public class AddFunctions {
     }
 
     public static void addTeacher(){
-        boolean valid;
-        String socialSecurity;
-        do {
-            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
-            socialSecurity = Input.inputString();
-            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
-            if (!valid){
-                System.out.println("Invalid Swedish Social Security, try again!");
-            }
-        } while (!valid);
+        System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
         System.out.print("Name: ");
         String name = Input.inputString();
@@ -77,10 +62,18 @@ public class AddFunctions {
 
         System.out.print("Department name: ");
         String name = Input.inputString();
-
+        boolean unique = true;
         Department department = new Department(name);
-
-        DepartmentFunctions.addDepartment(department);
+        List<Department> departments = DepartmentFunctions.getAllDepartments();
+        for (Department d : departments) {
+            if (d.getName() == name) {
+                System.out.println("Department with this name already exists");
+                unique = false;
+            }
+        }
+        if (unique) {
+            DepartmentFunctions.addDepartment(department);
+        }
     }
 
 }

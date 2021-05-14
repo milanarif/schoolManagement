@@ -13,26 +13,23 @@ public class DeleteFunctions {
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        CourseFunctions courseFunctions = new CourseFunctions();
-        courseFunctions.removeCourse(courseId);
+        CourseFunctions.removeCourse(courseId);
     }
 
     public static void deleteStudent(){
 
         System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
-        StudentFunctions studentFunctions = new StudentFunctions();
-        studentFunctions.removeStudent(socialSecurity);
+        StudentFunctions.removeStudent(socialSecurity);
     }
 
     public static void deleteTeacher(){
 
         System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
-        TeacherFunctions teacherFunctions = new TeacherFunctions();
-        teacherFunctions.removeTeacher(socialSecurity);
+        TeacherFunctions.removeTeacher(socialSecurity);
     }
 
     public static void deleteDepartment(){
@@ -40,7 +37,6 @@ public class DeleteFunctions {
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        DepartmentFunctions departmentFunctions = new DepartmentFunctions();
-        departmentFunctions.removeDepartment(departmentId);
+        DepartmentFunctions.removeDepartment(departmentId);
     }
 }

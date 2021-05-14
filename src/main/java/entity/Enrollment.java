@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
@@ -75,4 +76,13 @@ public class Enrollment implements Serializable {
     public String toString() {
         return String.valueOf(enrollmentId);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Enrollment that = (Enrollment) o;
+        return Objects.equals(student, that.student) && Objects.equals(course, that.course);
+    }
 }
+

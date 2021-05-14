@@ -29,7 +29,7 @@ public class SearchFunctions {
     public static void searchStudent() {
 
         System.out.print("Student social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
         Student student = StudentFunctions.getStudent(socialSecurity);
 
@@ -43,7 +43,7 @@ public class SearchFunctions {
     public static void searchTeacher() {
 
         System.out.print("Teacher social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
         Teacher teacher = TeacherFunctions.getTeacher(socialSecurity);
 

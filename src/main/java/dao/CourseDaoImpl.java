@@ -92,4 +92,18 @@ public class CourseDaoImpl implements CourseDao {
 
         return course;
     }
+
+    @Override
+    public Course removeDepartment(Integer courseId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Course course = em.find(Course.class, courseId);
+        if (course != null) {
+            em.getTransaction().begin();
+            course.setDepartment(null);
+            em.getTransaction().commit();
+        }
+        em.close();
+
+        return course;
+    }
 }

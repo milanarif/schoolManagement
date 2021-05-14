@@ -3,6 +3,8 @@ package backend;
 import dao.CourseDao;
 import dao.CourseDaoImpl;
 import entity.Course;
+import entity.Enrollment;
+import entity.Teacher;
 
 import java.util.List;
 
@@ -22,11 +24,24 @@ public class CourseFunctions {
     }
 
     public static Course removeCourse(Integer courseId) {
+        Course target = courseDao.getCourse(courseId);
+        List<Teacher> teachers = target.getTeachers();
+        List<Enrollment> enrollments = target.getEnrollments();
+        for (Teacher t : teachers) {
+            TeacherFunctions.removeCourse(t.getSocialSecurity(), courseId);
+        }
+        for (Enrollment e : enrollments) {
+            EnrollmentFunctions.removeCourse(e.getStudent().getSocialSecurity(), courseId);
+        }
         return courseDao.removeCourse(courseId);
     }
 
     public static Course setDepartment(Integer courseId, Integer departmentId) {
         return courseDao.setDepartment(courseId, departmentId);
+    }
+
+    public static Course removeDepartment(Integer courseId) {
+        return courseDao.removeDepartment(courseId);
     }
 
     public static Course setName(Integer courseId, String name) {

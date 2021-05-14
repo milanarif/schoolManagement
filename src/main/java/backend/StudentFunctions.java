@@ -23,6 +23,10 @@ public class StudentFunctions {
     }
 
     public static Student removeStudent(String socialSecurity) {
+        List<Enrollment> enrollments = studentDao.getStudent(socialSecurity).getEnrollments();
+        for (Enrollment e : enrollments) {
+            EnrollmentFunctions.removeEnrollment(e.getId());
+        }
         return studentDao.removeStudent(socialSecurity);
     }
 

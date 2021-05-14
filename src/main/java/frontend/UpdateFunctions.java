@@ -16,32 +16,29 @@ public class UpdateFunctions {
         System.out.print("New course name: ");
         String newName = Input.inputString();
 
-        CourseFunctions courseFunctions = new CourseFunctions();
-        courseFunctions.setName(courseId, newName);
+        CourseFunctions.setName(courseId, newName);
     }
 
     public static void updateStudent(){
 
         System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
         System.out.print("New student name: ");
         String newName = Input.inputString();
 
-        StudentFunctions studentFunctions = new StudentFunctions();
-        studentFunctions.setName(socialSecurity, newName);
+        StudentFunctions.setName(socialSecurity, newName);
     }
 
     public static void updateTeacher(){
 
         System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        String socialSecurity = Input.inputSSN();
 
         System.out.print("New teacher name: ");
         String newName = Input.inputString();
 
-        TeacherFunctions teacherFunctions = new TeacherFunctions();
-        teacherFunctions.setName(socialSecurity, newName);
+        TeacherFunctions.setName(socialSecurity, newName);
     }
 
     public static void updateDepartment(){
@@ -52,7 +49,6 @@ public class UpdateFunctions {
         System.out.print("New department name: ");
         String newName = Input.inputString();
 
-        DepartmentFunctions departmentFunctions = new DepartmentFunctions();
-        departmentFunctions.setName(departmentId, newName);
+        DepartmentFunctions.setName(departmentId, newName);
     }
 }

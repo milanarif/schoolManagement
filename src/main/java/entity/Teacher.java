@@ -71,6 +71,9 @@ public class Teacher implements Serializable {
     }
 
     public List<Course> getCourses() {
+        if (this.courses == null) {
+            this.courses = new ArrayList<>();
+        }
         return this.courses;
     }
 
