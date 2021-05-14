@@ -62,15 +62,16 @@ public class AddFunctions {
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        System.out.print("Gender: ");
         String gender = SocialSecurityChecker.getGender(socialSecurity);
 
-
+/*
         if (TeacherFunctions.getAllTeachers().contains(teacher)) {
             System.out.println("Teacher with that social security already exists. (" + socialSecurity + ").");
         } else {
             TeacherFunctions.addTeacher(teacher);
         }
+
+ */
     }
 
     public static void addDepartment(){
