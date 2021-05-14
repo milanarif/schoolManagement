@@ -61,9 +61,13 @@ public class AddEnrollmentFunctions {
 
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
-
-        StudentFunctions.setDepartment(socialSecurity, departmentId);
-
+      Student student = StudentFunctions.setDepartment(socialSecurity, departmentId);
+        if(student == null)
+            System.out.println("\nStudent Not Found!");
+        else if (student.getDepartment().getDepartmentId() == departmentId)
+            System.out.println("\nDepartment ("+ departmentId +") Successfully Added To Student!");
+        else
+            System.out.println("\nDepartment Not Found!");
 
         //TODO add if statements?
     }
@@ -76,7 +80,13 @@ public class AddEnrollmentFunctions {
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        TeacherFunctions.setDepartment(socialSecurity, departmentId);
+       Teacher teacher = TeacherFunctions.setDepartment(socialSecurity, departmentId);
+        if(teacher == null)
+            System.out.println("\nTeacher Not Found!");
+        else if (teacher.getDepartment().getDepartmentId() == departmentId)
+            System.out.println("\nDepartment ("+ departmentId +") Successfully Added To Teacher!");
+        else
+            System.out.println("\nDepartment Not Found!");
 
         //TODO add if statements?
     }
