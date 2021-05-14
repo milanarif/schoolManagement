@@ -3,6 +3,8 @@ package frontend;
 import entity.*;
 import main.Input;
 import backend.*;
+import main.SocialSecurityChecker;
+
 public class AddFunctions {
 
     public static void addCourse(){
@@ -18,15 +20,22 @@ public class AddFunctions {
     }
 
     public static void addStudent(){
+        boolean valid;
+        String socialSecurity;
+        do {
+            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+            socialSecurity = Input.inputString();
+            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
+            if (!valid){
+                System.out.println("Invalid Swedish Social Security, try again!");
+            }
+        } while (!valid);
 
-        System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
 
         System.out.print("Name: ");
         String name = Input.inputString();
 
-        System.out.print("Gender: ");
-        String gender = Input.inputString();
+        String gender = SocialSecurityChecker.getGender(socialSecurity);
 
         Student student = new Student(socialSecurity, name, gender);
 
@@ -38,15 +47,22 @@ public class AddFunctions {
     }
 
     public static void addTeacher(){
-
-        System.out.print("Social security: ");
-        String socialSecurity = Input.inputString();
+        boolean valid;
+        String socialSecurity;
+        do {
+            System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+            socialSecurity = Input.inputString();
+            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
+            if (!valid){
+                System.out.println("Invalid Swedish Social Security, try again!");
+            }
+        } while (!valid);
 
         System.out.print("Name: ");
         String name = Input.inputString();
 
         System.out.print("Gender: ");
-        String gender = Input.inputString();
+        String gender = SocialSecurityChecker.getGender(socialSecurity);
 
         Teacher teacher = new Teacher(socialSecurity, name, gender);
         TeacherFunctions.addTeacher(teacher);

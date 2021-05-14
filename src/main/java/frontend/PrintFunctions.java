@@ -8,19 +8,19 @@ import java.util.List;
 public class PrintFunctions {
 
     public static void printStudentHead(List <Student> student){
-        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department");
-        System.out.println("--------------   -----------------   -------   -------   -----------");
+        System.out.println("\nStudent SSN       Student Name        Credits   Gender    Department");
+        System.out.println("---------------   -----------------   -------   -------   -----------");
         student.forEach(PrintFunctions::printStudent);
     }
 
     public static void printStudentHeadSearch(Student s){
-        System.out.println("\nStudent ID       Student Name        Credits   Gender    Department");
-        System.out.println("--------------   -----------------   -------   -------   -----------");
+        System.out.println("\nStudent SSN       Student Name        Credits   Gender    Department");
+        System.out.println("---------------   -----------------   -------   -------   -----------");
         printStudent(s);
     }
 
     public static void printStudent(Student s){
-        System.out.printf("%-17s", s.getSocialSecurity());
+        System.out.printf("%-19s", s.getSocialSecurity().substring(2,8) + "-" + s.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", s.getName());
         System.out.printf("%-10.2f", StudentFunctions.getCredits(s.getSocialSecurity()));
         System.out.printf("%-10s", s.getGender());
@@ -33,19 +33,19 @@ public class PrintFunctions {
     }
 
     public static void printTeacherHead(List<Teacher> teacher) {
-        System.out.println("\nTeacher ID       Teacher Name        Gender    Courses         Department");
-        System.out.println("--------------   -----------------   -------   --------------  -----------");
+        System.out.println("\nTeacher SSN       Teacher Name        Gender    Courses         Department");
+        System.out.println("---------------   -----------------   -------   --------------  -----------");
         teacher.forEach(PrintFunctions::printTeacher);
     }
 
     public static void printTeacherHeadSearch(Teacher t) {
-        System.out.println("\nTeacher ID       Teacher Name        Gender    Courses         Department");
-        System.out.println("--------------   -----------------   -------   --------------  -----------");
+        System.out.println("\nTeacher SSN       Teacher Name        Gender    Courses         Department");
+        System.out.println("---------------   -----------------   -------   --------------  -----------");
         printTeacher(t);
     }
 
     public static void printTeacher(Teacher t){
-        System.out.printf("%-17s", t.getSocialSecurity());
+        System.out.printf("%-19s", t.getSocialSecurity().substring(2,8) + "-" + t.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", t.getName());
         System.out.printf("%-10s", t.getGender());
         if (t.getCourses().isEmpty()) {
