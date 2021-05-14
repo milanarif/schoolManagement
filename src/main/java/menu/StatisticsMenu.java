@@ -24,15 +24,15 @@ public class StatisticsMenu {
         Integer choice = Input.inputInt();
         switch (choice) {
             case 1:
-                StatisticsFunctions.passRatio();
+                //StatisticsFunctions.passRatio();
                 menu();
                 break;
             case 2:
-                StatisticsFunctions.genderRatio();
+                //StatisticsFunctions.genderRatio();
                 menu();
                 break;
             case 3:
-                StatisticsFunctions.averageAge();
+                //StatisticsFunctions.averageAge();
                 menu();
                 break;
             case 4:

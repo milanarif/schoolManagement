@@ -32,7 +32,7 @@ public class PrintFunctions {
         System.out.println(" ");
     }
 
-    public static void printTeacherHead(List<Teacher> teacher) {
+    public static void printTeacherHead(List<Teacher>teacher) {
         System.out.println("\nTeacher ID       Teacher Name        Gender    Courses         Department");
         System.out.println("--------------   -----------------   -------   --------------  -----------");
         teacher.forEach(PrintFunctions::printTeacher);

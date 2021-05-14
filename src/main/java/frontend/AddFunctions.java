@@ -14,6 +14,7 @@ public class AddFunctions {
         Double credits = Input.inputDouble();
 
         Course course = new Course(name, credits);
+
         CourseFunctions.addCourse(course);
     }
 
@@ -31,7 +32,7 @@ public class AddFunctions {
         Student student = new Student(socialSecurity, name, gender);
 
         if (StudentFunctions.getAllStudents().contains(student)) {
-            System.out.println("Student with that social security already exists.");
+            System.out.println("Student with that social security already exists. (" + socialSecurity + ").");
         } else {
             StudentFunctions.addStudent(student);
         }
@@ -49,7 +50,12 @@ public class AddFunctions {
         String gender = Input.inputString();
 
         Teacher teacher = new Teacher(socialSecurity, name, gender);
-        TeacherFunctions.addTeacher(teacher);
+
+        if (TeacherFunctions.getAllTeachers().contains(teacher)) {
+            System.out.println("Teacher with that social security already exists. (" + socialSecurity + ").");
+        } else {
+            TeacherFunctions.addTeacher(teacher);
+        }
     }
 
     public static void addDepartment(){
@@ -58,6 +64,7 @@ public class AddFunctions {
         String name = Input.inputString();
 
         Department department = new Department(name);
+
         DepartmentFunctions.addDepartment(department);
     }
 }

@@ -16,7 +16,7 @@ public class Student implements Serializable {
     @Basic
     private String gender;
 
-    @ManyToOne(targetEntity = Department.class)
+    @ManyToOne(targetEntity = Department.class, cascade = CascadeType.REMOVE)
     private Department department;
 
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
