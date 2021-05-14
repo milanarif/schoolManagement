@@ -11,6 +11,8 @@ import main.Input;
 
 public class RemoveEnrollmentFunctions {
 
+
+
     public static void removeCourseStudent() {
 
         System.out.print("Student Social Security: ");

@@ -8,6 +8,29 @@ import main.Input;
 
 public class AddEnrollmentFunctions {
 
+    public static void setGrade(){
+
+        System.out.print("Enrollment id: ");
+        Integer enrollmentId = Input.inputInt();
+
+    System.out.println("Choose a grade between 1-5.");
+    System.out.print("Grade: ");
+    Integer grade = Input.inputInt();
+
+    if (grade <= 5 || grade == 0)
+        System.out.println("No such grade exist");
+
+
+        Enrollment enrollment = EnrollmentFunctions.setGrade(enrollmentId, grade);
+        if (enrollment == null)
+            System.out.println("\nEnrollment Not Found!");
+         else if(enrollment.getGrade() == grade)
+            System.out.println("\nGrade "+grade+" Successfully Added To Enrollment");
+
+
+    }
+
+
     public static void setCourseStudent(){
 
         System.out.print("Student Social Security: ");

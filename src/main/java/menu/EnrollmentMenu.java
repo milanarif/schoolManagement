@@ -14,9 +14,10 @@ public class EnrollmentMenu {
         System.out.println("2. Add Teacher to Course");
         System.out.println("3. Add Student to Department");
         System.out.println("4. Add Teacher to Department");
-        System.out.println("5. Remove Enrollment");
+        System.out.println("5. Add Grade to Enrollment");
+        System.out.println("6. Remove Enrollment");
 
-        System.out.println("\n6. Return");
+        System.out.println("\n7. Return");
         System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
@@ -41,9 +42,12 @@ public class EnrollmentMenu {
                 menu();
                 break;
             case 5:
-                RemoveEnrollmentMenu.menu();
+                AddEnrollmentFunctions.setGrade();
                 break;
             case 6:
+                RemoveEnrollmentMenu.menu();
+                break;
+            case 7:
                 return;
             case 8:
                 MainMenu.menu();

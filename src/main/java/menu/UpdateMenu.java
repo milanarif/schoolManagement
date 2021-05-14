@@ -14,6 +14,7 @@ public class UpdateMenu {
         System.out.println("2. Update Student");
         System.out.println("3. Update Teacher");
         System.out.println("4. Update Department");
+        System.out.println("5. Update Enrollment");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -37,6 +38,10 @@ public class UpdateMenu {
                 break;
             case 4:
                 UpdateFunctions.updateDepartment();
+                menu();
+                break;
+            case 5:
+                UpdateFunctions.updateGrade();
                 menu();
                 break;
             case 6:

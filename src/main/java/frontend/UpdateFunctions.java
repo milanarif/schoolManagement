@@ -1,12 +1,20 @@
 package frontend;
 
-import backend.CourseFunctions;
-import backend.DepartmentFunctions;
-import backend.StudentFunctions;
-import backend.TeacherFunctions;
+import backend.*;
 import main.Input;
 
 public class UpdateFunctions {
+
+    public static void updateGrade(){
+        System.out.print("Enrollment Id: ");
+        Integer enrollmentId = Input.inputInt();
+
+        System.out.print("New Grade: ");
+        Integer newGrade = Input.inputInt();
+
+        EnrollmentFunctions enrollmentFunctions = new EnrollmentFunctions();
+        enrollmentFunctions.setGrade(enrollmentId, newGrade);
+    }
 
     public static void updateCourse(){
 
