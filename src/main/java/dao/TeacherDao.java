@@ -13,6 +13,6 @@ public interface TeacherDao {
     Teacher setName(String socialSecurity, String newName);
     Teacher setDepartment(String socialSecurity, Integer departmentId);
     Teacher setCourse(String socialSecurity, Integer courseId);
-    Teacher removeCourse(Course course);
-   // Teacher removeCourse(String socialSecurity, Integer courseId);
+    Teacher removeCourse(String socialSecurity, Integer courseId);
+    Teacher removeDepartment(String socialSecurity);
 }

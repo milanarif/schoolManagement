@@ -20,7 +20,7 @@ public class Teacher implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @ManyToMany(targetEntity = Course.class)
+    @ManyToMany(targetEntity = Course.class, cascade = CascadeType.REMOVE)
     private List<Course> courses;
 
     public Teacher() {
@@ -91,10 +91,9 @@ public class Teacher implements Serializable {
     }
 
     public void removeCourse(Course course) {
-        if (this.courses != null) {
-            this.courses.remove(course);
-        }
+        getCourses().remove(course);
     }
+
     @Override
     public String toString() {
         return

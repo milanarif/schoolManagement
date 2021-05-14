@@ -1,6 +1,10 @@
 package frontend;
 
 import backend.*;
+import entity.Department;
+import entity.Enrollment;
+import entity.Student;
+import entity.Teacher;
 import main.Input;
 
 
@@ -16,6 +20,8 @@ public class RemoveEnrollmentFunctions {
         Integer courseId = Input.inputInt();
 
         EnrollmentFunctions.removeCourse(socialSecurity, courseId);
+
+        //TODO add if statements?
     }
 
     public static void removeCourseTeacher() {
@@ -26,9 +32,14 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        //CourseFunctions.removeTeacher(socialSecurity, courseId);
-
-        //TODO not finished
+        Teacher teacher = TeacherFunctions.removeCourse(socialSecurity, courseId);
+        if (teacher == null) {
+            System.out.println("\nTeacher Not Found!");
+        } else if (teacher.getCourses().size() == 0) {
+            System.out.println("\nCourse ("+ courseId +") Successfully Removed From Teacher!");
+        } else {
+            System.out.println("\nCourse Not Found!");
+        }
     }
 
     public static void removeDepartmentStudent() {
@@ -36,11 +47,13 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Student Social Security: ");
         String socialSecurity = Input.inputString();
 
-        System.out.print("Department id: ");
-        Integer departmentId = Input.inputInt();
+        StudentFunctions.removeDepartment(socialSecurity);
 
-        //TODO fix
-        //StudentFunctions.removeDepartment(socialSecurity, departmentId);
+        if (StudentFunctions.getAllStudents().contains(socialSecurity)) {
+            System.out.println("\nStudent Successfully Removed From Department");
+        } else {
+            System.out.println("\nStudent Not Found!");
+        }
     }
 
     public static void removeDepartmentTeacher() {
@@ -48,10 +61,12 @@ public class RemoveEnrollmentFunctions {
         System.out.print("Teacher Social Security: ");
         String socialSecurity = Input.inputString();
 
-        System.out.print("Department id: ");
-        Integer departmentId = Input.inputInt();
+        TeacherFunctions.removeDepartment(socialSecurity);
 
-        //StudentFunctions.removeDepartment(socialSecurity, departmentId);
-        //TODO fix
+        if (TeacherFunctions.getAllTeachers().contains(socialSecurity)) {
+            System.out.println("\nTeacher Successfully Removed From Department");
+        } else {
+            System.out.println("\nTeacher Not Found!");
+        }
     }
 }

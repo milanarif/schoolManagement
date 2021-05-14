@@ -37,14 +37,12 @@ public class TeacherFunctions {
     public static Teacher setCourse(String socialSecurity, Integer courseId) {
         return teacherDao.setCourse(socialSecurity, courseId);
     }
-/*
+
     public static Teacher removeCourse(String socialSecurity, Integer courseId) {
         return teacherDao.removeCourse(socialSecurity, courseId);
     }
 
- */
-
-    public Teacher removeCourse(Course course) {
-        return teacherDao.removeCourse(course);
+    public static Teacher removeDepartment(String socialSecurity) {
+        return teacherDao.removeDepartment(socialSecurity);
     }
 }

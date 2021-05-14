@@ -80,4 +80,19 @@ public class StudentDaoImpl implements StudentDao{
 
         return student;
     }
+
+    @Override
+    public Student removeDepartment(String socialSecurity) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Student student = em.find(Student.class, socialSecurity);
+
+        if (student != null && student.getDepartment() != null) {
+            em.getTransaction().begin();
+            student.setDepartment(null);
+            em.getTransaction().commit();
+        }
+        em.close();
+
+        return student;
+    }
 }
