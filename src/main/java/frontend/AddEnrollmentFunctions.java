@@ -21,14 +21,16 @@ public class AddEnrollmentFunctions {
 
         Integer enrollmentId = enrollment.getId();
 
+        if (StudentFunctions.getStudent(socialSecurity) == null) {
+            System.out.println("\nStudent Not Found!");
+            EnrollmentFunctions.removeEnrollment(enrollmentId);
+        }
         EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
 
         EnrollmentFunctions.setCourse(enrollmentId, courseId);
 
-        if (StudentFunctions.getStudent(socialSecurity) == null) {
-            System.out.println("\nStudent Not Found!");
-            EnrollmentFunctions.removeEnrollment(enrollmentId);
-        } else if (CourseFunctions.getCourse(courseId) == null){
+
+        if (CourseFunctions.getCourse(courseId) == null){
             System.out.println("\nCourse Not Found!");
             EnrollmentFunctions.removeEnrollment(enrollmentId);
         } else if (StudentFunctions.getStudent(socialSecurity).getEnrollments().contains(enrollment)) {
@@ -82,18 +84,16 @@ public class AddEnrollmentFunctions {
             System.out.println("\nStudent already in this department!");
         }
 
-    }
-
     public static void setDepartmentTeacher(){
 
         System.out.print("Teacher Social Security (YYYY-MM-DD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
+
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
         if (TeacherFunctions.getTeacher(socialSecurity).getDepartment() == null || !TeacherFunctions.getTeacher(socialSecurity).getDepartment().equals(DepartmentFunctions.getDepartment(departmentId))) {
-
             Teacher teacher = TeacherFunctions.setDepartment(socialSecurity, departmentId);
             if (teacher == null)
                 System.out.println("\nTeacher Not Found!");
@@ -104,5 +104,6 @@ public class AddEnrollmentFunctions {
         } else {
             System.out.println("\nStudent already in this department!");
         }
+
     }
 }

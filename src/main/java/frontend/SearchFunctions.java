@@ -22,13 +22,13 @@ public class SearchFunctions {
         if(course != null) {
             PrintFunctions.printCourseHeadSearch(course);
         } else {
-            System.out.println("No such course id (" + courseId+")");
+            System.out.println("No such course ID (" + courseId+")");
         }
     }
 
     public static void searchStudent() {
 
-        System.out.print("Student social security: ");
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         Student student = StudentFunctions.getStudent(socialSecurity);
@@ -42,7 +42,8 @@ public class SearchFunctions {
 
     public static void searchTeacher() {
 
-        System.out.print("Teacher social security: ");
+
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         Teacher teacher = TeacherFunctions.getTeacher(socialSecurity);
@@ -56,7 +57,7 @@ public class SearchFunctions {
 
     public static void searchDepartment() {
 
-        System.out.print("Department id: ");
+        System.out.print("Department ID: ");
         Integer departmentId = Input.inputInt();
 
         Department department = DepartmentFunctions.getDepartment(departmentId);
@@ -64,7 +65,7 @@ public class SearchFunctions {
         if(department != null) {
             PrintFunctions.printDepartmentHeadSearch(department);
         } else {
-            System.out.println("No such department id (" + departmentId+")");
+            System.out.println("No such department ID (" + departmentId+")");
         }
     }
 }

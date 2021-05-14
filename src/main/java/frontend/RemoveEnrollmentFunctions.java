@@ -1,10 +1,7 @@
 package frontend;
 
 import backend.*;
-import entity.Department;
-import entity.Enrollment;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import main.Input;
 
 
@@ -13,23 +10,32 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseStudent() {
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
-        EnrollmentFunctions.removeCourse(socialSecurity, courseId);
+        Enrollment enrollment = EnrollmentFunctions.removeCourse(socialSecurity, courseId);
 
-        //TODO add if statements?
+        Student student = StudentFunctions.getStudent(socialSecurity);
+        Course course = CourseFunctions.getCourse(courseId);
+
+        if (student == null) {
+            System.out.println("\nStudent Not Found!");
+        } else if (course == null) {
+            System.out.println("\nCourse Not Found!");
+        } else {
+            System.out.println("\nStudent " + socialSecurity + " Successfully Removed From Course " + courseId);
+        }
     }
 
     public static void removeCourseTeacher() {
 
-        System.out.print("Teacher Social Security: ");
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
         Teacher teacher = TeacherFunctions.removeCourse(socialSecurity, courseId);
@@ -44,7 +50,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentStudent() {
 
-        System.out.print("Student Social Security: ");
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         StudentFunctions.removeDepartment(socialSecurity);
@@ -58,7 +64,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentTeacher() {
 
-        System.out.print("Teacher Social Security: ");
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         TeacherFunctions.removeDepartment(socialSecurity);

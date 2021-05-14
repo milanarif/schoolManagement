@@ -20,7 +20,7 @@ public class PrintFunctions {
     }
 
     public static void printStudent(Student s){
-        System.out.printf("%-19s", s.getSocialSecurity().substring(2,8) + "-" + s.getSocialSecurity().substring(8,12));
+        System.out.printf("%-18s", s.getSocialSecurity().substring(2,8) + "-" + s.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", s.getName());
         System.out.printf("%-10.2f", StudentFunctions.getCredits(s.getSocialSecurity()));
         System.out.printf("%-10s", s.getGender());
@@ -46,7 +46,7 @@ public class PrintFunctions {
     }
 
     public static void printTeacher(Teacher t){
-        System.out.printf("%-19s", t.getSocialSecurity().substring(2,8) + "-" + t.getSocialSecurity().substring(8,12));
+        System.out.printf("%-18s", t.getSocialSecurity().substring(2,8) + "-" + t.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", t.getName());
         System.out.printf("%-10s", t.getGender());
         if (t.getCourses().isEmpty()) {
