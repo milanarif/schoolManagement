@@ -13,7 +13,7 @@ public class MainMenu {
         System.out.println("2. Add");
         System.out.println("3. Read");
         System.out.println("4. Update");
-        System.out.println("5. Delete");
+        System.out.println("5. Remove");
         System.out.println("6. Search");
         System.out.println("7. Statistics");
 
@@ -37,7 +37,7 @@ public class MainMenu {
                 UpdateMenu.menu();
                 break;
             case 5:
-                DeleteMenu.menu();
+                RemoveMenu.menu();
                 break;
             case 6:
                 SearchMenu.menu();

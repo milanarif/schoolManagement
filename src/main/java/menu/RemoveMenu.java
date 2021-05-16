@@ -1,20 +1,20 @@
 package menu;
 
-import frontend.DeleteFunctions;
+import frontend.RemoveFunctions;
 import main.Input;
 import main.Main;
 
-public class DeleteMenu {
+public class RemoveMenu {
 
     public static void menu(){
 
         System.out.println("\n---------------");
-        System.out.println("DELETE MENU");
+        System.out.println("REMOVE MENU");
 
-        System.out.println("1. Delete Course");
-        System.out.println("2. Delete Student");
-        System.out.println("3. Delete Teacher");
-        System.out.println("4. Delete Department");
+        System.out.println("1. Remove Course");
+        System.out.println("2. Remove Student");
+        System.out.println("3. Remove Teacher");
+        System.out.println("4. Remove Department");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -25,19 +25,19 @@ public class DeleteMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                DeleteFunctions.deleteCourse();
+                RemoveFunctions.removeCourse();
                 menu();
                 break;
             case 2:
-                DeleteFunctions.deleteStudent();
+                RemoveFunctions.removeStudent();
                 menu();
                 break;
             case 3:
-                DeleteFunctions.deleteTeacher();
+                RemoveFunctions.removeTeacher();
                 menu();
                 break;
             case 4:
-                DeleteFunctions.deleteDepartment();
+                RemoveFunctions.removeDepartment();
                 menu();
                 break;
             case 6:
