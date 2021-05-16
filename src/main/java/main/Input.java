@@ -39,4 +39,17 @@ public class Input {
         }
         return doubleInput;
     }
+
+    public static String inputSSN() {
+        String socialSecurity;
+        boolean valid = false;
+        do{
+            socialSecurity = sc.nextLine();
+            valid = SocialSecurityChecker.socialSecurityValidator(socialSecurity);
+            if (!valid) {
+                System.out.println("Invalid social security, try again.");
+            }
+        }while (!valid);
+        return socialSecurity.replaceAll("[^0-9]","");
+    }
 }

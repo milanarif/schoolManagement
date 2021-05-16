@@ -14,7 +14,7 @@ public class DeleteFunctions {
 
     public static void deleteCourse(){
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
         Course course = CourseFunctions.getCourse(courseId);
@@ -29,8 +29,8 @@ public class DeleteFunctions {
 
     public static void deleteStudent(){
 
-        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
         Student student = StudentFunctions.removeStudent(socialSecurity);
 
@@ -40,12 +40,13 @@ public class DeleteFunctions {
         } else {
             System.out.println("\nStudent (" + socialSecurity + ") Not Found!");
         }
+
     }
 
     public static void deleteTeacher(){
 
-        System.out.print("Teacher SSN (YYYYMMDD-XXXX):  ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Teacher Social Security: (YYYYMMDD-XXXX):  ");
+        String socialSecurity = Input.inputSSN();
 
         Teacher teacher = TeacherFunctions.removeTeacher(socialSecurity);
 
@@ -55,11 +56,12 @@ public class DeleteFunctions {
         } else {
             System.out.println("\nTeacher (" + socialSecurity + ") Not Found!");
         }
+
     }
 
     public static void deleteDepartment(){
 
-        System.out.print("Department id: ");
+        System.out.print("Department ID: ");
         Integer departmentId = Input.inputInt();
 
         Department department = DepartmentFunctions.removeDepartment(departmentId);

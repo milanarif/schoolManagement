@@ -32,10 +32,10 @@ public class UpdateFunctions {
 
     public static void updateStudent(){
 
-        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
-        System.out.print("New student name: ");
+        System.out.print("New Student Name: ");
         String newName = Input.inputString();
 
         Student student = StudentFunctions.setName(socialSecurity, newName);
@@ -50,10 +50,10 @@ public class UpdateFunctions {
 
     public static void updateTeacher(){
 
-        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
-        String socialSecurity = Input.inputString();
+        System.out.print("Social security (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
-        System.out.print("New teacher name: ");
+        System.out.print("New Teacher Name: ");
         String newName = Input.inputString();
 
         Teacher teacher = TeacherFunctions.setName(socialSecurity, newName);
@@ -68,10 +68,10 @@ public class UpdateFunctions {
 
     public static void updateDepartment(){
 
-        System.out.print("Department id: ");
+        System.out.print("Department ID: ");
         Integer departmentId = Input.inputInt();
 
-        System.out.print("New department name: ");
+        System.out.print("New Department Name: ");
         String newName = Input.inputString();
 
         Department department = DepartmentFunctions.setName(departmentId, newName);
@@ -86,7 +86,7 @@ public class UpdateFunctions {
 
     public static void updateCredits(){
 
-        System.out.print("Course id: ");
+        System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
         System.out.print("Set Credits: ");
