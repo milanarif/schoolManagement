@@ -33,7 +33,7 @@ public class AddEnrollmentFunctions {
             if (CourseFunctions.getCourse(courseId) == null) {
                 System.out.println("\nCourse Not Found!");
                 EnrollmentFunctions.removeEnrollment(enrollmentId);
-            } else if (findCourse == true) {
+            } else if (findCourse) {
                 System.out.println("\nStudent already in this course");
                 EnrollmentFunctions.removeEnrollment(enrollmentId);
             }
@@ -102,6 +102,31 @@ public class AddEnrollmentFunctions {
         } else {
             System.out.println("\nTeacher " + socialSecurity + " Successfully Added To Department " + departmentId + "!");
             TeacherFunctions.setDepartment(socialSecurity, departmentId);
+        }
+    }
+
+    public static void setGrade(){
+
+        //TODO ask for course, then student?
+        //TODO get enrollmentId from the two above?
+        //TODO enrollmentId not visible for user ATM
+
+        System.out.print("Enrollment id: ");
+        Integer enrollmentId = Input.inputInt();
+
+        System.out.println("Choose a grade between 1-5");
+        System.out.print("Grade: ");
+        Integer grade = Input.inputInt();
+
+        if (grade <= 5 || grade == 0)
+            System.out.println("No such grade exist");
+
+        if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
+            System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
+        }
+        else {
+            System.out.println("\nGrade "+grade+" Successfully Added To Enrollment");
+            EnrollmentFunctions.setGrade(enrollmentId, grade);
         }
     }
 }

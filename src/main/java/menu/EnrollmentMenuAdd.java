@@ -1,20 +1,19 @@
 package menu;
 
-import entity.Enrollment;
-import frontend.RemoveEnrollmentFunctions;
+import frontend.AddEnrollmentFunctions;
 import main.Input;
 import main.Main;
 
-public class RemoveEnrollmentMenu {
+public class EnrollmentMenuAdd {
 
     public static void menu(){
 
-        System.out.println("\nREMOVE ENROLLMENT MENU");
+        System.out.println("\nENROLLMENT MENU");
         System.out.println("---------------");
-        System.out.println("1. Remove Student from Course");
-        System.out.println("2. Remove Teacher from Course");
-        System.out.println("3. Remove Student from Department");
-        System.out.println("4. Remove Teacher from Department");
+        System.out.println("1. Add Student to Course");
+        System.out.println("2. Add Teacher to Course");
+        System.out.println("3. Add Student to Department");
+        System.out.println("4. Add Teacher to Department");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -25,19 +24,19 @@ public class RemoveEnrollmentMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                RemoveEnrollmentFunctions.removeCourseStudent();
+                AddEnrollmentFunctions.setCourseStudent();
                 menu();
                 break;
             case 2:
-                RemoveEnrollmentFunctions.removeCourseTeacher();
+                AddEnrollmentFunctions.setCourseTeacher();
                 menu();
                 break;
             case 3:
-                RemoveEnrollmentFunctions.removeDepartmentStudent();
+                AddEnrollmentFunctions.setDepartmentStudent();
                 menu();
                 break;
             case 4:
-                RemoveEnrollmentFunctions.removeDepartmentTeacher();
+                AddEnrollmentFunctions.setDepartmentTeacher();
                 menu();
                 break;
             case 6:

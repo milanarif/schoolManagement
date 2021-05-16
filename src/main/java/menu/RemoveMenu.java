@@ -41,7 +41,8 @@ public class RemoveMenu {
                 menu();
                 break;
             case 6:
-                return;
+                MainMenu.menu();
+                break;
             case 8:
                 MainMenu.menu();
                 break;

@@ -10,11 +10,9 @@ public class EnrollmentMenu {
 
         System.out.println("\nENROLLMENT MENU");
         System.out.println("---------------");
-        System.out.println("1. Add Student to Course");
-        System.out.println("2. Add Teacher to Course");
-        System.out.println("3. Add Student to Department");
-        System.out.println("4. Add Teacher to Department");
-        System.out.println("5. Remove Enrollment");
+        System.out.println("1. Add Enrollments");
+        System.out.println("2. Remove Enrollments");
+        System.out.println("3. Set Grade");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
@@ -25,26 +23,20 @@ public class EnrollmentMenu {
         Integer choice = Input.inputInt();
         switch(choice){
             case 1:
-                AddEnrollmentFunctions.setCourseStudent();
+                EnrollmentMenuAdd.menu();
                 menu();
                 break;
             case 2:
-                AddEnrollmentFunctions.setCourseTeacher();
+                EnrollmentMenuRemove.menu();
                 menu();
                 break;
             case 3:
-                AddEnrollmentFunctions.setDepartmentStudent();
+                AddEnrollmentFunctions.setGrade();
                 menu();
-                break;
-            case 4:
-                AddEnrollmentFunctions.setDepartmentTeacher();
-                menu();
-                break;
-            case 5:
-                RemoveEnrollmentMenu.menu();
                 break;
             case 6:
-                return;
+                MainMenu.menu();
+                break;
             case 8:
                 MainMenu.menu();
                 break;
@@ -58,3 +50,4 @@ public class EnrollmentMenu {
         }
     }
 }
+
