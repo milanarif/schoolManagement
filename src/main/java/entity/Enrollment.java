@@ -1,5 +1,7 @@
 package entity;
 
+import backend.EnrollmentFunctions;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.*;
@@ -17,7 +19,7 @@ public class Enrollment implements Serializable {
     @ManyToOne(targetEntity = Student.class)
     private Student student;
 
-    @ManyToOne(targetEntity = Course.class)
+    @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL)
     private Course course;
 
     public Enrollment() {

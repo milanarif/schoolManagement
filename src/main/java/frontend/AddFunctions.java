@@ -23,7 +23,7 @@ public class AddFunctions {
     }
 
     public static void addStudent(){
-        System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Name: ");
@@ -41,7 +41,7 @@ public class AddFunctions {
     }
 
     public static void addTeacher(){
-        System.out.print("Social security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Name: ");

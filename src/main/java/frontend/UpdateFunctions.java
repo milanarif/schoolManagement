@@ -32,7 +32,7 @@ public class UpdateFunctions {
 
     public static void updateStudent(){
 
-        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("New Student Name: ");
@@ -50,7 +50,7 @@ public class UpdateFunctions {
 
     public static void updateTeacher(){
 
-        System.out.print("Social security (YYYYMMDD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("New Teacher Name: ");

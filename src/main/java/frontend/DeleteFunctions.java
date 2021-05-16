@@ -29,7 +29,7 @@ public class DeleteFunctions {
 
     public static void deleteStudent(){
 
-        System.out.print("Social security (YYYYMMDD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         Student student = StudentFunctions.removeStudent(socialSecurity);
@@ -45,7 +45,7 @@ public class DeleteFunctions {
 
     public static void deleteTeacher(){
 
-        System.out.print("Teacher Social Security: (YYYYMMDD-XXXX):  ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         Teacher teacher = TeacherFunctions.removeTeacher(socialSecurity);

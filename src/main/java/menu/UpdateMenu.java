@@ -10,11 +10,11 @@ public class UpdateMenu {
 
         System.out.println("\nUPDATE MENU");
         System.out.println("---------------");
-        System.out.println("1. Update Course");
-        System.out.println("2. Update Student");
-        System.out.println("3. Update Teacher");
-        System.out.println("4. Update Department");
-        System.out.println("5. Update Credits");
+        System.out.println("1. Update Course Name");
+        System.out.println("2. Update Student Name");
+        System.out.println("3. Update Teacher Name");
+        System.out.println("4. Update Department Name");
+        System.out.println("5. Update Course Credits");
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");

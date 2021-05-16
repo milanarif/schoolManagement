@@ -4,13 +4,11 @@ import backend.*;
 import entity.*;
 import main.Input;
 
-
-
 public class RemoveEnrollmentFunctions {
 
     public static void removeCourseStudent() {
 
-        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Course ID: ");
@@ -32,7 +30,7 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeCourseTeacher() {
 
-        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Course ID: ");
@@ -42,7 +40,7 @@ public class RemoveEnrollmentFunctions {
         if (teacher == null) {
             System.out.println("\nTeacher Not Found!");
         } else if (teacher.getCourses().size() == 0) {
-            System.out.println("\nCourse ("+ courseId +") Successfully Removed From Teacher!");
+            System.out.println("\nTeacher " + socialSecurity + " Successfully Removed From Course " + courseId);
         } else {
             System.out.println("\nCourse Not Found!");
         }
@@ -50,13 +48,13 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentStudent() {
 
-        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         StudentFunctions.removeDepartment(socialSecurity);
 
         if (StudentFunctions.getAllStudents().contains(socialSecurity)) {
-            System.out.println("\nStudent Successfully Removed From Department");
+            System.out.println("\nStudent " + socialSecurity + " Successfully Removed From Department");
         } else {
             System.out.println("\nStudent Not Found!");
         }
@@ -64,13 +62,13 @@ public class RemoveEnrollmentFunctions {
 
     public static void removeDepartmentTeacher() {
 
-        System.out.print("Social Security (YYYYMMDD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         TeacherFunctions.removeDepartment(socialSecurity);
 
         if (TeacherFunctions.getAllTeachers().contains(socialSecurity)) {
-            System.out.println("\nTeacher Successfully Removed From Department");
+            System.out.println("\nTeacher " + socialSecurity + " Successfully Removed From Department");
         } else {
             System.out.println("\nTeacher Not Found!");
         }

@@ -1,16 +1,16 @@
 package frontend;
 
 import backend.*;
-import entity.Enrollment;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import main.Input;
+
+import java.util.List;
 
 public class AddEnrollmentFunctions {
 
-    public static void setCourseStudent(){
+    public static void setCourseStudent() {
 
-        System.out.print("Student Social Security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Course ID: ");
@@ -20,90 +20,88 @@ public class AddEnrollmentFunctions {
         EnrollmentFunctions.addEnrollment(enrollment);
 
         Integer enrollmentId = enrollment.getId();
+        Boolean findCourse = false;
 
         if (StudentFunctions.getStudent(socialSecurity) == null) {
             System.out.println("\nStudent Not Found!");
             EnrollmentFunctions.removeEnrollment(enrollmentId);
-        }
-        EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
-
-        EnrollmentFunctions.setCourse(enrollmentId, courseId);
-
-
-        if (CourseFunctions.getCourse(courseId) == null){
-            System.out.println("\nCourse Not Found!");
-            EnrollmentFunctions.removeEnrollment(enrollmentId);
-        } else if (StudentFunctions.getStudent(socialSecurity).getEnrollments().contains(enrollment)) {
-            System.out.println("\nStudent already enrolled in this class.");
-            EnrollmentFunctions.removeEnrollment(enrollmentId);
-        } else {
-            System.out.println("\nCourse (" + courseId + ") Successfully Added To Student!");
+        } else if (StudentFunctions.getStudent(socialSecurity) != null) {
+            List <Enrollment> enrollments = StudentFunctions.getStudent(socialSecurity).getEnrollments();
+            for (Enrollment e:enrollments) {
+                findCourse = e.getCourse().getCourseId().equals(courseId);
+            }
+            if (CourseFunctions.getCourse(courseId) == null) {
+                System.out.println("\nCourse Not Found!");
+                EnrollmentFunctions.removeEnrollment(enrollmentId);
+            } else if (findCourse == true) {
+                System.out.println("\nStudent already in this course");
+                EnrollmentFunctions.removeEnrollment(enrollmentId);
+            }
+            else {
+                System.out.println("\nCourse " + courseId + " Successfully Added To Student " + socialSecurity + "!");
+                EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
+                EnrollmentFunctions.setCourse(enrollmentId, courseId);
+            }
         }
     }
 
-    public static void setCourseTeacher(){
+    public static void setCourseTeacher() {
 
-        System.out.print("Teacher social security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
 
-        if (!TeacherFunctions.getTeacher(socialSecurity).getCourses().contains(CourseFunctions.getCourse(courseId))) {
-            Teacher teacher = TeacherFunctions.setCourse(socialSecurity, courseId);
-            if (teacher == null) {
-                System.out.println("\nTeacher Not Found!");
-            } else if (teacher.getCourses().contains(CourseFunctions.getCourse(courseId))) {
-                System.out.println("\nCourse ("+ courseId +") Successfully Added To Teacher!");
-            } else  {
-                System.out.println("\nCourse Not Found!");
-            }
+        if (TeacherFunctions.getTeacher(socialSecurity) == null) {
+            System.out.println("\nTeacher Not Found!");
+        } else if (CourseFunctions.getCourse(courseId) == null) {
+            System.out.println("\nCourse Not Found!");
+        } else if (TeacherFunctions.getTeacher(socialSecurity).getCourses().contains(CourseFunctions.getCourse(courseId))) {
+            System.out.println("\nTeacher already in this Course!");
         } else {
-            System.out.println("\nTeacher already included in this course!");
+            System.out.println("\nTeacher " + socialSecurity + " Successfully Added To Course " + courseId + "!");
+            TeacherFunctions.setCourse(socialSecurity, courseId);
         }
-
     }
 
-    public static void setDepartmentStudent(){
+    public static void setDepartmentStudent() {
 
-        System.out.print("Student Social Security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        if (StudentFunctions.getStudent(socialSecurity).getDepartment() == null || !StudentFunctions.getStudent(socialSecurity).getDepartment().equals(DepartmentFunctions.getDepartment(departmentId))) {
-            Student student = StudentFunctions.setDepartment(socialSecurity, departmentId);
-            if(student == null)
-                System.out.println("\nStudent Not Found!");
-            else if (student.getDepartment().getDepartmentId() == departmentId)
-                System.out.println("\nDepartment ("+ departmentId +") Successfully Added To Student!");
-            else
-                System.out.println("\nDepartment Not Found!");
+        if (StudentFunctions.getStudent(socialSecurity) == null) {
+            System.out.println("\nStudent Not Found!");
+        } else if (DepartmentFunctions.getDepartment(departmentId) == null) {
+            System.out.println("\nDepartment Not Found!");
+        } else if (StudentFunctions.getStudent(socialSecurity).getDepartment() != null) {
+            System.out.println("\nStudent already in a Department!");
         } else {
-            System.out.println("\nStudent already in this department!");
+            System.out.println("\nStudent " + socialSecurity + " Successfully Added To Department " + departmentId + "!");
+            StudentFunctions.setDepartment(socialSecurity, departmentId);
         }
+    }
 
-    public static void setDepartmentTeacher(){
+    public static void setDepartmentTeacher() {
 
-        System.out.print("Teacher Social Security (YYYY-MM-DD-XXXX): ");
+        System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
-
 
         System.out.print("Department id: ");
         Integer departmentId = Input.inputInt();
 
-        if (TeacherFunctions.getTeacher(socialSecurity).getDepartment() == null || !TeacherFunctions.getTeacher(socialSecurity).getDepartment().equals(DepartmentFunctions.getDepartment(departmentId))) {
-            Teacher teacher = TeacherFunctions.setDepartment(socialSecurity, departmentId);
-            if (teacher == null)
-                System.out.println("\nTeacher Not Found!");
-            else if (teacher.getDepartment().getDepartmentId() == departmentId)
-                System.out.println("\nDepartment (" + departmentId + ") Successfully Added To Teacher!");
-            else
-                System.out.println("\nDepartment Not Found!");
+        if (TeacherFunctions.getTeacher(socialSecurity) == null) {
+            System.out.println("\nTeacher Not Found!");
+        } else if (DepartmentFunctions.getDepartment(departmentId) == null) {
+            System.out.println("\nDepartment Not Found!");
+        } else if (TeacherFunctions.getTeacher(socialSecurity).getDepartment() != null) {
+            System.out.println("\nTeacher already in a Department!");
         } else {
-            System.out.println("\nStudent already in this department!");
+            System.out.println("\nTeacher " + socialSecurity + " Successfully Added To Department " + departmentId + "!");
+            TeacherFunctions.setDepartment(socialSecurity, departmentId);
         }
-
     }
 }
