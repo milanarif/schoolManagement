@@ -111,7 +111,7 @@ public class Teacher implements Serializable {
         if (this == o ) {
             return true;
         }
-        if (o instanceof Student) {
+        if (o instanceof Teacher) {
             if (((Teacher) o).getSocialSecurity().equals(this.socialSecurity)){
                 return true;
             }
