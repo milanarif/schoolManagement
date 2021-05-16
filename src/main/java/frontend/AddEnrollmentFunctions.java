@@ -118,15 +118,16 @@ public class AddEnrollmentFunctions {
         System.out.print("Grade: ");
         Integer grade = Input.inputInt();
 
-        if (grade <= 5 || grade == 0)
-            System.out.println("No such grade exist");
-
-        if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
+        if (0 <= grade && grade < 6) {
+          if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
             System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
+        }else {
+              System.out.println("\nGrade "+grade+" Successfully Added To Enrollment");
+              EnrollmentFunctions.setGrade(enrollmentId, grade);
+        }
         }
         else {
-            System.out.println("\nGrade "+grade+" Successfully Added To Enrollment");
-            EnrollmentFunctions.setGrade(enrollmentId, grade);
+            System.out.println("No such grade exist");
         }
     }
 }
