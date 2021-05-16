@@ -6,13 +6,13 @@ import backend.StudentFunctions;
 import backend.TeacherFunctions;
 import entity.Course;
 import entity.Department;
-import entity.Student;
-import entity.Teacher;
 import main.Input;
+
+import java.util.List;
 
 public class UpdateFunctions {
 
-    public static void updateCourse(){
+    public static void updateCourse() {
 
         System.out.print("Course id: ");
         Integer courseId = Input.inputInt();
@@ -20,17 +20,22 @@ public class UpdateFunctions {
         System.out.print("New course name: ");
         String newName = Input.inputString();
 
-        Course course = CourseFunctions.setName(courseId, newName);
-
-        if (course != null) {
-            System.out.println("\nCourse ("+ courseId + ") Successfully Updated To "+ newName + "!");
-            CourseFunctions.setName(courseId, newName);
+        boolean uniqueCourse = false;
+        List<Course> courses = CourseFunctions.getAllCourses();
+        for (Course c : courses) {
+            uniqueCourse = c.getName().equals(newName);
+        }
+        if (uniqueCourse) {
+            System.out.println("\nCourse named " + newName + " already exists!");
+        } else if (CourseFunctions.getCourse(courseId) == null) {
+            System.out.println("\nCourse " + courseId + " Not Found!");
         } else {
-            System.out.println("\nCourse (" + courseId + ") Not Found!");
+            System.out.println("\nCourse " + newName + " Successfully Updated!");
+            CourseFunctions.setName(courseId, newName);
         }
     }
 
-    public static void updateStudent(){
+    public static void updateStudent() {
 
         System.out.print("Student SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
@@ -38,17 +43,15 @@ public class UpdateFunctions {
         System.out.print("New Student Name: ");
         String newName = Input.inputString();
 
-        Student student = StudentFunctions.setName(socialSecurity, newName);
-
-        if (student != null) {
-            System.out.println("\nStudent ("+ socialSecurity + ") Successfully Updated To "+ newName + "!");
-            StudentFunctions.setName(socialSecurity, newName);
+        if (StudentFunctions.getStudent(socialSecurity) == null) {
+            System.out.println("\nStudent " + socialSecurity + " Not Found!");
         } else {
-            System.out.println("\nStudent (" + socialSecurity + ") Not Found!");
+            System.out.println("\nStudent " + socialSecurity + " Successfully Updated To " + newName + "!");
+            StudentFunctions.setName(socialSecurity, newName);
         }
     }
 
-    public static void updateTeacher(){
+    public static void updateTeacher() {
 
         System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
@@ -56,17 +59,15 @@ public class UpdateFunctions {
         System.out.print("New Teacher Name: ");
         String newName = Input.inputString();
 
-        Teacher teacher = TeacherFunctions.setName(socialSecurity, newName);
-
-        if (teacher != null) {
-            System.out.println("\nTeacher ("+ socialSecurity + ") Successfully Updated To "+ newName + "!");
-            TeacherFunctions.setName(socialSecurity, newName);
+        if (TeacherFunctions.getTeacher(socialSecurity) == null) {
+            System.out.println("\nTeacher " + socialSecurity + " Not Found!");
         } else {
-            System.out.println("\nTeacher (" + socialSecurity + ") Not Found!");
+            System.out.println("\nTeacher " + socialSecurity + " Successfully Updated To " + newName + "!");
+            TeacherFunctions.setName(socialSecurity, newName);
         }
     }
 
-    public static void updateDepartment(){
+    public static void updateDepartment() {
 
         System.out.print("Department ID: ");
         Integer departmentId = Input.inputInt();
@@ -74,17 +75,22 @@ public class UpdateFunctions {
         System.out.print("New Department Name: ");
         String newName = Input.inputString();
 
-        Department department = DepartmentFunctions.setName(departmentId, newName);
-
-        if (department != null) {
-            System.out.println("\nDepartment ("+ departmentId + ") Successfully Updated To "+ newName + "!");
-            DepartmentFunctions.setName(departmentId, newName);
+        boolean uniqueDepartment = false;
+        List<Department> departments = DepartmentFunctions.getAllDepartments();
+        for (Department d : departments) {
+            uniqueDepartment = d.getName().equals(newName);
+        }
+        if (uniqueDepartment) {
+            System.out.println("\nDepartment named " + newName + " already exists!");
+        } else if (DepartmentFunctions.getDepartment(departmentId) == null) {
+            System.out.println("\nDepartment " + departmentId + " Not Found!");
         } else {
-            System.out.println("\nDepartment (" + departmentId + ") Not Found!");
+            System.out.println("\nDepartment " + departmentId + " Successfully Updated To " + newName + "!");
+            DepartmentFunctions.setName(departmentId, newName);
         }
     }
 
-    public static void updateCredits(){
+    public static void updateCredits() {
 
         System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
@@ -92,13 +98,11 @@ public class UpdateFunctions {
         System.out.print("Set Credits: ");
         Double credits = Input.inputDouble();
 
-        Course course = CourseFunctions.setCredits(courseId, credits);
-
-        if (course != null) {
-            System.out.println("\nCredits in course ("+ courseId + ") Successfully Updated To "+ credits + "!");
-            CourseFunctions.setCredits(courseId, credits);
+        if (CourseFunctions.getCourse(courseId) == null) {
+            System.out.println("\nCourse " + courseId + " Not Found!");
         } else {
-            System.out.println("\nCourse (" + courseId + ") Not Found!");
+            System.out.println("\nCredits in course " + courseId + " Successfully Updated To " + credits + "!");
+            CourseFunctions.setCredits(courseId, credits);
         }
     }
 }
