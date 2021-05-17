@@ -27,8 +27,8 @@ public class PrintFunctions {
     }
 
     public static void printTeacherHead(List<Teacher> teacher) {
-        System.out.println("\nTeacher SSN       Teacher Name        Gender    Courses         Department");
-        System.out.println("---------------   -----------------   -------   --------------  -----------");
+        System.out.println("\nTeacher SSN       Teacher Name        Gender    Department");
+        System.out.println("---------------   -----------------   -------   -----------");
 
         teacher.forEach(PrintFunctions::printTeacher);
     }
@@ -37,12 +37,7 @@ public class PrintFunctions {
         System.out.printf("%-18s", t.getSocialSecurity().substring(2,8) + "-" + t.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", t.getName());
         System.out.printf("%-10s", t.getGender());
-        if (t.getCourses().isEmpty()) {
-            System.out.printf("%-16s", "-");
-        }
-        else {
-            System.out.printf("%-16s", t.getCourses());
-        }
+
         if (t.getDepartment() == null) {
             System.out.printf("%-10s", "-");
         } else {
