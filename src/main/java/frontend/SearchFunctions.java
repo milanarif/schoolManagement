@@ -4,11 +4,10 @@ import backend.CourseFunctions;
 import backend.DepartmentFunctions;
 import backend.StudentFunctions;
 import backend.TeacherFunctions;
-import entity.Course;
-import entity.Department;
-import entity.Student;
-import entity.Teacher;
+import entity.*;
 import main.Input;
+
+import java.util.List;
 
 public class SearchFunctions {
 
@@ -20,9 +19,28 @@ public class SearchFunctions {
         Course course = CourseFunctions.getCourse(courseId);
 
         if(course != null) {
-            PrintFunctions.printCourseHeadSearch(course);
+            List<Enrollment> enrollment = CourseFunctions.getCourse(courseId).getEnrollments();
+            String courseName = null;
+            List<Teacher> teacherName1;
+            String teacherName = null;
+            for (Enrollment e:enrollment) {
+                courseName = e.getCourse().getName();
+                teacherName1 = e.getCourse().getTeachers();
+                for (Teacher t:teacherName1) {
+                    teacherName = t.getName();
+                }
+            }
+            System.out.println("\nCourse: " + courseName.toUpperCase());
+            System.out.println("Teacher: " + teacherName);
+            System.out.println("\nStudents in course ");
+            System.out.println("-------------------");
+
+            for (Enrollment e:enrollment) {
+                System.out.printf("%-16s", e.getStudent().getName());
+                System.out.println(" ");
+            }
         } else {
-            System.out.println("No such course ID (" + courseId+")");
+            System.out.println("No such course ID " + courseId+"");
         }
     }
 

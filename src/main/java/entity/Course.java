@@ -24,7 +24,7 @@ public class Course implements Serializable {
     @OneToMany(targetEntity = Enrollment.class,mappedBy = "course")
     private List<Enrollment> enrollments;
 
-    @ManyToMany(targetEntity = Teacher.class,mappedBy = "courses")
+    @ManyToMany(targetEntity = Teacher.class,mappedBy = "courses", fetch = FetchType.EAGER)
     private List<Teacher> teachers;
 
     public Course() {
