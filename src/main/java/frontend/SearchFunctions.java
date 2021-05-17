@@ -57,7 +57,7 @@ public class SearchFunctions {
             System.out.println("\n" + student.getName());
             System.out.println(socialSecurity);
             System.out.println("\nIn courses");
-            System.out.println("-------------------");
+            System.out.println("--------------");
 
             for (Enrollment e:enrollments) {
                 System.out.printf("%-16s", e.getCourse().getName());
@@ -70,16 +70,25 @@ public class SearchFunctions {
 
     public static void searchTeacher() {
 
-
         System.out.print("Teacher SSN (YYYYMMDD-XXXX): ");
         String socialSecurity = Input.inputSSN();
 
         Teacher teacher = TeacherFunctions.getTeacher(socialSecurity);
 
         if(teacher != null){
-            PrintFunctions.printTeacherHeadSearch(teacher);
+            List<Course> courses = TeacherFunctions.getTeacher(socialSecurity).getCourses();
+
+            System.out.println("\n" + teacher.getName());
+            System.out.println(socialSecurity);
+            System.out.println("\nIn courses");
+            System.out.println("--------------");
+
+            for (Course c:courses) {
+                System.out.printf("%-16s", c.getName());
+                System.out.println(" ");
+            }
         } else {
-            System.out.println("No such teacher (" + socialSecurity+")");
+            System.out.println("\nNo such student " + socialSecurity + "!");
         }
     }
 
