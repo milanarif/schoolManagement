@@ -4,6 +4,7 @@ import backend.*;
 import entity.*;
 import main.Input;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddEnrollmentFunctions {
@@ -16,31 +17,40 @@ public class AddEnrollmentFunctions {
         System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
 
-        Enrollment enrollment = new Enrollment();
-        EnrollmentFunctions.addEnrollment(enrollment);
+        Student student = StudentFunctions.getStudent(socialSecurity);
+        Course course = CourseFunctions.getCourse(courseId);
+        List<Course> courses = new ArrayList<>();
+        boolean existing = false;
 
-        Integer enrollmentId = enrollment.getId();
-        Boolean findCourse = false;
+        if (student != null && course != null) {
+            List<Enrollment> enrollments = student.getEnrollments();
+            if (!enrollments.isEmpty()) {
+                for (Enrollment e : enrollments) {
+                    if (e.getCourse() != null) {
+                        courses.add(e.getCourse());
+                    }
+                }
+                if (courses.contains(course)) {
+                    existing = true;
+                    System.out.println("Student already enrolled in course.");
+                }
+            }
+            if (!existing){
+                Enrollment enrollment = new Enrollment();
+                enrollment.setStudent(student);
+                enrollment.setCourse(course);
+                EnrollmentFunctions.addEnrollment(enrollment);
+                System.out.println("\nStudent " + StudentFunctions.getStudent(socialSecurity).getName() + " Successfully Added To Course " + CourseFunctions.getCourse(courseId).getName() + "!");
+            }
 
-        if (StudentFunctions.getStudent(socialSecurity) == null) {
-            System.out.println("\nStudent Not Found!");
-            EnrollmentFunctions.removeEnrollment(enrollmentId);
-        } else if (StudentFunctions.getStudent(socialSecurity) != null) {
-            List<Enrollment> enrollments = StudentFunctions.getStudent(socialSecurity).getEnrollments();
-            for (Enrollment e : enrollments) {
-                findCourse = e.getCourse().getCourseId().equals(courseId);
-            }
-            if (CourseFunctions.getCourse(courseId) == null) {
-                System.out.println("\nCourse Not Found!");
-                EnrollmentFunctions.removeEnrollment(enrollmentId);
-            } else if (findCourse) {
-                System.out.println("\nStudent already in this course");
-                EnrollmentFunctions.removeEnrollment(enrollmentId);
-            } else {
-                System.out.println("\nCourse " + courseId + " Successfully Added To Student " + socialSecurity + "!");
-                EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
-                EnrollmentFunctions.setCourse(enrollmentId, courseId);
-            }
+        } else if (student == null && course != null) {
+            System.out.println("Student not found.");
+        }
+        else if (student != null){
+            System.out.println("Course not found.");
+        }
+        else {
+            System.out.println("Student and course not found.");
         }
     }
 
