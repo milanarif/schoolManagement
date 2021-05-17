@@ -125,20 +125,25 @@ public class AddEnrollmentFunctions {
         System.out.print("Enrollment id: ");
         Integer enrollmentId = Input.inputInt();
 
-        System.out.println("Choose a grade between 1-5");
-        System.out.print("Grade: ");
-        Integer grade = Input.inputInt();
+        if (StudentFunctions.getStudent(socialSecurity).getEnrollments().contains(EnrollmentFunctions.getEnrollment(enrollmentId))) {
 
-        if (0 <= grade && grade < 6) {
-            if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
-                System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
+            System.out.println("Choose a grade between 1-5");
+            System.out.print("Grade: ");
+            Integer grade = Input.inputInt();
+
+            if (0 <= grade && grade < 6) {
+                if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
+                    System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
+                } else {
+                    System.out.println("\nGrade " + grade + " Successfully Added To " + studentName + "!");
+                    EnrollmentFunctions.setGrade(enrollmentId, grade);
+                }
             } else {
-                System.out.println("\nGrade " + grade + " Successfully Added To " + studentName + "!");
-                EnrollmentFunctions.setGrade(enrollmentId, grade);
+                System.out.println("No such grade exist");
             }
-        } else {
-            System.out.println("No such grade exist");
+        }
+        else {
+            System.out.println("Invalid enrollment ID");
         }
     }
 }
-
