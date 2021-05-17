@@ -1,9 +1,6 @@
 package frontend;
 
 import backend.*;
-import entity.*;
-
-import java.util.List;
 
 public class ReadFunctions {
 

@@ -4,10 +4,6 @@ import backend.CourseFunctions;
 import backend.DepartmentFunctions;
 import backend.StudentFunctions;
 import backend.TeacherFunctions;
-import entity.Course;
-import entity.Department;
-import entity.Student;
-import entity.Teacher;
 import main.Input;
 
 public class RemoveFunctions {

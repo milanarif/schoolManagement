@@ -1,7 +1,5 @@
 package menu;
 
-import backend.StudentFunctions;
-import entity.Student;
 import frontend.ReadFunctions;
 import main.Main;
 import main.Input;

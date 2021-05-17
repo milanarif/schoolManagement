@@ -1,6 +1,5 @@
 package dao;
 
-import entity.Course;
 import entity.Teacher;
 
 import java.util.List;

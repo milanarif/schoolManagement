@@ -1,6 +1,5 @@
 package dao;
 
-import entity.Course;
 import entity.Department;
 
 import javax.persistence.EntityManager;

@@ -2,7 +2,6 @@ package dao;
 
 import entity.Course;
 import entity.Department;
-import entity.Student;
 import entity.Teacher;
 
 import javax.persistence.EntityManager;
