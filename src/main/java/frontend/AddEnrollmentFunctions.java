@@ -26,8 +26,8 @@ public class AddEnrollmentFunctions {
             System.out.println("\nStudent Not Found!");
             EnrollmentFunctions.removeEnrollment(enrollmentId);
         } else if (StudentFunctions.getStudent(socialSecurity) != null) {
-            List <Enrollment> enrollments = StudentFunctions.getStudent(socialSecurity).getEnrollments();
-            for (Enrollment e:enrollments) {
+            List<Enrollment> enrollments = StudentFunctions.getStudent(socialSecurity).getEnrollments();
+            for (Enrollment e : enrollments) {
                 findCourse = e.getCourse().getCourseId().equals(courseId);
             }
             if (CourseFunctions.getCourse(courseId) == null) {
@@ -36,8 +36,7 @@ public class AddEnrollmentFunctions {
             } else if (findCourse) {
                 System.out.println("\nStudent already in this course");
                 EnrollmentFunctions.removeEnrollment(enrollmentId);
-            }
-            else {
+            } else {
                 System.out.println("\nCourse " + courseId + " Successfully Added To Student " + socialSecurity + "!");
                 EnrollmentFunctions.setStudent(enrollmentId, socialSecurity);
                 EnrollmentFunctions.setCourse(enrollmentId, courseId);
@@ -105,12 +104,24 @@ public class AddEnrollmentFunctions {
         }
     }
 
-    public static void setGrade(){
+    public static void setGrade() {
 
-        //TODO ask for course, then student?
-        //TODO get enrollmentId from the two above?
-        //TODO enrollmentId not visible for user ATM
+        System.out.print("Student SSN (YYYYMMDD-XXXX): ");
+        String socialSecurity = Input.inputSSN();
 
+        List<Enrollment> studentEnrollment = StudentFunctions.getStudent(socialSecurity).getEnrollments();
+        String studentName = StudentFunctions.getStudent(socialSecurity).getName();
+
+        System.out.println("\nCOURSE        ENROLLMENT IDs");
+        System.out.println("Name          " + studentName);
+        System.out.println("-----------   ------------------");
+
+        for (Enrollment e : studentEnrollment) {
+            System.out.printf("%-14s", e.getCourse().getName());
+            System.out.printf("%-6s", e);
+            System.out.println(" ");
+        }
+        System.out.println("\nInsert enrollment ID matching the course to set grade");
         System.out.print("Enrollment id: ");
         Integer enrollmentId = Input.inputInt();
 
@@ -119,15 +130,15 @@ public class AddEnrollmentFunctions {
         Integer grade = Input.inputInt();
 
         if (0 <= grade && grade < 6) {
-          if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
-            System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
-        }else {
-              System.out.println("\nGrade "+grade+" Successfully Added To Enrollment");
-              EnrollmentFunctions.setGrade(enrollmentId, grade);
-        }
-        }
-        else {
+            if (EnrollmentFunctions.getEnrollment(enrollmentId) == null) {
+                System.out.println("\nEnrollment " + enrollmentId + " Not Found!");
+            } else {
+                System.out.println("\nGrade " + grade + " Successfully Added To " + studentName + "!");
+                EnrollmentFunctions.setGrade(enrollmentId, grade);
+            }
+        } else {
             System.out.println("No such grade exist");
         }
     }
 }
+
