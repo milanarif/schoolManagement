@@ -37,9 +37,9 @@ public class AddEnrollmentFunctions {
             }
             if (!existing){
                 Enrollment enrollment = new Enrollment();
-                enrollment.setStudent(student);
-                enrollment.setCourse(course);
                 EnrollmentFunctions.addEnrollment(enrollment);
+                EnrollmentFunctions.setStudent(enrollment.getId(), student.getSocialSecurity());
+                EnrollmentFunctions.setCourse(enrollment.getId(), course.getCourseId());
                 System.out.println("\nStudent " + StudentFunctions.getStudent(socialSecurity).getName() + " Successfully Added To Course " + CourseFunctions.getCourse(courseId).getName() + "!");
             }
 

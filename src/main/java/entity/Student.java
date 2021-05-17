@@ -20,7 +20,7 @@ public class Student implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Enrollment.class,mappedBy = "student")
     private List<Enrollment> enrollments;
 
     public Student() {

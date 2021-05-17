@@ -43,6 +43,7 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
         Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
 
         if (enrollment != null) {
+            System.out.println("NOT NULL!");
             em.getTransaction().begin();
             em.remove(enrollment);
             em.getTransaction().commit();
