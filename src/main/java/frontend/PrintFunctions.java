@@ -13,12 +13,6 @@ public class PrintFunctions {
         student.forEach(PrintFunctions::printStudent);
     }
 
-    public static void printStudentHeadSearch(Student s){
-        System.out.println("\nStudent SSN       Student Name        Credits   Gender    Department");
-        System.out.println("---------------   -----------------   -------   -------   -----------");
-        printStudent(s);
-    }
-
     public static void printStudent(Student s){
         System.out.printf("%-18s", s.getSocialSecurity().substring(2,8) + "-" + s.getSocialSecurity().substring(8,12));
         System.out.printf("%-20s", s.getName());
@@ -37,12 +31,6 @@ public class PrintFunctions {
         System.out.println("---------------   -----------------   -------   --------------  -----------");
 
         teacher.forEach(PrintFunctions::printTeacher);
-    }
-
-    public static void printTeacherHeadSearch(Teacher t) {
-        System.out.println("\nTeacher SSN       Teacher Name        Gender    Courses         Department");
-        System.out.println("---------------   -----------------   -------   --------------  -----------");
-        printTeacher(t);
     }
 
     public static void printTeacher(Teacher t){
@@ -69,12 +57,6 @@ public class PrintFunctions {
         course.forEach(PrintFunctions::printCourse);
     }
 
-    public static void printCourseHeadSearch(Course c) {
-        System.out.println("\nID      Course Name         Credits");
-        System.out.println("-----   -----------------   -------");
-        printCourse(c);
-    }
-
     private static void printCourse(Course c) {
         System.out.printf("%-8d", c.getCourseId());
         System.out.printf("%-20s", c.getName());
@@ -86,12 +68,6 @@ public class PrintFunctions {
         System.out.println("\nID      Department Name");
         System.out.println("-----   --------------");
         department.forEach(PrintFunctions::printDepartment);
-    }
-
-    public static void printDepartmentHeadSearch(Department d) {
-        System.out.println("\nID      Department Name");
-        System.out.println("-----   --------------");
-        printDepartment(d);
     }
 
     private static void printDepartment(Department d) {
