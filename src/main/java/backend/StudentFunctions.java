@@ -12,7 +12,7 @@ public class StudentFunctions {
     static StudentDao studentDao = new StudentDaoImpl();
 
     public static void readAllStudentsCourse(List<Enrollment>enrollments){
-
+PrintFunctions.printOnlyStudentHead();
        if(enrollments != null) {
             for (Enrollment e : enrollments) {
            PrintFunctions.printStudent(e.getStudent());

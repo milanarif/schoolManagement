@@ -10,11 +10,12 @@ public class ReadFunctions {
         System.out.print("Course ID: ");
         Integer courseId = Input.inputInt();
         Course course = CourseFunctions.getCourse(courseId);
-        if(course != null)
+        if(course != null) {
+            PrintFunctions.printCourseWithHead(course);
             StudentFunctions.readAllStudentsCourse(course.getEnrollments());
-        else
+        } else {
             System.out.println("\nCourse (" + courseId + ") Not Found!");
-
+        }
     }
 
     public static void readAll(){

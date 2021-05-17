@@ -6,6 +6,23 @@ import entity.*;
 import java.util.List;
 
 public class PrintFunctions {
+    public static void printCourseWithHead(Course c){
+        System.out.println("\nID      Course Name         Credits");
+        System.out.println("-----   -----------------   -------");
+        System.out.printf("%-8d", c.getCourseId());
+        System.out.printf("%-20s", c.getName());
+        System.out.printf("%-6s", c.getCredits());
+        System.out.println(" ");
+    }
+
+    public static void printOnlyStudentHead(){
+        System.out.println("\nStudent SSN       Student Name        Credits   Gender    Department");
+        System.out.println("---------------   -----------------   -------   -------   -----------");
+
+    }
+
+
+
 
     public static void printStudentHead(List <Student> student){
         System.out.println("\nStudent SSN       Student Name        Credits   Gender    Department");
