@@ -29,7 +29,7 @@ public class SearchFunctions {
             }
             System.out.println("\nCourse: " + courseName.toUpperCase());
             System.out.println("Teacher: " + teacherName);
-            System.out.println("\nStudents in course ");
+            System.out.println("\n" + enrollment.size() + " Students in course ");
             System.out.println("-------------------");
 
             for (Enrollment e:enrollment) {
@@ -52,7 +52,7 @@ public class SearchFunctions {
 
             System.out.println("\n" + student.getName());
             System.out.println(socialSecurity);
-            System.out.println("\nIn courses");
+            System.out.println("\nIn " + enrollments.size() + " courses");
             System.out.println("--------------");
 
             for (Enrollment e:enrollments) {
@@ -75,7 +75,7 @@ public class SearchFunctions {
 
             System.out.println("\n" + teacher.getName());
             System.out.println(socialSecurity);
-            System.out.println("\nIn courses");
+            System.out.println("\nIn " + courses.size() + " courses");
             System.out.println("--------------");
 
             for (Course c:courses) {
@@ -97,7 +97,9 @@ public class SearchFunctions {
             List<Student> students = DepartmentFunctions.getDepartment(departmentId).getStudents();
             List<Teacher> teachers = DepartmentFunctions.getDepartment(departmentId).getTeachers();
 
+            Integer totalSize = students.size() + teachers.size();
             System.out.println("\nDepartment " + department.getName());
+            System.out.println("Total " + totalSize + " Persons");
             System.out.println("-------------------");
 
             for (Student s: students){
