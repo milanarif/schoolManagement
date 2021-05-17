@@ -40,7 +40,7 @@ public class SearchFunctions {
                 System.out.println(" ");
             }
         } else {
-            System.out.println("No such course ID " + courseId+"");
+            System.out.println("\nNo such course ID " + courseId+"");
         }
     }
 
@@ -52,9 +52,19 @@ public class SearchFunctions {
         Student student = StudentFunctions.getStudent(socialSecurity);
 
         if(student != null){
-            PrintFunctions.printStudentHeadSearch(student);
+            List<Enrollment> enrollments = StudentFunctions.getStudent(socialSecurity).getEnrollments();
+
+            System.out.println("\n" + student.getName());
+            System.out.println(socialSecurity);
+            System.out.println("\nIn courses");
+            System.out.println("-------------------");
+
+            for (Enrollment e:enrollments) {
+                System.out.printf("%-16s", e.getCourse().getName());
+                System.out.println(" ");
+            }
         } else {
-            System.out.println("No such student (" + socialSecurity+")");
+            System.out.println("\nNo such student " + socialSecurity + "!");
         }
     }
 
