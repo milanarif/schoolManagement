@@ -1,17 +1,23 @@
 
 package frontend;
 
+import backend.CourseFunctions;
 import backend.StudentFunctions;
 import backend.TeacherFunctions;
+import entity.Course;
 import entity.Enrollment;
 import entity.Student;
 import entity.Teacher;
+import main.Input;
 
 import java.util.List;
 
 public class StatisticsFunctions {
 
+
+
     public static Integer passRatio(List<Enrollment> enrollments) {
+
         if (enrollments == null) {
             return null;
         }

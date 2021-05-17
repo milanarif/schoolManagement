@@ -4,11 +4,24 @@ import dao.StudentDao;
 import dao.StudentDaoImpl;
 import entity.Enrollment;
 import entity.Student;
+import frontend.PrintFunctions;
 
 import java.util.List;
 
 public class StudentFunctions {
     static StudentDao studentDao = new StudentDaoImpl();
+
+    public static void readAllStudentsCourse(List<Enrollment>enrollments){
+
+       if(enrollments != null) {
+            for (Enrollment e : enrollments) {
+           PrintFunctions.printStudent(e.getStudent());
+            }
+        }else{
+            System.out.println("No Students in this course!");
+        }
+
+    }
 
     public static List<Student> getAllStudents() {
         return studentDao.getAllStudents();

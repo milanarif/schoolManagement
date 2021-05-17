@@ -1,12 +1,33 @@
 package dao;
 
+import entity.Course;
 import entity.Department;
+import entity.Enrollment;
 import entity.Student;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao{
+
+   @Override
+   public List<Student> getAllStudentsCourse(Integer courseId){
+       EntityManager em = Connector.getEmf().createEntityManager();
+       TypedQuery<Course> q = em.createQuery("Select c from Course c where c.courseId = :course_id", Course.class);
+       q.setParameter("course_id", courseId);
+
+       Course c = q.getSingleResult();
+
+       em.close();
+
+      List<Student> students = c.getDepartment().getStudents();
+return students;
+
+
+   }
+
+
     @Override
     public Student getStudent(String socialSecurity) {
         EntityManager em = Connector.getEmf().createEntityManager();

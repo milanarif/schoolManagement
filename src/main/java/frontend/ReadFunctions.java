@@ -1,8 +1,21 @@
 package frontend;
 
 import backend.*;
+import entity.Course;
+import main.Input;
 
 public class ReadFunctions {
+
+    public static void readAllStudentsCourse(){
+        System.out.print("Course ID: ");
+        Integer courseId = Input.inputInt();
+        Course course = CourseFunctions.getCourse(courseId);
+        if(course != null)
+            StudentFunctions.readAllStudentsCourse(course.getEnrollments());
+        else
+            System.out.println("\nCourse (" + courseId + ") Not Found!");
+
+    }
 
     public static void readAll(){
 

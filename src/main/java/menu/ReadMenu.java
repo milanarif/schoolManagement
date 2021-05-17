@@ -15,8 +15,9 @@ public class ReadMenu {
         System.out.println("3. Show All Students");
         System.out.println("4. Show All Teachers");
         System.out.println("5. Show All Departments");
+        System.out.println("6. Show All Students In A Course");
 
-        System.out.println("\n6. Return");
+        System.out.println("\n7. Return");
         System.out.println("8. Main Menu");
         System.out.println("0. Exit");
         System.out.println("---------------");
@@ -45,6 +46,9 @@ public class ReadMenu {
                 menu();
                 break;
             case 6:
+                ReadFunctions.readAllStudentsCourse();
+                break;
+            case 7:
                 MainMenu.menu();
                 break;
             case 8:

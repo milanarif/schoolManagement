@@ -1,11 +1,14 @@
 package dao;
 
+import entity.Enrollment;
 import entity.Student;
 
 import java.util.List;
 
 public interface StudentDao {
+
     Student getStudent(String socialSecurity);
+    List<Student> getAllStudentsCourse(Integer courseId);
     List<Student> getAllStudents();
     void addStudent(Student student);
     Student removeStudent(String socialSecurity);
