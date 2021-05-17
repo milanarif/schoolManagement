@@ -1,9 +1,6 @@
 package frontend;
 
-import backend.CourseFunctions;
-import backend.DepartmentFunctions;
-import backend.StudentFunctions;
-import backend.TeacherFunctions;
+import backend.*;
 import entity.*;
 import main.Input;
 
@@ -36,8 +33,7 @@ public class SearchFunctions {
             System.out.println("-------------------");
 
             for (Enrollment e:enrollment) {
-                System.out.printf("%-16s", e.getStudent().getName());
-                System.out.println(" ");
+                System.out.println(e.getStudent().getName());
             }
         } else {
             System.out.println("\nNo such course ID " + courseId+"");
@@ -60,8 +56,7 @@ public class SearchFunctions {
             System.out.println("--------------");
 
             for (Enrollment e:enrollments) {
-                System.out.printf("%-16s", e.getCourse().getName());
-                System.out.println(" ");
+                System.out.println(e.getCourse().getName());
             }
         } else {
             System.out.println("\nNo such student " + socialSecurity + "!");
@@ -84,8 +79,7 @@ public class SearchFunctions {
             System.out.println("--------------");
 
             for (Course c:courses) {
-                System.out.printf("%-16s", c.getName());
-                System.out.println(" ");
+                System.out.println(c.getName());
             }
         } else {
             System.out.println("\nNo such student " + socialSecurity + "!");
@@ -100,9 +94,20 @@ public class SearchFunctions {
         Department department = DepartmentFunctions.getDepartment(departmentId);
 
         if(department != null) {
-            PrintFunctions.printDepartmentHeadSearch(department);
+            List<Student> students = DepartmentFunctions.getDepartment(departmentId).getStudents();
+            List<Teacher> teachers = DepartmentFunctions.getDepartment(departmentId).getTeachers();
+
+            System.out.println("\nDepartment " + department.getName());
+            System.out.println("-------------------");
+
+            for (Student s: students){
+                System.out.println(s.getName());
+            }
+            for (Teacher t : teachers){
+                System.out.println(t.getName());
+            }
         } else {
-            System.out.println("No such department ID (" + departmentId+")");
+            System.out.println("No such department ID " + departmentId+"!");
         }
     }
 }
