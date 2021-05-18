@@ -20,7 +20,7 @@ public class Teacher implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     private Department department;
 
-    @ManyToMany(targetEntity = Course.class, cascade = CascadeType.REMOVE)
+    @ManyToMany(targetEntity = Course.class)
     private List<Course> courses;
 
     public Teacher() {
