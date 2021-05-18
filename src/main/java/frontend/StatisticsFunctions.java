@@ -24,9 +24,11 @@ public class StatisticsFunctions {
         int totalEnrollments = enrollments.size();
         int passes = 0;
         for (Enrollment e : enrollments) {
-            if (e.getGrade() > 2) {
-                passes++;
+            if(e.getGrade() != null) {
+                if (e.getGrade() > 2)
+                    passes++;
             }
+
         }
         return ((passes/totalEnrollments)*100);
     }
