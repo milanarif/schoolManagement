@@ -27,7 +27,7 @@ public class SearchFunctions {
                     teacherName = t.getName();
                 }
             }
-            System.out.println("\nCourse: " + courseName.toUpperCase());
+            System.out.println("\nCourse: " + courseName);
             System.out.println("Teacher: " + teacherName);
             System.out.println("\n" + enrollment.size() + " Students in course ");
             System.out.println("-------------------");
