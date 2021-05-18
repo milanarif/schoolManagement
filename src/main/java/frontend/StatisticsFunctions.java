@@ -92,7 +92,7 @@ public class StatisticsFunctions {
                 float femalePercentage = (female * 100f) / totalEnrollments;
                 System.out.println("-----------------");
                 System.out.println(femalePercentage + "% female in course.");
-                System.out.println(100 - femalePercentage + "% male in course.");
+                System.out.println(100f - femalePercentage + "% male in course.");
             }
             else {
                 System.out.println("\nEnrollment Not Found!");
@@ -122,7 +122,7 @@ public class StatisticsFunctions {
                 float femalePercentage = (female * 100f) / totalStudents;
                 System.out.println("-----------------");
                 System.out.println(femalePercentage+ "% female in department.");
-                System.out.println(100 - femalePercentage +"% male in department.");
+                System.out.println(100f - femalePercentage +"% male in department.");
 
             }else {
                 System.out.println("\nNo Students Found!");
