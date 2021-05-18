@@ -33,6 +33,7 @@ public class CourseFunctions {
         for (Enrollment e : enrollments) {
             EnrollmentFunctions.removeEnrollment(e.getId());
         }
+        courseDao.removeCourse(courseId);
     }
 
     public static Course setDepartment(Integer courseId, Integer departmentId) {
