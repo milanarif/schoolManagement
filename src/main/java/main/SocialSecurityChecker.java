@@ -30,7 +30,6 @@ public class SocialSecurityChecker {
         }
 
         cleanSocialSecurity = cleanSocialSecurity.substring(2);
-        System.out.println(cleanSocialSecurity);
         int nSum = 0;
         boolean multiply = true;
         for (int i = 0; i < 10; i++) {
