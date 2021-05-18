@@ -82,7 +82,7 @@ public class SearchFunctions {
                 System.out.println(c.getName());
             }
         } else {
-            System.out.println("\nNo such student " + socialSecurity + "!");
+            System.out.println("\nNo such teacher " + socialSecurity + "!");
         }
     }
 
