@@ -17,7 +17,6 @@ public class EnrollmentMenuAdd {
 
         System.out.println("\n6. Return");
         System.out.println("8. Main Menu");
-        System.out.println("0. Exit");
         System.out.println("---------------");
 
         System.out.print("choice: ");
@@ -44,9 +43,6 @@ public class EnrollmentMenuAdd {
                 break;
             case 8:
                 MainMenu.menu();
-                break;
-            case 0:
-                Main.alive = false;
                 break;
             default:
                 System.out.println("Invalid choice: (" + choice + ") try again!");
