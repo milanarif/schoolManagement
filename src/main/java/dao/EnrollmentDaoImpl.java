@@ -113,4 +113,17 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
 
         return enrollment;
     }
+
+    @Override
+    public void removeCourse(Integer enrollmentId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+
+        Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
+        if (enrollment != null) {
+            em.getTransaction().begin();
+            enrollment.setCourse(null);
+            em.getTransaction().commit();
+        }
+        em.close();
+    }
 }

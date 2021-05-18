@@ -50,4 +50,8 @@ public class EnrollmentFunctions {
 
         return enrollmentDao.removeCourse(enrollmentId, courseId);
     }
+
+    public static void removeCourse(Integer enrollmentId) {
+        enrollmentDao.removeCourse(enrollmentId);
+    }
 }

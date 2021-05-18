@@ -12,4 +12,6 @@ public interface EnrollmentDao {
     Enrollment gradeEnrollment(Integer enrollmentId, Integer grade);
     Enrollment setCourse(Integer enrollmentId, Integer courseId);
     Enrollment setStudent(Integer enrollmentId, String socialSecurity);
-    Enrollment removeCourse(Integer enrollmentId, Integer courseId);}
+    Enrollment removeCourse(Integer enrollmentId, Integer courseId);
+    void removeCourse(Integer enrollmentId);
+}
