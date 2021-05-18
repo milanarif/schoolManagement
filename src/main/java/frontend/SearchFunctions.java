@@ -56,7 +56,11 @@ public class SearchFunctions {
             System.out.println("--------------");
 
             for (Enrollment e:enrollments) {
-                System.out.println(e.getCourse().getName());
+                if (e.getCourse() != null) {
+                    System.out.println(e.getCourse().getName());
+                } else {
+                    System.out.println("Expired Course.");
+                }
             }
         } else {
             System.out.println("\nNo such student " + socialSecurity + "!");

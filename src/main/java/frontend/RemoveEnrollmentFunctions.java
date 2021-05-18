@@ -22,7 +22,7 @@ public class RemoveEnrollmentFunctions {
             System.out.println("\nCourse Not Found!");
         } else {
             System.out.println("\nStudent " + socialSecurity + " Successfully Removed From Course " + courseId);
-            EnrollmentFunctions.removeEnrollment(EnrollmentFunctions.removeCourse(socialSecurity, courseId).getId());
+            EnrollmentFunctions.removeCourse(socialSecurity, courseId);
         }
     }
 
