@@ -23,7 +23,7 @@ public class CourseFunctions {
         courseDao.addCourse(course);
     }
 
-    public static Course removeCourse(Integer courseId) {
+    public static void removeCourse(Integer courseId) {
         Course target = courseDao.getCourse(courseId);
         List<Teacher> teachers = target.getTeachers();
         List<Enrollment> enrollments = target.getEnrollments();
@@ -31,9 +31,8 @@ public class CourseFunctions {
             TeacherFunctions.removeCourse(t.getSocialSecurity(), courseId);
         }
         for (Enrollment e : enrollments) {
-            EnrollmentFunctions.removeCourse(e.getStudent().getSocialSecurity(), courseId);
+            EnrollmentFunctions.removeEnrollment(e.getId());
         }
-        return courseDao.removeCourse(courseId);
     }
 
     public static Course setDepartment(Integer courseId, Integer departmentId) {
