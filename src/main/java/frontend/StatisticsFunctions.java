@@ -80,12 +80,18 @@ public class StatisticsFunctions {
 
         if(courseGender !=null) {
             List<Enrollment> enrollments = courseGender.getEnrollments();
+            List<Teacher> teachers = courseGender.getTeachers();
 
-            if (enrollments != null) {
-                int totalEnrollments = enrollments.size();
+            if (enrollments != null && teachers != null) {
+                int totalEnrollments = enrollments.size() + teachers.size();
                 int female = 0;
                 for (Enrollment e : enrollments) {
                     if (e.getStudent().getGender().equals("Female")) {
+                        female++;
+                    }
+                }
+                for (Teacher t: teachers) {
+                    if(t.getGender().equals("Female")){
                         female++;
                     }
                 }
@@ -110,12 +116,18 @@ public class StatisticsFunctions {
         Department department = DepartmentFunctions.getDepartment(departmentId);
         if(department != null) {
             List<Student> students = department.getStudents();
+            List<Teacher> teachers = department.getTeachers();
 
-            if (students != null) {
-                int totalStudents = students.size();
+            if (students != null && teachers != null) {
+                int totalStudents = students.size() + teachers.size();
                 int female = 0;
                 for (Student s : students) {
                     if (s.getGender().equals("Female")) {
+                        female++;
+                    }
+                }
+                for (Teacher t : teachers){
+                    if(t.getGender().equals("Female")){
                         female++;
                     }
                 }
