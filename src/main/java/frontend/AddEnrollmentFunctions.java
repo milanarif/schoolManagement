@@ -122,14 +122,16 @@ public class AddEnrollmentFunctions {
         List<Enrollment> studentEnrollment = StudentFunctions.getStudent(socialSecurity).getEnrollments();
         String studentName = StudentFunctions.getStudent(socialSecurity).getName();
 
-        System.out.println("\nCOURSE        ENROLLMENT IDs");
         System.out.println("Name          " + studentName);
+        System.out.println("\nCOURSE        ENROLLMENT IDs");
         System.out.println("-----------   ------------------");
 
         for (Enrollment e : studentEnrollment) {
-            System.out.printf("%-14s", e.getCourse().getName());
-            System.out.printf("%-6s", e);
-            System.out.println(" ");
+            if (e.getCourse() != null) {
+                System.out.printf("%-14s", e.getCourse().getName());
+                System.out.printf("%-6s", e);
+                System.out.println(" ");
+            }
         }
         System.out.println("\nInsert enrollment ID matching the course to set grade");
         System.out.print("Enrollment id: ");
