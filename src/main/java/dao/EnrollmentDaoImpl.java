@@ -52,6 +52,24 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
     }
 
     @Override
+    public Enrollment removeEnrollment(String socialSecurity, Integer courseId) {
+        EntityManager em = Connector.getEmf().createEntityManager();
+        Enrollment enrollment = em
+                .createQuery("Select e from Enrollment e where e.course.courseId = :courseId AND e.student.socialSecurity = :socialSecurity", Enrollment.class)
+                .setParameter("courseId", courseId)
+                .setParameter("socialSecurity", socialSecurity)
+                .getSingleResult();
+
+        if (enrollment != null) {
+            em.getTransaction().begin();
+            em.remove(enrollment);
+            em.getTransaction().commit();
+        }
+        em.close();
+        return enrollment;
+    }
+
+    @Override
     public Enrollment gradeEnrollment(Integer enrollmentId, Integer grade) {
         EntityManager em = Connector.getEmf().createEntityManager();
         Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
@@ -95,35 +113,5 @@ public class EnrollmentDaoImpl implements EnrollmentDao{
         em.close();
 
         return enrollment;
-    }
-
-    @Override
-    public Enrollment removeCourse(Integer enrollmentId, Integer courseId) {
-        EntityManager em = Connector.getEmf().createEntityManager();
-
-        Enrollment course = em.find(Enrollment.class, courseId);
-        Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
-
-        if (enrollment != null) {
-            em.getTransaction().begin();
-            enrollment.setCourse(null);
-            em.getTransaction().commit();
-        }
-        em.close();
-
-        return enrollment;
-    }
-
-    @Override
-    public void removeCourse(Integer enrollmentId) {
-        EntityManager em = Connector.getEmf().createEntityManager();
-
-        Enrollment enrollment = em.find(Enrollment.class, enrollmentId);
-        if (enrollment != null) {
-            em.getTransaction().begin();
-            enrollment.setCourse(null);
-            em.getTransaction().commit();
-        }
-        em.close();
     }
 }

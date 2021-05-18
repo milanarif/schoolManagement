@@ -31,7 +31,7 @@ public class CourseFunctions {
             TeacherFunctions.removeCourse(t.getSocialSecurity(), courseId);
         }
         for (Enrollment e : enrollments) {
-            EnrollmentFunctions.removeCourse(e.getId());
+            EnrollmentFunctions.removeEnrollment(e.getId());
         }
         courseDao.removeCourse(courseId);
     }

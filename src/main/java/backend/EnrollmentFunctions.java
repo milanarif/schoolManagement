@@ -23,6 +23,10 @@ public class EnrollmentFunctions {
         return enrollmentDao.removeEnrollment(enrollmentId);
     }
 
+    public static Enrollment removeEnrollment(String socialSecurity, Integer courseId) {
+        return enrollmentDao.removeEnrollment(socialSecurity, courseId);
+    }
+
     public static Enrollment setCourse(Integer enrollmentId, Integer courseId) {
         return enrollmentDao.setCourse(enrollmentId, courseId);
     }
@@ -33,25 +37,5 @@ public class EnrollmentFunctions {
 
     public static Enrollment setGrade(Integer enrollmentId, Integer grade) {
         return enrollmentDao.gradeEnrollment(enrollmentId, grade);
-    }
-
-    public static Enrollment removeCourse(String socialSecurity, Integer courseId) {
-
-        Student student = StudentFunctions.studentDao.getStudent(socialSecurity);
-
-        List<Enrollment> enrollments = student.getEnrollments();
-        Integer enrollmentId = null;
-        if (enrollments != null) {
-            for (Enrollment e : enrollments) {
-
-                enrollmentId = e.getId();
-                }
-            }
-
-        return enrollmentDao.removeCourse(enrollmentId, courseId);
-    }
-
-    public static void removeCourse(Integer enrollmentId) {
-        enrollmentDao.removeCourse(enrollmentId);
     }
 }

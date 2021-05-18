@@ -9,9 +9,8 @@ public interface EnrollmentDao {
     List<Enrollment> getAllEnrollments();
     void addEnrollment(Enrollment enrollment);
     Enrollment removeEnrollment(Integer enrollmentId);
+    Enrollment removeEnrollment(String socialSecurity, Integer courseId);
     Enrollment gradeEnrollment(Integer enrollmentId, Integer grade);
     Enrollment setCourse(Integer enrollmentId, Integer courseId);
     Enrollment setStudent(Integer enrollmentId, String socialSecurity);
-    Enrollment removeCourse(Integer enrollmentId, Integer courseId);
-    void removeCourse(Integer enrollmentId);
 }

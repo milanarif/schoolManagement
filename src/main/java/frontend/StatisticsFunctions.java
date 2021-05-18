@@ -29,10 +29,11 @@ public class StatisticsFunctions {
                     }
                 }
             }
+            float percent = (passes * 100f) / totalEnrollments;
             System.out.println("\nPASSRATIO");
             System.out.println("COURSE " + courseId);
             System.out.println("------------");
-            System.out.println((passes / totalEnrollments) * 100 + "% passed");
+            System.out.println(percent + "% passed");
         } else {
             System.out.println("\nCourse " + courseId + " Not Found!");
         }
@@ -58,12 +59,13 @@ public class StatisticsFunctions {
                         }
                     }
                 }
+                float percent = (passes * 100f) / totalEnrollments;
                 //TODO not working 100% correctly
                 if (passes > 0) {
                     System.out.println("\nPASSRATIO");
                     System.out.println("STUDENT " + student.getName());
                     System.out.println("------------");
-                    System.out.println("Courses passed " + (passes / totalEnrollments) * 100 + "%");
+                    System.out.println("Courses passed " + percent + "%");
                 } else {
                     System.out.println("\nEnrollment Not Found!");
                 }
@@ -87,12 +89,12 @@ public class StatisticsFunctions {
                 int totalEnrollments = enrollments.size();
                 int female = 0;
                 for (Enrollment e : enrollments) {
-                    if (e.getStudent().getGender() == "Female") {
+                    if (e.getStudent().getGender().equals("Female")) {
                         female++;
                     }
                 }
-                //TODO somethings wrong with female count + improve print
-                System.out.println((female/totalEnrollments)*100 + " %");
+                float femalePercentage = (female * 100f) / totalEnrollments;
+                System.out.println(femalePercentage + "% Women in course");
             }
             else {
                 System.out.println("\nEnrollment Not Found!");
@@ -115,13 +117,13 @@ public class StatisticsFunctions {
                 int totalStudents = students.size();
                 int female = 0;
                 for (Student s : students) {
-                    if (s.getGender() == "Female") {
+                    if (s.getGender().equals("Female")) {
                         female++;
                     }
                 }
-
+                float femalePercentage = (female * 100f) / totalStudents;
                 //TODO not working correctly + improve print
-                System.out.println((female / totalStudents) * 100 + "%");
+                System.out.println(femalePercentage+ "% of students at department are women.");
 
             }else {
                 System.out.println("\nNot Found");

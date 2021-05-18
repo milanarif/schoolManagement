@@ -1,10 +1,7 @@
 package frontend;
 
 import backend.*;
-import entity.Enrollment;
 import main.Input;
-
-import java.util.List;
 
 public class RemoveEnrollmentFunctions {
 
@@ -22,7 +19,7 @@ public class RemoveEnrollmentFunctions {
             System.out.println("\nCourse Not Found!");
         } else {
             System.out.println("\nStudent " + socialSecurity + " Successfully Removed From Course " + courseId);
-            EnrollmentFunctions.removeCourse(socialSecurity, courseId);
+            EnrollmentFunctions.removeEnrollment(socialSecurity, courseId);
         }
     }
 
