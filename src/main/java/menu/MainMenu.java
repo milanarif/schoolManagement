@@ -50,6 +50,7 @@ public class MainMenu {
                 break;
             case 0:
                 Main.alive = false;
+                System.exit(0);
                 break;
             default:
                 System.out.println("Invalid choice: (" + choice + ") try again!");

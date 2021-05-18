@@ -60,17 +60,13 @@ public class StatisticsFunctions {
                     }
                 }
                 float percent = (passes * 100f) / totalEnrollments;
-                //TODO not working 100% correctly
-                if (passes > 0) {
-                    System.out.println("\nPASSRATIO");
-                    System.out.println("STUDENT " + student.getName());
-                    System.out.println("------------");
-                    System.out.println("Courses passed " + percent + "%");
-                } else {
-                    System.out.println("\nEnrollment Not Found!");
-                }
+                System.out.println("\nPASS RATIO");
+                System.out.println("STUDENT " + student.getName());
+                System.out.println("------------");
+                System.out.println("Courses passed " + percent + "%");
+
             } else {
-                System.out.println("\n Student " + socialSecurity + " Not Found!");
+                System.out.println("\nEnrollments Not Found!");
             }
         }
     }
@@ -100,7 +96,7 @@ public class StatisticsFunctions {
                 System.out.println("\nEnrollment Not Found!");
             }
         } else {
-            System.out.println("\nCourse " + courseId + " Not Found!");
+            System.out.println("\nCourse Not Found!");
         }
     }
 
@@ -122,14 +118,13 @@ public class StatisticsFunctions {
                     }
                 }
                 float femalePercentage = (female * 100f) / totalStudents;
-                //TODO not working correctly + improve print
                 System.out.println(femalePercentage+ "% of students at department are women.");
 
             }else {
-                System.out.println("\nNot Found");
+                System.out.println("\nNot Students Found!");
             }
         } else {
-            System.out.println("\nDepartment " + departmentId + " Not Found!");
+            System.out.println("\nDepartment Not Found!");
         }
     }
 
